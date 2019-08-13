@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="Thibetanus.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Thibetanus.Views"
+    xmlns:vms="using:Thibetanus.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vms:LoginPageViewModel x:ConnectionId='2' x:Name="viewModel"/>
+    </Page.DataContext>
+
+    <Grid >
+        <Button x:ConnectionId='3' x:Name="button"  Command="{Binding AddCommand}"  Content="Button" HorizontalAlignment="Center" Margin="0,138,0,0" VerticalAlignment="Top" Height="92" Width="302"/>
+        <Button x:ConnectionId='4' x:Name="button1" Command="{Binding DelCommand}" Content="Button" HorizontalAlignment="Center" Margin="0,293,0,0" VerticalAlignment="Top" Height="104" Width="364"/>
+        <ListView x:ConnectionId='5' x:Name="lv" ItemsSource="{Binding Users}" Margin="246,446,245,64" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ListViewItem>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Name}" Grid.Column="0"/>
+                            <TextBlock Text="{Binding Age}" Grid.Column="1"/>
+                        </Grid>
+                    </ListViewItem>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
+

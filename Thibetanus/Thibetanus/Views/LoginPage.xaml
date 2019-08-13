@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="Thibetanus.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Thibetanus.Views"
+    xmlns:vms="using:Thibetanus.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vms:LoginPageViewModel x:Name="viewModel"/>
+    </Page.DataContext>
+
+    <Grid VerticalAlignment="Center" >
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBox Grid.Row="0"  x:Uid="UserName" x:Name="userBox" Width="200" MaxLength="16" 
+                      HorizontalAlignment="Center"  Text="{Binding LoginUser.Name, Mode=TwoWay}"
+                      KeyUp="userBox_KeyUp"/>
+        
+        <PasswordBox Grid.Row="1"  x:Uid="UserPassword" x:Name="passwordBox" Width="200" MaxLength="16" 
+                      HorizontalAlignment="Center"  Margin="0,10,0,0"  Password="{Binding LoginUser.Password, Mode=TwoWay}"
+                      KeyUp="{x:Bind viewModel.Login}"/>
+
+       <!--<Button x:Name="button"  Command="{Binding AddCommand}"  Content="Button" HorizontalAlignment="Center" Margin="0,138,0,0" VerticalAlignment="Top" Height="92" Width="302"/>
+        <Button x:Name="button1" Command="{Binding DelCommand}" Content="Button" HorizontalAlignment="Center" Margin="0,293,0,0" VerticalAlignment="Top" Height="104" Width="364"/>-->
+    
+    </Grid>
+</Page>

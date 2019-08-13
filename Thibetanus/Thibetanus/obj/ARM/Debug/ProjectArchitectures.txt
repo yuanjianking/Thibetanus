@@ -1,0 +1,1 @@
+D:\source\UWP\Thibetanus\Thibetanus\Thibetanus.csproj;arm

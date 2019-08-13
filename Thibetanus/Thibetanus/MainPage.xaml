@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="Thibetanus.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Thibetanus"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid  VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+      
+        <PasswordBox Grid.Row="0"  x:Uid="BootPassword" x:Name="passwordBox" Width="200" MaxLength="16" 
+                      HorizontalAlignment="Center"
+                      PasswordChanged="passwordBox_PasswordChanged"
+                      KeyUp="PasswordBox_KeyUp"/>
+        <Button Grid.Row="1" x:Uid="BootButton" HorizontalAlignment="Center" Margin="0,10,0,0" Click="Button_Click" />
+    </Grid>
+</Page>

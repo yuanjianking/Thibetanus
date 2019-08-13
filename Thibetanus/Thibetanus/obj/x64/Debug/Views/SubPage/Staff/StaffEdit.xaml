@@ -1,0 +1,207 @@
+﻿<Page
+    x:Class="Thibetanus.Views.SubPage.Staff.StaffEdit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Thibetanus.Views.SubPage.Staff"
+    xmlns:vms="using:Thibetanus.ViewModels.SubPage.Staff"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <vms:StaffEditViewModel x:ConnectionId='2' x:Name="viewModel"/>
+    </Page.DataContext>
+    <Grid>
+        <Grid.Resources>
+            <Style x:ConnectionId='3' x:Name="controlStyle1"  TargetType="TextBlock">
+                <Setter  Property="TextBlock.Foreground" Value="Red"/>
+                <Setter  Property="TextBlock.RenderTransform" >
+                    <Setter.Value>
+                        <RotateTransform Angle="10"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:ConnectionId='4' x:Name="controlStyle2" TargetType="TextBlock">
+                <Setter  Property="TextBlock.Foreground" Value="Red"/>
+                <Setter  Property="TextBlock.RenderTransform" >
+                    <Setter.Value>
+                        <RotateTransform Angle="0"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <!-- Large window VisualState -->
+                <VisualState x:ConnectionId='5' x:Name="LargeWindow">
+                    <!-- Large window trigger -->
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource LargeWindowSnapPoint}"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- Adjust the zoom slider to fit small windows-->
+                        <Setter Target="title.Style" Value="{StaticResource controlStyle2}" />
+                        <Setter Target="spinfo.Orientation" Value="Horizontal" />
+                        <Setter Target="txtname.Margin" Value="30,0,0,0" />
+                        <Setter Target="txtrole.Margin" Value="30,0,0,0" />
+                        <Setter Target="txtsalon.Margin" Value="30,0,0,0" />
+                        <Setter Target="spskill.Orientation" Value="Horizontal" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!-- Medium window VisualState -->
+                <VisualState x:ConnectionId='6' x:Name="MediumWindow">
+                    <!-- Medium window trigger -->
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MediumWindowSnapPoint}"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!-- Adjust the zoom slider to fit small windows-->
+                        <!-- Adjust the zoom slider to fit small windows-->
+                        <Setter Target="title.Style" Value="{StaticResource controlStyle1}" />
+                        <Setter Target="spinfo.Orientation" Value="Vertical" />
+                        <Setter Target="txtname.Margin" Value="0,0,0,0" />
+                        <Setter Target="txtrole.Margin" Value="0,0,0,0" />
+                        <Setter Target="txtsalon.Margin" Value="0,0,0,0" />
+                        <Setter Target="spskill.Orientation" Value="Vertical" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!-- Small window VisualState -->
+                <VisualState x:ConnectionId='7' x:Name="SmallWindow">
+                    <!-- Small window trigger -->
+                    <VisualState.StateTriggers >
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowSnapPoint}"/>
+                    </VisualState.StateTriggers>
+
+                    <!-- Small window setters -->
+                    <VisualState.Setters>
+                        <!-- Adjust the zoom slider to fit small windows-->
+                        <Setter Target="title.Style" Value="{StaticResource controlStyle1}" /> 
+                        <Setter Target="spinfo.Orientation" Value="Vertical" />
+                        <Setter Target="txtname.Margin" Value="0,0,0,0" />
+                        <Setter Target="txtrole.Margin" Value="0,0,0,0" />
+                        <Setter Target="txtsalon.Margin" Value="0,0,0,0" />
+                        <Setter Target="spskill.Orientation" Value="Vertical" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+        <TextBlock x:ConnectionId='8' x:Name="title" Text="员工编辑" TextAlignment="Center" 
+                   FontSize="18"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,50,0"/>
+        <Grid Margin="50,50,50,50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height ="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ListView Grid.Row="0" ItemsSource="{Binding StaffInfos}" IsItemClickEnabled="True"  SelectionMode="None" HorizontalContentAlignment="Stretch">
+                <ListView.HeaderTemplate>
+                    <DataTemplate>
+                        <ListViewHeaderItem>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                                <TextBlock Text="编号" />
+                                <TextBlock Text="人名" />
+                                <TextBlock Text="权限" />
+                                <TextBlock Text="所属店铺"/>
+                                <TextBlock Text="技能"/>
+                            </StackPanel>                          
+                        </ListViewHeaderItem>
+                    </DataTemplate>
+                </ListView.HeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ListViewItem>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                                <TextBlock Text="{Binding Code}"/>
+                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text="{Binding Role}"/>
+                                <TextBlock Text="{Binding Salon}"/>
+                                <ListView ItemsSource="{Binding Skills}"  HorizontalContentAlignment="Stretch">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ListViewItem>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                                                    <TextBlock Text="{Binding Code}" />
+                                                    <TextBlock Text="{Binding Group}"/>
+                                                    <TextBlock Text="{Binding Name}"/>
+                                                </StackPanel>
+                                            </ListViewItem>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackPanel>
+                        </ListViewItem>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackPanel Grid.Row="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,10,0,0">
+                <TextBlock  Text="员工"  FontSize="18"  TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <StackPanel x:ConnectionId='9' x:Name="spinfo" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30,10,30,0">
+                    <TextBox Header="编号:" MinWidth="150"/>
+                    <TextBox x:ConnectionId='15' x:Name="txtname" Header="人名:" MinWidth="150" Margin="30,0,0,0"/>
+                    <ComboBox x:ConnectionId='16' x:Name="txtrole" Header="权限:" MinWidth="150" Margin="30,0,0,0" />
+                    <ComboBox x:ConnectionId='17' x:Name="txtsalon" Header="所属店铺:" MinWidth="150" Margin="30,0,0,0" />
+                </StackPanel>
+                <TextBlock  Text="员工技能" Margin="30,30,0,0" FontSize="18"  TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <StackPanel x:ConnectionId='10' x:Name="spskill" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30,10,0,0">
+
+                    <ListView Grid.Column="0" ItemsSource="{Binding Skills}" IsItemClickEnabled="True"  SelectionMode="None" HorizontalContentAlignment="Stretch">
+                        <ListView.HeaderTemplate>
+                            <DataTemplate>                               
+                                <ListViewHeaderItem>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                                        <TextBlock Text="编号" />
+                                        <TextBlock Text="项目组" />
+                                        <TextBlock Text="名称" />
+                                    </StackPanel>
+                                </ListViewHeaderItem>
+                            </DataTemplate>
+                        </ListView.HeaderTemplate>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ListViewItem>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                                        <TextBlock Text="{Binding Code}" />
+                                        <TextBlock Text="{Binding Group}"/>
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </StackPanel>
+                                </ListViewItem>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center"  HorizontalAlignment="Center" >
+                        <TextBlock Text="》》添加 》》" FontSize="18" />
+                        <TextBlock Text="《《移除《《 " FontSize="18"  Margin="0,40,0,0" />
+                    </StackPanel>
+                    <ListView Grid.Column="2" ItemsSource="{Binding StaffInfos[0].Skills}" IsItemClickEnabled="True"  SelectionMode="None" HorizontalContentAlignment="Stretch">
+                        <ListView.HeaderTemplate>
+                            <DataTemplate>
+                                <ListViewHeaderItem>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                                        <TextBlock Text="编号" />
+                                        <TextBlock Text="项目组" />
+                                        <TextBlock Text="名称" />
+                                    </StackPanel>
+                                </ListViewHeaderItem>
+                            </DataTemplate>
+                        </ListView.HeaderTemplate>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ListViewItem>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                                        <TextBlock Text="{Binding Code}" />
+                                        <TextBlock Text="{Binding Group}"/>
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </StackPanel>
+                                </ListViewItem>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
+

@@ -1,0 +1,72 @@
+﻿<Page
+    x:Class="Thibetanus.Views.MainMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Thibetanus.Views"
+    xmlns:vms="using:Thibetanus.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <vms:MainMenuViewModel x:Name="viewModel"/>
+    </Page.DataContext>
+    
+    <Page.Resources>
+        <x:String x:Key="Permission">0</x:String>
+    </Page.Resources>
+    
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--标题栏-->
+        <Grid Grid.Row="0"  VerticalAlignment="Stretch" Background="White">
+            <Button x:Name="hamburgerButton" Background="Transparent" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Left" Click="SplitViewToggle_Click">
+                <TextBlock Text="&#xE700;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Width="40"  TextAlignment="Center"/>
+            </Button>
+            <TextBlock Grid.Column="1"  x:Uid="AppName"  TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18"  />
+             <Button x:Name="settingButton" Background="Transparent" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Right" >
+                <TextBlock Text="&#xE712;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Width="40"  TextAlignment="Center"/>
+            </Button>
+        </Grid>
+       
+        <SplitView x:Name="splitView" Grid.Row="1" IsPaneOpen="False" OpenPaneLength="200" CompactPaneLength="48" DisplayMode="Overlay" HorizontalContentAlignment="Stretch">
+            <!--导航栏-->
+            <SplitView.Pane>
+                <ListView  x:Name="listView"  IsItemClickEnabled="True" ItemClick="NavLink_Click" SelectionMode="None" HorizontalContentAlignment="Stretch">
+                    <!--<ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid Orientation="Horizontal" MaximumRowsOrColumns="1"  HorizontalAlignment="Stretch"/>                        
+                        </ItemsPanelTemplate>                        
+                    </ListView.ItemsPanel>-->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ListViewItem>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Label}" Grid.Column="0"/>
+                                    <!--<TextBlock Text="{Binding NavLink}" Grid.Column="1"/>-->
+                                </Grid>
+                            </ListViewItem>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <!--子画面-->
+                <ScrollViewer Grid.Row="1"
+                      VerticalScrollMode="Enabled" HorizontalScrollMode="Enabled"
+                       HorizontalScrollBarVisibility="Visible" VerticalAlignment="Stretch">
+                    <Frame x:Name="contentFrame"/>
+                </ScrollViewer>
+            </SplitView.Content>
+        </SplitView>
+
+    </Grid>
+</Page>
