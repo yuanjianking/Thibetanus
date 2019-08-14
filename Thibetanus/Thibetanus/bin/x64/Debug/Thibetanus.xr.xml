@@ -5,10 +5,12 @@
     <RootPropertyPathName Name="Password" />
     <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="Label" />
+    <RootPropertyPathName Name="Orientation" />
     <RootPropertyPathName Name="StaffInfos" />
     <RootPropertyPathName Name="Skills" />
     <RootPropertyPathName Name="Group" />
     <RootPropertyPathName Name="Code" />
+    <RootPropertyPathName Name="Margin" />
     <RootPropertyPathName Name="Salon" />
     <RootPropertyPathName Name="Role" />
   </Roots.PropertyPathNames>
@@ -72,6 +74,7 @@
       <RootProperty Name="FontFamily" />
       <RootProperty Name="Width" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Style" />
     </RootType>
     <RootType FullName="Thibetanus.Common.UserControls.MessagePopup" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
@@ -108,12 +111,13 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Text" />
       <RootProperty Name="Header" />
-      <RootProperty Name="MinWidth" />
       <RootProperty Name="Margin" />
       <RootEvent Name="KeyUp" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Mode" />
+      <RootProperty Name="ElementName" />
+      <RootProperty Name="Path" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension" />
     <RootType FullName="Thibetanus.Views.LoginPage" />
@@ -166,16 +170,17 @@
     <RootType FullName="Windows.UI.Xaml.VisualStateManager">
       <RootMethod Name="GetVisualStateGroups" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.UIElement">
-      <RootProperty Name="RenderTransform" />
+    <RootType FullName="Windows.UI.Xaml.FrameworkElement">
+      <RootProperty Name="MinWidth" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Setter">
       <RootProperty Name="Property" />
       <RootProperty Name="Value" />
       <RootProperty Name="Target" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Media.RotateTransform">
-      <RootProperty Name="Angle" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.VisualStateGroup">
       <RootProperty Name="States" />
@@ -197,11 +202,6 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListViewHeaderItem">
       <RootProperty Name="Content" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
-      <RootProperty Name="Header" />
-      <RootProperty Name="MinWidth" />
-      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Thibetanus.Views.SubPage.Staff.StaffEdit" />
   </Roots.RootTypes>

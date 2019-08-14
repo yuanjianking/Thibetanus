@@ -14,5 +14,31 @@ namespace Thibetanus.Common.BaseControl
        public BaseControl()
        {
        }
+
+        public void CopyModel(object target, object source)
+        {
+            Type type1 = target.GetType();
+            Type type2 = source.GetType();
+            foreach (var mi in type2.GetProperties())
+            {
+                var des = type1.GetProperty(mi.Name);
+                if (des != null)
+                {
+                    if(mi.PropertyType.FullName == des.PropertyType.FullName)
+                    try
+                    {
+                        var data = mi.GetValue(source, null);
+                        if (data != null)
+                        {
+                            des.SetValue(target, data);
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                    }
+                }
+            }
+        }
+
     }
 }

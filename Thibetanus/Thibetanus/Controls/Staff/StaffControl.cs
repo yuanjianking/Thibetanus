@@ -32,16 +32,12 @@ namespace Thibetanus.Controls.Staff
             foreach (var staff in list)
             {
                 StaffInfoModel staffEdit = new StaffInfoModel();
-                staffEdit.Code = staff.Code;
-                staffEdit.Name = staff.Name;
-                staffEdit.Role = staff.Role;
+                CopyModel(staffEdit, staff);
                 staffEdit.Skills = new ObservableCollection<SkillModel>();
                 foreach (var skill in staff.Skill)
                 {
                     SkillModel skillModel = new SkillModel();
-                    skillModel.Code = skill.Code;
-                    skillModel.Group = skill.Group;
-                    skillModel.Name = skill.Name;
+                    CopyModel(skillModel, skill);
                     staffEdit.Skills.Add(skillModel);
                 }
                 Staffs.Add(staffEdit);
@@ -57,9 +53,7 @@ namespace Thibetanus.Controls.Staff
             foreach (var skill in list)
             {
                 SkillModel skillModel = new SkillModel();
-                skillModel.Code = skill.Code;
-                skillModel.Group = skill.Group;
-                skillModel.Name = skill.Name;
+                CopyModel(skillModel, skill);
                 Skills.Add(skillModel);
             }
             return Skills;

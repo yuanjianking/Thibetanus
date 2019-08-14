@@ -21,6 +21,8 @@ namespace Thibetanus.DBModels.MongDB
         public string Code { get; set; }
         [BsonElement(elementName: "name")]
         public string Name { get; set; }
+        [BsonElement(elementName: "salon")]
+        public string Salon { get; set; }
         [BsonElement(elementName: "role")]
         public string Role { get; set; }
         [BsonElement(elementName: "skill")]
