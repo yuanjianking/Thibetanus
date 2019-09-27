@@ -36,16 +36,5 @@ namespace Thibetanus.Views.SubPage
         {
             base.OnNavigatedTo(e);
         }
-
-
-        private void StaffEdit_Click(object sender, RoutedEventArgs e)
-        {
-           (Application.Current as App).ContentFrame.Navigate(typeof(StaffEdit));
-        }
-
-        private void StaffAttendance_Click(object sender, RoutedEventArgs e)
-        {
-            (Application.Current as App).ContentFrame.Navigate(typeof(StaffAttendance));
-        }
     }
 }

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<root>
+  <MainMenu>
+    <Master>
+      <SalonSub Label="会所管理" Link="Thibetanus.Views.SubPage.SalonSubPage" ></SalonSub>
+      <StaffSub Label="员工管理" Link="Thibetanus.Views.SubPage.StaffSubPage" ></StaffSub>
+      <SalarySub Label="薪资管理" Link="Thibetanus.Views.SubPage.SalarySubPage" ></SalarySub>
+      <AssetsSub Label="资产管理" Link="Thibetanus.Views.SubPage.AssetsSubPage" ></AssetsSub>
+      <CustomSub Label="客户管理" Link="Thibetanus.Views.SubPage.CustomSubPage" ></CustomSub>
+      <ServiceSub Label="服务管理" Link="Thibetanus.Views.SubPage.ServiceSubPage" ></ServiceSub>
+      <ReportSub Label="报    表" Link="Thibetanus.Views.SubPage.ReportSubPage" ></ReportSub>
+    </Master>
+    <Manager>
+      <SalonSub Label="会所管理" Link="Thibetanus.Views.SubPage.SalonSubPage" ></SalonSub>
+      <StaffSub Label="员工管理" Link="Thibetanus.Views.SubPage.StaffSubPage" ></StaffSub>
+      <AssetsSub Label="资产管理" Link="Thibetanus.Views.SubPage.AssetsSubPage" ></AssetsSub>
+    </Manager>
+  </MainMenu>
+  <SubMenu>
+    <StaffSub>
+      <StaffEdit Label="员工编辑" Link="Thibetanus.Views.SubPage.Staff.StaffEdit" ></StaffEdit>
+      <StaffAttendance Label="员工出勤时间" Link="Thibetanus.Views.SubPage.Staff.StaffAttendance" ></StaffAttendance>
+    </StaffSub>
+  </SubMenu>
+</root>

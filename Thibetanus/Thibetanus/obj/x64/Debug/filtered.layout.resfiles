@@ -22,3 +22,4 @@ Views\SubPage\Staff\StaffAttendance.xbf
 Views\SubPage\Staff\StaffEdit.xbf
 Views\SubPage\StaffSubPage.xbf
 Properties\Default.rd.xml
+Resources\Menus.xml

@@ -26,24 +26,11 @@ namespace Thibetanus.ViewModels
             {
                 if (key == Permission.Master)
                 {
-                    return new ObservableCollection<MenuModel>()
-                    {
-                        new MenuModel("会所管理", Type.GetType("Thibetanus.Views.SubPage.SalonSubPage")),
-                        new MenuModel("员工管理", Type.GetType("Thibetanus.Views.SubPage.StaffSubPage")),
-                        new MenuModel("薪资管理", Type.GetType("Thibetanus.Views.SubPage.SalarySubPage")),
-                        new MenuModel("资产管理", Type.GetType("Thibetanus.Views.SubPage.AssetsSubPage")),
-                        new MenuModel("客户管理", Type.GetType("Thibetanus.Views.SubPage.CustomSubPage")),
-                        new MenuModel("服务管理", Type.GetType("Thibetanus.Views.SubPage.ServiceSubPage")),
-                        new MenuModel("报    表", Type.GetType("Thibetanus.Views.SubPage.ReportSubPage"))
-                    };
+                    return new ObservableCollection<MenuModel>(MenuHelper.GetXmlHelper().GetMenus(MenuHelper.MenuType.MainMaster));
                 }
                 else if (key == Permission.Manager)
                 {
-                    return new ObservableCollection<MenuModel>()
-                    {
-                        new MenuModel("员工管理", Type.GetType("Thibetanus.Views.SubPage.StaffSubPage")),
-                        new MenuModel("资产管理", Type.GetType("Thibetanus.Views.SubPage.AssetsSubPage")),
-                    };
+                    return new ObservableCollection<MenuModel>(MenuHelper.GetXmlHelper().GetMenus(MenuHelper.MenuType.MainManager));
                 }
                 else
                 {

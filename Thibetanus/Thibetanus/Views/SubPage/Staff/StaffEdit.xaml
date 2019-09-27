@@ -35,7 +35,7 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource LargeWindowSnapPoint}"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <!-- Adjust the zoom slider to fit small windows-->                      
+                        <!-- Adjust the zoom slider to fit Large windows-->                      
                         <Setter Target="spinfo.Orientation" Value="Horizontal" />
                         <Setter Target="txtname.Margin" Value="30,0,0,0" />
                     </VisualState.Setters>
@@ -48,7 +48,7 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource MediumWindowSnapPoint}"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <!-- Adjust the zoom slider to fit small windows-->
+                        <!-- Adjust the zoom slider to fit Medium windows-->
                         <Setter Target="spinfo.Orientation" Value="Vertical" />
                         <Setter Target="txtname.Margin" Value="0,0,0,0" />
                     </VisualState.Setters>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Thibetanus.DBmanager.MongDB;
+using Thibetanus.DBmanager.PostgreSQL;
 
 namespace Thibetanus.DBmanager
 {
@@ -12,17 +13,9 @@ namespace Thibetanus.DBmanager
     {
         public enum DBServerType
         {
-            [Description("关系数据库")]
-            ServerSQL,
-            [Description("本地SQL数据库")]
-            LocalSQL,
-            [Description("内存SQL数据库")]
-            MemorySQL,
-            [Description("内存NoSQL数据库")]
-            MemoryNoSQL,
-            [Description("本地KV数据库")]
-            LocalKV,
-            [Description("其它数据库,redis,mongdb等")]
+            [Description(" Postgre")]
+            PostgreSQL,
+            [Description("mongdb")]
             NoSQL
         }
 
@@ -34,9 +27,11 @@ namespace Thibetanus.DBmanager
                 case DBServerType.NoSQL:
                     connect = new MongDBConnect();
                     break;
+                case DBServerType.PostgreSQL:
+                    connect = new PostgreSQLConnect();
+                    break;
                 default:
                     break;
-
             }
             return connect;
         }

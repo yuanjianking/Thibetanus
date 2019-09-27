@@ -124,6 +124,7 @@
     <Compile Include="Common\BaseModel\ObservableObject.cs" />
     <Compile Include="Common\Enum\Permission.cs" />
     <Compile Include="Common\Helper\EncryptHelper.cs" />
+    <Compile Include="Common\Helper\MenuHelper.cs" />
     <Compile Include="Common\UserControls\MessagePopup.xaml.cs">
       <DependentUpon>MessagePopup.xaml</DependentUpon>
     </Compile>
@@ -132,9 +133,15 @@
     <Compile Include="DBmanager\DBConnect.cs" />
     <Compile Include="DBmanager\DBFactory.cs" />
     <Compile Include="DBmanager\MongDB\MongDBConnect.cs" />
-    <Compile Include="DBmanager\MySql\MySqlConnect.cs" />
-    <Compile Include="DBModels\MongDB\SkillTable.cs" />
-    <Compile Include="DBModels\MongDB\StaffTable.cs" />
+    <Compile Include="DBmanager\PostgreSQL\PostgreSQLConnect.cs" />
+    <Compile Include="DBmanager\PostgreSQL\PostgreSQLContext.cs" />
+    <Compile Include="DBmanager\PostgreSQL\PostgreSQLContxtSeeder.cs" />
+    <Compile Include="DBModels\MongDB\Skill.cs" />
+    <Compile Include="DBModels\MongDB\Staff.cs" />
+    <Compile Include="DBModels\PostgreSQL\Order.cs" />
+    <Compile Include="DBModels\PostgreSQL\Skill.cs" />
+    <Compile Include="DBModels\PostgreSQL\Staff.cs" />
+    <Compile Include="DBModels\PostgreSQL\User.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -145,6 +152,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
+    <Compile Include="ViewModels\SubPage\StaffSubPageViewModel.cs" />
     <Compile Include="ViewModels\SubPage\Staff\StaffEditViewModel.cs" />
     <Compile Include="Views\SubPage\AssetsSubPage.xaml.cs">
       <DependentUpon>AssetsSubPage.xaml</DependentUpon>
@@ -191,6 +199,7 @@
     <None Include="Thibetanus_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Menus.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -265,9 +274,14 @@
     <PackageReference Include="MongoDB.Driver">
       <Version>2.8.1</Version>
     </PackageReference>
+    <PackageReference Include="Npgsql">
+      <Version>4.0.9</Version>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL">
+      <Version>2.2.4</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DBModels\MySql\" />
     <Folder Include="Models\SubPage\Assets\" />
     <Folder Include="Models\SubPage\Custom\" />
     <Folder Include="Models\SubPage\Report\" />

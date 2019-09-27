@@ -5,6 +5,7 @@
     <RootPropertyPathName Name="Password" />
     <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="Label" />
+    <RootPropertyPathName Name="Menus" />
     <RootPropertyPathName Name="Orientation" />
     <RootPropertyPathName Name="StaffInfos" />
     <RootPropertyPathName Name="Skills" />
@@ -44,8 +45,8 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Background" />
       <RootProperty Name="ColumnDefinitions" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="Resources" />
+      <RootProperty Name="Margin" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
@@ -73,6 +74,9 @@
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontFamily" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="HorizontalTextAlignment" />
+      <RootProperty Name="Padding" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Style" />
     </RootType>
@@ -163,24 +167,9 @@
     <RootType FullName="Thibetanus.Views.SubPage.SalarySubPage" />
     <RootType FullName="Thibetanus.Views.SubPage.SalonSubPage" />
     <RootType FullName="Thibetanus.Views.SubPage.ServiceSubPage" />
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.NullExtension" />
-    <RootType FullName="Thibetanus.Views.SubPage.StaffSubPage" />
-    <RootType FullName="Thibetanus.Views.SubPage.Staff.StaffAttendance" />
-    <RootType FullName="Thibetanus.ViewModels.SubPage.Staff.StaffEditViewModel" />
+    <RootType FullName="Thibetanus.ViewModels.SubPage.StaffSubPageViewModel" />
     <RootType FullName="Windows.UI.Xaml.VisualStateManager">
       <RootMethod Name="GetVisualStateGroups" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.FrameworkElement">
-      <RootProperty Name="MinWidth" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
-      <RootProperty Name="Header" />
-      <RootProperty Name="Margin" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Setter">
-      <RootProperty Name="Property" />
-      <RootProperty Name="Value" />
-      <RootProperty Name="Target" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.VisualStateGroup">
       <RootProperty Name="States" />
@@ -193,6 +182,29 @@
       <RootProperty Name="MinWindowWidth" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
+    <RootType FullName="Windows.UI.Xaml.Setter">
+      <RootProperty Name="Target" />
+      <RootProperty Name="Value" />
+      <RootProperty Name="Property" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.GridView">
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="IsItemClickEnabled" />
+      <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootEvent Name="ItemClick" />
+    </RootType>
+    <RootType FullName="Thibetanus.Views.SubPage.StaffSubPage" />
+    <RootType FullName="Thibetanus.Views.SubPage.Staff.StaffAttendance" />
+    <RootType FullName="Thibetanus.ViewModels.SubPage.Staff.StaffEditViewModel" />
+    <RootType FullName="Windows.UI.Xaml.FrameworkElement">
+      <RootProperty Name="MinWidth" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Margin" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />

@@ -11,7 +11,9 @@ namespace Thibetanus.Common.BaseControl
 {
     class BaseControl
     {
-       public BaseControl()
+        protected readonly DBFactory.DBServerType DBServerType = DBFactory.DBServerType.PostgreSQL;
+
+        public BaseControl()
        {
        }
 

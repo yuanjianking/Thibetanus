@@ -8,6 +8,7 @@ namespace Thibetanus.DBmanager
 {
     interface DBConnect
     {
-        List<T1> SelectAll<T1>(String tableName);
+        List<TSource> FindAll<TSource>() where TSource : class;
+
     }
 }

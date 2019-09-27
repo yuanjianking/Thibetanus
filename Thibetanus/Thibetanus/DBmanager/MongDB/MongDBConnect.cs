@@ -33,10 +33,11 @@ namespace Thibetanus.DBmanager.MongDB
             return database;
         }
         
-        public List<T1> SelectAll<T1>(string tableName)
+        public List<TSource> FindAll<TSource>() where TSource : class
         {
-            var collection = GetDataBase().GetCollection<T1>(tableName);
-            var filterBuilder = Builders<T1>.Filter;
+            String tableName = typeof(TSource).Name;
+            var collection = GetDataBase().GetCollection<TSource>(tableName);
+            var filterBuilder = Builders<TSource>.Filter;
             var filter = filterBuilder.Empty;
             return collection.Find(filter).ToList();
         }
