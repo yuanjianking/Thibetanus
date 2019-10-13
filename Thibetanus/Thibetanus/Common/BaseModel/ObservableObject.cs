@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Thibetanus.Common.BaseModel
 {
-    class ObservableObject : INotifyPropertyChanged
+    public class ObservableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

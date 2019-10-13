@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>76D83BEDAF13983FC631C8B7FBD4D2A500E5DB9C4DA00C92E51996246AEC7B67</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>4BCDD547B310422B5A5FA9F22291F79B0DD311B5AE658790FCFFC31586FEFBD7</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>1be434de-f933-4486-a063-63ae02fb5735_1.0.0.0_x64__kv8r8e8gcaj82</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>1be434de-f933-4486-a063-63ae02fb5735_kv8r8e8gcaj82!App</RegisteredUserModeAppID>
     <RegisteredPackageID>1be434de-f933-4486-a063-63ae02fb5735</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-09-20T07:03:48.367</Modified>
+      <Modified>2019-10-13T00:15:07.220</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Thibetanus.exe">
       <PackagePath>entrypoint\Thibetanus.exe</PackagePath>
-      <Modified>2019-09-20T07:03:47.805</Modified>
+      <Modified>2019-10-13T00:15:06.561</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\yj\.nuget\packages\dnsclient\1.2.0\lib\netstandard2.0\DnsClient.dll">
       <PackagePath>DnsClient.dll</PackagePath>
@@ -140,7 +140,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\Resources\Menus.xml">
       <PackagePath>Resources\Menus.xml</PackagePath>
-      <Modified>2019-09-20T07:01:33.603</Modified>
+      <Modified>2019-10-11T07:36:06.894</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -182,63 +182,71 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Thibetanus.xr.xml">
       <PackagePath>Thibetanus.xr.xml</PackagePath>
-      <Modified>2019-09-20T05:40:14.143</Modified>
+      <Modified>2019-10-13T00:08:15.111</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-09-20T07:03:47.500</Modified>
+      <Modified>2019-10-13T00:15:06.175</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Common\UserControls\GridMenu.xbf">
+      <PackagePath>Common\UserControls\GridMenu.xbf</PackagePath>
+      <Modified>2019-10-13T00:15:06.176</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Common\UserControls\MessagePopup.xbf">
       <PackagePath>Common\UserControls\MessagePopup.xbf</PackagePath>
-      <Modified>2019-09-20T07:03:47.500</Modified>
+      <Modified>2019-10-13T00:15:06.176</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2019-09-20T07:03:47.501</Modified>
+      <Modified>2019-10-13T00:15:06.177</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\AssetsSubPage.xbf">
       <PackagePath>Views\SubPage\AssetsSubPage.xbf</PackagePath>
-      <Modified>2019-09-20T07:03:47.501</Modified>
+      <Modified>2019-10-13T00:15:06.177</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\CustomSubPage.xbf">
       <PackagePath>Views\SubPage\CustomSubPage.xbf</PackagePath>
-      <Modified>2019-09-20T07:03:47.501</Modified>
+      <Modified>2019-10-13T00:15:06.177</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\LoginPage.xbf">
       <PackagePath>Views\LoginPage.xbf</PackagePath>
-      <Modified>2019-09-20T07:03:47.502</Modified>
+      <Modified>2019-10-13T00:15:06.178</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\MainMenu.xbf">
       <PackagePath>Views\MainMenu.xbf</PackagePath>
-      <Modified>2019-09-20T07:03:47.502</Modified>
+      <Modified>2019-10-13T00:15:06.178</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\ReportSubPage.xbf">
       <PackagePath>Views\SubPage\ReportSubPage.xbf</PackagePath>
-      <Modified>2019-09-20T07:03:47.502</Modified>
+      <Modified>2019-10-13T00:15:06.178</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\SalarySubPage.xbf">
       <PackagePath>Views\SubPage\SalarySubPage.xbf</PackagePath>
-      <Modified>2019-09-20T07:03:47.503</Modified>
+      <Modified>2019-10-13T00:15:06.178</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\SalonSubPage.xbf">
       <PackagePath>Views\SubPage\SalonSubPage.xbf</PackagePath>
-      <Modified>2019-09-20T07:03:47.503</Modified>
+      <Modified>2019-10-13T00:15:06.179</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Salon\SalonEdit.xbf">
+      <PackagePath>Views\SubPage\Salon\SalonEdit.xbf</PackagePath>
+      <Modified>2019-10-13T00:15:06.161</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\ServiceSubPage.xbf">
       <PackagePath>Views\SubPage\ServiceSubPage.xbf</PackagePath>
-      <Modified>2019-09-20T07:03:47.503</Modified>
+      <Modified>2019-10-13T00:15:06.179</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\StaffSubPage.xbf">
       <PackagePath>Views\SubPage\StaffSubPage.xbf</PackagePath>
-      <Modified>2019-09-20T07:03:47.504</Modified>
+      <Modified>2019-10-13T00:15:06.180</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Staff\StaffAttendance.xbf">
       <PackagePath>Views\SubPage\Staff\StaffAttendance.xbf</PackagePath>
-      <Modified>2019-09-20T07:03:47.504</Modified>
+      <Modified>2019-10-13T00:15:06.180</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Staff\StaffEdit.xbf">
       <PackagePath>Views\SubPage\Staff\StaffEdit.xbf</PackagePath>
-      <Modified>2019-09-20T07:03:47.500</Modified>
+      <Modified>2019-10-13T00:15:06.175</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -246,11 +254,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-09-20T06:55:17.882</Modified>
+      <Modified>2019-10-12T07:25:09.280</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Core\Thibetanus.exe">
       <PackagePath>Thibetanus.exe</PackagePath>
-      <Modified>2019-09-20T07:03:48.362</Modified>
+      <Modified>2019-10-13T00:15:07.216</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

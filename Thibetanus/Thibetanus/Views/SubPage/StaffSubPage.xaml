@@ -4,78 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Thibetanus.Views.SubPage"
     xmlns:vms="using:Thibetanus.ViewModels.SubPage"
-    xmlns:data="using:Thibetanus.Models"
+    xmlns:src="using:Thibetanus.Common.UserControls" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Page.DataContext>
-        <vms:StaffSubPageViewModel x:Name="viewModel"/>
-    </Page.DataContext>
-    <Page.Resources>
-        <DataTemplate x:DataType="data:MenuModel" x:Key="MenuDataTemplate">
-                 <TextBlock FontSize="18" 
-                            Text="{x:Bind Label}" 
-                            Width="300"
-                            Height="200"                            
-                            HorizontalTextAlignment="Center"                            
-                            HorizontalAlignment="Center" 
-                            VerticalAlignment="Center" Padding="0,90,0,0"/>
-         </DataTemplate>
-    </Page.Resources>
+      
     <Grid>
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <!-- Large window VisualState -->
-                <VisualState x:Name="LargeWindow">
-                    <!-- Large window trigger -->
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource LargeWindowSnapPoint}"/>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <!-- Adjust the zoom slider to fit Large windows-->
-                        <Setter Target="menu.Width" Value="1000" />
-                    </VisualState.Setters>
-                </VisualState>
-
-                <!-- Medium window VisualState -->
-                <VisualState x:Name="MediumWindow">
-                    <!-- Medium window trigger -->
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource MediumWindowSnapPoint}"/>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <!-- Adjust the zoom slider to fit Medium windows-->
-                        <Setter Target="menu.Width" Value="640" />
-                    </VisualState.Setters>
-                </VisualState>
-
-                <!-- Small window VisualState -->
-                <VisualState x:Name="SmallWindow">
-                    <!-- Small window trigger -->
-                    <VisualState.StateTriggers >
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowSnapPoint}"/>
-                    </VisualState.StateTriggers>
-
-                    <!-- Small window setters -->
-                    <VisualState.Setters>
-                        <!-- Adjust the zoom slider to fit small windows-->
-                        <Setter Target="menu.Width" Value="300" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-        
-        <!--标题-->
-        <TextBlock  Text="员工管理" TextAlignment="Center"
-                   FontSize="18"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,50,0"/>
-
-        <GridView x:Name="menu"
-            ItemsSource="{Binding Menus}" IsItemClickEnabled="True"
-                        ItemClick="{x:Bind viewModel.NavigateTo}"
-                        ItemTemplate="{StaticResource MenuDataTemplate}"
-                        Margin="50,50,50,50" 
-                        HorizontalAlignment="Center">
-        </GridView>
+        <src:GridMenu PageTitle="员工管理" Menus="{x:Bind Menus}" />
     </Grid>
 </Page>

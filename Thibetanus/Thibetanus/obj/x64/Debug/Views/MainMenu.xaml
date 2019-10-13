@@ -8,9 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Page.DataContext>
-        <vms:MainMenuViewModel x:ConnectionId='2' x:Name="viewModel"/>
-    </Page.DataContext>
+  
     
     <Page.Resources>
         <x:String x:Key="Permission">0</x:String>
@@ -24,19 +22,19 @@
         </Grid.RowDefinitions>
         <!--标题栏-->
         <Grid Grid.Row="0"  VerticalAlignment="Stretch" Background="White">
-            <Button x:ConnectionId='7' x:Name="hamburgerButton" Background="Transparent" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Left"                              >
+            <Button x:ConnectionId='6' x:Name="hamburgerButton" Background="Transparent" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Left"                              >
                 <TextBlock Text="&#xE700;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Width="40"  TextAlignment="Center"/>
             </Button>
             <TextBlock Grid.Column="1"  x:Uid="AppName"  TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18"  />
-             <Button x:ConnectionId='8' x:Name="settingButton" Background="Transparent" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Right" >
+             <Button x:ConnectionId='7' x:Name="settingButton" Background="Transparent" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Right" >
                 <TextBlock Text="&#xE712;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Width="40"  TextAlignment="Center"/>
             </Button>
         </Grid>
        
-        <SplitView x:ConnectionId='3' x:Name="splitView" Grid.Row="1" IsPaneOpen="False" OpenPaneLength="200" CompactPaneLength="48" DisplayMode="Overlay" HorizontalContentAlignment="Stretch">
+        <SplitView x:ConnectionId='2' x:Name="splitView" Grid.Row="1" IsPaneOpen="False" OpenPaneLength="200" CompactPaneLength="48" DisplayMode="Overlay" HorizontalContentAlignment="Stretch">
             <!--导航栏-->
             <SplitView.Pane>
-                <ListView x:ConnectionId='4'  x:Name="listView"  IsItemClickEnabled="True"                           SelectionMode="None" HorizontalContentAlignment="Stretch">
+                <ListView x:ConnectionId='3'  x:Name="listView"  IsItemClickEnabled="True"                           SelectionMode="None" HorizontalContentAlignment="Stretch">
                     <!--<ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapGrid Orientation="Horizontal" MaximumRowsOrColumns="1"  HorizontalAlignment="Stretch"/>                        
@@ -63,7 +61,7 @@
                 <ScrollViewer Grid.Row="1"
                       VerticalScrollMode="Enabled" HorizontalScrollMode="Enabled"
                        HorizontalScrollBarVisibility="Visible" VerticalAlignment="Stretch">
-                    <Frame x:ConnectionId='6' x:Name="contentFrame"/>
+                    <Frame x:ConnectionId='5' x:Name="contentFrame"/>
                 </ScrollViewer>
             </SplitView.Content>
         </SplitView>

@@ -21,5 +21,8 @@
       <StaffEdit Label="员工编辑" Link="Thibetanus.Views.SubPage.Staff.StaffEdit" ></StaffEdit>
       <StaffAttendance Label="员工出勤时间" Link="Thibetanus.Views.SubPage.Staff.StaffAttendance" ></StaffAttendance>
     </StaffSub>
+    <SalonSub>
+      <SalonEdit Label="会所编辑" Link="Thibetanus.Views.SubPage.Salon.SalonEdit" ></SalonEdit>
+    </SalonSub>
   </SubMenu>
 </root>

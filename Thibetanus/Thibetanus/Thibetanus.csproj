@@ -125,6 +125,10 @@
     <Compile Include="Common\Enum\Permission.cs" />
     <Compile Include="Common\Helper\EncryptHelper.cs" />
     <Compile Include="Common\Helper\MenuHelper.cs" />
+    <Compile Include="Common\Models\MenuModel.cs" />
+    <Compile Include="Common\UserControls\GridMenu.xaml.cs">
+      <DependentUpon>GridMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Common\UserControls\MessagePopup.xaml.cs">
       <DependentUpon>MessagePopup.xaml</DependentUpon>
     </Compile>
@@ -145,14 +149,13 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\MenuModel.cs" />
+    <Compile Include="Models\SubPage\Salon\SalonEditModel.cs" />
     <Compile Include="Models\SubPage\Staff\SkillModel.cs" />
     <Compile Include="Models\SubPage\Staff\StaffInfoModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
-    <Compile Include="ViewModels\SubPage\StaffSubPageViewModel.cs" />
+    <Compile Include="ViewModels\SubPage\Salon\SalonEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\Staff\StaffEditViewModel.cs" />
     <Compile Include="Views\SubPage\AssetsSubPage.xaml.cs">
       <DependentUpon>AssetsSubPage.xaml</DependentUpon>
@@ -174,6 +177,9 @@
     </Compile>
     <Compile Include="Views\SubPage\SalonSubPage.xaml.cs">
       <DependentUpon>SalonSubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubPage\Salon\SalonEdit.xaml.cs">
+      <DependentUpon>SalonEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubPage\ServiceSubPage.xaml.cs">
       <DependentUpon>ServiceSubPage.xaml</DependentUpon>
@@ -214,6 +220,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Common\UserControls\GridMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Common\UserControls\MessagePopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -247,6 +257,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubPage\SalonSubPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubPage\Salon\SalonEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -286,19 +300,16 @@
     <Folder Include="Models\SubPage\Custom\" />
     <Folder Include="Models\SubPage\Report\" />
     <Folder Include="Models\SubPage\Salary\" />
-    <Folder Include="Models\SubPage\Salon\" />
     <Folder Include="Models\SubPage\Service\" />
     <Folder Include="ViewModels\SubPage\Assets\" />
     <Folder Include="ViewModels\SubPage\Custom\" />
     <Folder Include="ViewModels\SubPage\Report\" />
     <Folder Include="ViewModels\SubPage\Salary\" />
-    <Folder Include="ViewModels\SubPage\Salon\" />
     <Folder Include="ViewModels\SubPage\Service\" />
     <Folder Include="Views\SubPage\Assets\" />
     <Folder Include="Views\SubPage\Custom\" />
     <Folder Include="Views\SubPage\Report\" />
     <Folder Include="Views\SubPage\Salary\" />
-    <Folder Include="Views\SubPage\Salon\" />
     <Folder Include="Views\SubPage\Service\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

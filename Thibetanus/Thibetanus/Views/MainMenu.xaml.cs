@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Thibetanus.Common.Enum;
+using Thibetanus.Common.Helper;
+using Thibetanus.Common.Models;
 using Thibetanus.Models;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation;
@@ -36,6 +39,25 @@ namespace Thibetanus.Views
 
         }
 
+        public ObservableCollection<MenuModel> this[Permission key]
+        {
+            get
+            {
+                if (key == Permission.Master)
+                {
+                    return new ObservableCollection<MenuModel>(MenuHelper.GetXmlHelper().GetMenus(MenuHelper.MenuType.MainMaster));
+                }
+                else if (key == Permission.Manager)
+                {
+                    return new ObservableCollection<MenuModel>(MenuHelper.GetXmlHelper().GetMenus(MenuHelper.MenuType.MainManager));
+                }
+                else
+                {
+                    return new ObservableCollection<MenuModel>();
+                }
+            }
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var parameter = e.Parameter;
@@ -44,7 +66,7 @@ namespace Thibetanus.Views
             if (type != null)
             {
                 Permission permission = (Permission)type.GetProperty("Permission").GetValue(parameter);
-                var dataSource = viewModel[permission];
+                var dataSource = this[permission];
                 listView.ItemsSource = dataSource;
             }
 

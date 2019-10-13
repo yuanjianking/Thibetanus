@@ -1,0 +1,116 @@
+﻿<Page
+    x:Class="Thibetanus.Views.SubPage.Salon.SalonEdit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Thibetanus.Views.SubPage.Salon"
+    xmlns:data="using:Thibetanus.Models.SubPage.Salon"
+    xmlns:vms="using:Thibetanus.ViewModels.SubPage.Salon"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <vms:SalonEditViewModel x:Name="viewModel"/>
+    </Page.DataContext>
+    
+    <Page.Resources>        
+        <Style x:Name="listTextBlock" TargetType="TextBlock">
+            <Setter  Property="TextBlock.MinWidth" Value="200"/>
+        </Style>
+        <Style x:Name="listTextBox" TargetType="TextBox">
+            <Setter  Property="TextBox.MinWidth" Value="200"/>
+        </Style>
+
+        <DataTemplate  x:Key="HeaderDataTemplateHorizontal">
+            <ListViewHeaderItem>
+                <StackPanel Orientation="Horizontal"   HorizontalAlignment="Center" VerticalAlignment="Top" >
+                    <TextBlock Text="编号"  Style="{StaticResource listTextBlock}"/>
+                    <TextBlock Text="名称"  Style="{StaticResource listTextBlock}"/>
+                    <TextBlock Text="所属地"  Style="{StaticResource listTextBlock}"/>
+                    <TextBlock Text="店长"  Style="{StaticResource listTextBlock}"/>
+                </StackPanel>
+            </ListViewHeaderItem>
+        </DataTemplate>
+
+        <DataTemplate  x:Key="HeaderDataTemplateVertical">
+            <ListViewHeaderItem>
+                <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" >
+                    <TextBlock Text="编号"  Style="{StaticResource listTextBlock}"/>
+                    <TextBlock Text="名称"  Style="{StaticResource listTextBlock}"/>
+                    <TextBlock Text="所属地"  Style="{StaticResource listTextBlock}"/>
+                    <TextBlock Text="店长"  Style="{StaticResource listTextBlock}"/>
+                </StackPanel>
+            </ListViewHeaderItem>
+        </DataTemplate>
+
+        <DataTemplate x:DataType="data:SalonEditModel" x:Key="DataTemplateHorizontal">
+            <StackPanel  Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <TextBlock Text="{Binding Code}" Visibility="Visible" Style="{StaticResource listTextBlock}"/>
+                <TextBlock Text="{Binding Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
+                <TextBox Text="{Binding Name , Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
+                <TextBlock Text="{Binding Location}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
+                <TextBox Text="{Binding Location, Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
+                <TextBlock Text="{Binding Manager}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
+                <TextBox Text="{Binding Manager, Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
+            </StackPanel>         
+        </DataTemplate>
+
+        <DataTemplate x:DataType="data:SalonEditModel" x:Key="DataTemplateVertical">
+            <StackPanel  Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <TextBlock Text="{Binding Code}"  Visibility="Visible"  Style="{StaticResource listTextBlock}"/>
+                <TextBlock Text="{Binding Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
+                <TextBox Text="{Binding Name, Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
+                <TextBlock Text="{Binding Location}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
+                <TextBox Text="{Binding Location, Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
+                <TextBlock Text="{Binding Manager}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
+                <TextBox Text="{Binding Manager, Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
+            </StackPanel>
+        </DataTemplate>
+        
+        
+    </Page.Resources>
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="LargeWindow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource LargeWindowSnapPoint}"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="salonList.ItemTemplate" Value="{StaticResource DataTemplateHorizontal}" />
+                        <Setter Target="salonList.HeaderTemplate" Value="{StaticResource HeaderDataTemplateHorizontal}" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="MediumWindow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MediumWindowSnapPoint}"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="salonList.ItemTemplate" Value="{StaticResource DataTemplateVertical}" />
+                        <Setter Target="salonList.HeaderTemplate" Value="{StaticResource HeaderDataTemplateVertical}" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="SmallWindow">
+                    <VisualState.StateTriggers >
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowSnapPoint}"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="salonList.ItemTemplate" Value="{StaticResource DataTemplateVertical}" />
+                        <Setter Target="salonList.HeaderTemplate" Value="{StaticResource HeaderDataTemplateVertical}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        
+        <TextBlock x:Name="title" Text="会所编辑" TextAlignment="Center" 
+                   FontSize="18"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,50,0"/>
+        <ListView  x:Name="salonList"  ItemsSource="{Binding Salons}" IsItemClickEnabled="True"  
+                   SelectionMode="None" HorizontalContentAlignment="Stretch" 
+                    Margin="50,50,50,50"
+                    HorizontalAlignment="Center" ItemClick="SalonList_ItemClick" KeyUp="SalonList_KeyUp">         
+        </ListView>
+    </Grid>
+</Page>

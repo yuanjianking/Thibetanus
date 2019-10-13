@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using Thibetanus.Common.Models;
 using Thibetanus.Models;
 using Windows.Storage;
 
@@ -17,6 +18,7 @@ namespace Thibetanus.Common.Helper
             MainMaster,
             MainManager,
             StaffSub,
+            SalonSub,
         }
 
         private static MenuHelper me = null;
@@ -68,6 +70,9 @@ namespace Thibetanus.Common.Helper
                     break;
                 case MenuType.StaffSub:
                     path = "root/SubMenu/StaffSub";
+                    break;
+                case MenuType.SalonSub:
+                    path = "root/SubMenu/SalonSub";
                     break;
                 default:
                     break;

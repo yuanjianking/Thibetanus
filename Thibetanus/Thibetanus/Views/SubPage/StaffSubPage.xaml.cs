@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Thibetanus.Common.Helper;
+using Thibetanus.Common.Models;
 using Thibetanus.Views.SubPage.Staff;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -32,9 +35,12 @@ namespace Thibetanus.Views.SubPage
             this.InitializeComponent();
          }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        public ObservableCollection<MenuModel> Menus
         {
-            base.OnNavigatedTo(e);
+            get
+            {
+                return new ObservableCollection<MenuModel>(MenuHelper.GetXmlHelper().GetMenus(MenuHelper.MenuType.StaffSub));
+            }
         }
     }
 }
