@@ -5,9 +5,12 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Thibetanus.Common.Enum;
 using Thibetanus.Common.Helper;
 using Thibetanus.Common.Models;
+using Thibetanus.DBmanager.PostgreSQL;
+using Thibetanus.MasterData;
 using Thibetanus.Models;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation;
@@ -80,6 +83,17 @@ namespace Thibetanus.Views
             }
 
             (Application.Current as App).ContentFrame = contentFrame;
+
+            //var t = Task.Run(() => {   });
+
+            //测试用的数据导入
+            //using (var context = new PostgreSQLContext())
+            //{
+            //    PostgreSQLContxtSeeder.Seed(context);
+            //}
+            ////数据库数据加载，显示慢，转菊花？还是怎么优化？
+            (new MasterdataManager()).Load();         
+
             base.OnNavigatedTo(e);
         }
 

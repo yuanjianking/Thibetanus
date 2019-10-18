@@ -8,7 +8,12 @@ namespace Thibetanus.DBmanager
 {
     interface DBConnect
     {
-        List<TSource> FindAll<TSource>() where TSource : class;
-
+        void StartConnect();
+        void CloseConnect();
+        void SaveChange();
+        
+        List<TSource> FindAll<TSource,Tkey>(Func<TSource, Tkey> orderby) where TSource : class;
+        void Modify<TSource>(TSource model) where TSource : class;
+        void Add<TSource>(TSource model) where TSource : class;
     }
 }

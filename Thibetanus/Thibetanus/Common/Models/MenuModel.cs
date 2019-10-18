@@ -43,17 +43,5 @@ namespace Thibetanus.Common.Models
         {
             return Label;
         }
-
-        private string v;
-        public string V
-        {
-            get { return v; }
-
-            set
-            {
-                v = value;
-                RaisePropertyChanged("V");
-            }
-        }
     }
 }

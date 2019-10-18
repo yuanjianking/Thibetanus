@@ -35,5 +35,15 @@ namespace Thibetanus.DBmanager
             }
             return connect;
         }
+
+        public DBConnect GetMongDBConnect()
+        {
+            return new MongDBConnect();
+        }
+
+        public DBConnect GetPostgreSQLDBConnect()
+        {
+            return new PostgreSQLConnect();
+        }
     }
 }

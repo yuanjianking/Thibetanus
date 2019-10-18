@@ -125,6 +125,10 @@
     <Compile Include="Common\Enum\Permission.cs" />
     <Compile Include="Common\Helper\EncryptHelper.cs" />
     <Compile Include="Common\Helper\MenuHelper.cs" />
+    <Compile Include="Common\Helper\ModelHelper.cs" />
+    <Compile Include="Common\Initiate\InitiateEventArgs.cs" />
+    <Compile Include="Common\Initiate\InitiateEventHandler.cs" />
+    <Compile Include="Common\Initiate\MasterDataInitiater.cs" />
     <Compile Include="Common\Models\MenuModel.cs" />
     <Compile Include="Common\UserControls\GridMenu.xaml.cs">
       <DependentUpon>GridMenu.xaml</DependentUpon>
@@ -132,6 +136,7 @@
     <Compile Include="Common\UserControls\MessagePopup.xaml.cs">
       <DependentUpon>MessagePopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Salon\SalonControl.cs" />
     <Compile Include="Controls\Staff\StaffControl.cs" />
     <Compile Include="Controls\LoginControl.cs" />
     <Compile Include="DBmanager\DBConnect.cs" />
@@ -142,13 +147,21 @@
     <Compile Include="DBmanager\PostgreSQL\PostgreSQLContxtSeeder.cs" />
     <Compile Include="DBModels\MongDB\Skill.cs" />
     <Compile Include="DBModels\MongDB\Staff.cs" />
+    <Compile Include="DBModels\PostgreSQL\Location.cs" />
     <Compile Include="DBModels\PostgreSQL\Order.cs" />
     <Compile Include="DBModels\PostgreSQL\Skill.cs" />
+    <Compile Include="DBModels\PostgreSQL\Manager.cs" />
     <Compile Include="DBModels\PostgreSQL\Staff.cs" />
+    <Compile Include="DBModels\PostgreSQL\Salon.cs" />
     <Compile Include="DBModels\PostgreSQL\User.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MasterData\ManagerMaster.cs" />
+    <Compile Include="MasterData\LocationMaster.cs" />
+    <Compile Include="MasterData\MasterdataManager.cs" />
+    <Compile Include="Models\SubPage\LocationModel.cs" />
+    <Compile Include="Models\SubPage\ManagerModel.cs" />
     <Compile Include="Models\SubPage\Salon\SalonEditModel.cs" />
     <Compile Include="Models\SubPage\Staff\SkillModel.cs" />
     <Compile Include="Models\SubPage\Staff\StaffInfoModel.cs" />

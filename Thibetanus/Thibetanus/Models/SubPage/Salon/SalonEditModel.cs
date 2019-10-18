@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Thibetanus.Common.BaseModel;
+using Thibetanus.MasterData;
 
 namespace Thibetanus.Models.SubPage.Salon
 {
@@ -11,10 +13,17 @@ namespace Thibetanus.Models.SubPage.Salon
     {
         private string _code;
         private string _name;
-        private string _location;
-        private string _manager;
+        private string _locationCode;
+        private string _managerCode;
+        private LocationModel _location;
+        private ManagerModel _manager;
+        private ObservableCollection<LocationModel> _locations = null;
+        private ObservableCollection<ManagerModel> _managers = null;
         private string _show = "Visible";
         private string _edit = "Collapsed";
+        private bool _newdata = false;
+
+        public int Id { get; set; }
 
         public string Code
         {
@@ -38,24 +47,70 @@ namespace Thibetanus.Models.SubPage.Salon
             }
         }
 
-        public string Location
+        public string LocationCode
+        {
+            get { return _locationCode; }
+
+            set
+            {
+                _locationCode = value;
+                this.Location = (new LocationMaster()).GetDataByCode(value);
+                this.Locations = (new LocationMaster()).GetCollection();
+            }
+        }
+
+        public string ManagerCode
+        {
+            get { return _managerCode; }
+
+            set
+            {
+                _managerCode = value;
+                this.Manager = (new ManagerMaster()).GetDataByCode(value);
+                this.Managers = (new ManagerMaster()).GetCollection();
+            }
+        }
+
+        public LocationModel Location
         {
             get { return _location; }
 
             set
             {
                 _location = value;
+                _locationCode = _location.Code;
                 RaisePropertyChanged("Location");
             }
         }
-        public string Manager
+        public ManagerModel Manager
         {
             get { return _manager; }
 
             set
             {
                 _manager = value;
+                _managerCode = _manager.Code;
                 RaisePropertyChanged("Manager");
+            }
+        }
+
+        public ObservableCollection<LocationModel> Locations
+        {
+            get { return _locations; }
+            set
+            {
+                _locations = value;
+                RaisePropertyChanged("Locations");
+            }
+        }
+
+        public ObservableCollection<ManagerModel> Managers
+        {
+            get { return _managers; }
+            set
+            {
+                _managers = value;
+                RaisePropertyChanged("Managers");
             }
         }
 
@@ -81,16 +136,33 @@ namespace Thibetanus.Models.SubPage.Salon
             }
         }
 
-        public SalonEditModel()
+        public bool NewData
         {
-        }
-        public SalonEditModel(string code, string name, string location,string manager)
-        {
-            this.Code = code;
-            this.Name = name;
-            this.Location = location;
-            this.Manager = manager;
+            get { return _newdata; }
 
+            set
+            {
+                _newdata = value;
+                RaisePropertyChanged("NewData");
+            }
         }
+        public SalonEditModel()
+        {          
+        }
+
+        public SalonEditModel(string code, string show, string edit)
+        {
+            this.Show = show;
+            this.Edit = edit;
+            this.NewData = true;
+            this.Code = code;
+            this.Name = "熊熊的产康会所";
+            this.Location = (new LocationMaster()).GetCollection().First();
+            this.Locations = (new LocationMaster()).GetCollection();
+            this.Manager = (new ManagerMaster()).GetCollection().First();
+            this.Managers = (new ManagerMaster()).GetCollection();
+        }
+        
+        
     }
 }

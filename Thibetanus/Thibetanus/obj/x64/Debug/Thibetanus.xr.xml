@@ -5,11 +5,17 @@
     <RootPropertyPathName Name="Password" />
     <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="Label" />
+    <RootPropertyPathName Name="Code" />
+    <RootPropertyPathName Name="Managers" />
     <RootPropertyPathName Name="Manager" />
     <RootPropertyPathName Name="Edit" />
     <RootPropertyPathName Name="Show" />
+    <RootPropertyPathName Name="Locations" />
     <RootPropertyPathName Name="Location" />
-    <RootPropertyPathName Name="Code" />
+    <RootPropertyPathName Name="DelCommand" />
+    <RootPropertyPathName Name="SelectedIndex" />
+    <RootPropertyPathName Name="AddCommand" />
+    <RootPropertyPathName Name="SaveCommand" />
     <RootPropertyPathName Name="Salons" />
     <RootPropertyPathName Name="Orientation" />
     <RootPropertyPathName Name="StaffInfos" />
@@ -143,6 +149,8 @@
       <RootProperty Name="Background" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Command" />
+      <RootProperty Name="CommandParameter" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Thibetanus.MainPage" />
@@ -162,8 +170,8 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Mode" />
-      <RootProperty Name="ElementName" />
       <RootProperty Name="Path" />
+      <RootProperty Name="ElementName" />
     </RootType>
     <RootType FullName="Thibetanus.Views.LoginPage" />
     <RootType FullName="System.String" />
@@ -182,10 +190,12 @@
       <RootProperty Name="HorizontalContentAlignment" />
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="ItemsSource" />
-      <RootProperty Name="Margin" />
+      <RootProperty Name="IsRightTapEnabled" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Resources" />
       <RootProperty Name="HeaderTemplate" />
       <RootEvent Name="ItemClick" />
+      <RootEvent Name="RightTapped" />
       <RootEvent Name="KeyUp" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListViewItem">
@@ -209,6 +219,17 @@
     <RootType FullName="Thibetanus.ViewModels.SubPage.Salon.SalonEditViewModel" />
     <RootType FullName="Windows.UI.Xaml.FrameworkElement">
       <RootProperty Name="MinWidth" />
+      <RootProperty Name="Margin" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="SelectedItem" />
+      <RootProperty Name="SelectedValuePath" />
+      <RootProperty Name="DisplayMemberPath" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="Style" />
+      <RootProperty Name="Header" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Orientation" />
@@ -220,15 +241,18 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ListViewHeaderItem">
       <RootProperty Name="Content" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyout">
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutItem">
+      <RootProperty Name="Name" />
+      <RootProperty Name="Text" />
+    </RootType>
     <RootType FullName="Thibetanus.Views.SubPage.Salon.SalonEdit" />
     <RootType FullName="Thibetanus.Views.SubPage.ServiceSubPage" />
     <RootType FullName="Thibetanus.Views.SubPage.StaffSubPage" />
     <RootType FullName="Thibetanus.Views.SubPage.Staff.StaffAttendance" />
     <RootType FullName="Thibetanus.ViewModels.SubPage.Staff.StaffEditViewModel" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
-      <RootProperty Name="Header" />
-      <RootProperty Name="Margin" />
-    </RootType>
     <RootType FullName="Thibetanus.Views.SubPage.Staff.StaffEdit" />
   </Roots.RootTypes>
 </Roots>

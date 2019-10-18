@@ -11,17 +11,37 @@ namespace Thibetanus.DBmanager.PostgreSQL
 {
     class PostgreSQLConnect : DBConnect
     {
-        public List<TSource> FindAll<TSource>() where TSource : class
+        private PostgreSQLContext context = null;
+
+        public void StartConnect()
+        {
+            if(context == null)
+                context = new PostgreSQLContext();
+        }
+
+        public void CloseConnect()
+        {
+            context.Dispose();
+            context = null;
+        }
+
+        public void SaveChange()
+        {
+            if (context != null)
+                context.SaveChanges();
+        }
+
+        public  List<TSource> FindAll<TSource, Tkey>(Func<TSource, Tkey> orderby) where TSource : class
         {
             using (var context = new PostgreSQLContext())
             {
-               // PostgreSQLContxtSeeder.Seed(context);
+                //PostgreSQLContxtSeeder.Seed(context);
                 //var users = context.Users.Include(u => u.Orders).ToList();
                 //users.ForEach(u =>
                 //{
-                //    System.Console.WriteLine(u);
+                //    Console.WriteLine(u);
                 //});
-                return context.Set<TSource>().ToList();
+                return context.Set<TSource>().AsNoTracking().OrderBy(orderby).ToList();
             }
         }
         
@@ -57,25 +77,48 @@ namespace Thibetanus.DBmanager.PostgreSQL
 
         public void Modify<TSource>(TSource model) where TSource : class
         {
-            using (PostgreSQLContext context = new PostgreSQLContext())
+            //using (PostgreSQLContext context = new PostgreSQLContext())
             {
-                if (context.Entry<TSource>(model).State == EntityState.Detached)
+                if (context.Entry(model).State == EntityState.Detached)
                 {
                     context.Set<TSource>().Attach(model);
-                    context.Entry<TSource>(model).State = EntityState.Modified;
+                    context.Entry(model).State = EntityState.Modified;
                 }
-                context.SaveChanges();
             }
         }
 
-        public void Add<TSource>(TSource model) where TSource : class
+        public void Modify<TSource>(List<TSource> models) where TSource : class
         {
-            using (PostgreSQLContext context = new PostgreSQLContext())
+            //using (PostgreSQLContext context = new PostgreSQLContext())
             {
-                context.Set<TSource>().Add(model);
-                context.SaveChanges();
+                foreach(TSource model in models)
+                { 
+                    if (context.Entry(model).State == EntityState.Detached)
+                    {
+                        context.Set<TSource>().Attach(model);
+                        context.Entry(model).State = EntityState.Modified;
+                    }
+                }
             }
         }
-     
+
+
+        public void Add<TSource>(TSource model) where TSource : class
+        {
+           // using (PostgreSQLContext context = new PostgreSQLContext())
+            {
+                context.Set<TSource>().Add(model);
+            }
+        }
+
+        public void Add<TSource>(List<TSource> models) where TSource : class
+        {
+            //using (PostgreSQLContext context = new PostgreSQLContext())
+            {
+                foreach (TSource model in models)
+                    context.Set<TSource>().Add(model);
+            }
+        }
+
     }
 }

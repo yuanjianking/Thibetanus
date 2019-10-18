@@ -3,8 +3,10 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Thibetanus.DBModels.MongDB;
 
 namespace Thibetanus.DBmanager.MongDB
@@ -26,6 +28,21 @@ namespace Thibetanus.DBmanager.MongDB
 
         }
 
+        public void StartConnect()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CloseConnect()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveChange()
+        {
+            throw new NotImplementedException();
+        }
+
         private IMongoDatabase GetDataBase()
         {
             MongoClient client = new MongoClient(Conn);
@@ -33,13 +50,25 @@ namespace Thibetanus.DBmanager.MongDB
             return database;
         }
         
-        public List<TSource> FindAll<TSource>() where TSource : class
+        public List<TSource> FindAll<TSource, Tkey>(Func<TSource, Tkey> orderby) where TSource : class
         {
             String tableName = typeof(TSource).Name;
             var collection = GetDataBase().GetCollection<TSource>(tableName);
             var filterBuilder = Builders<TSource>.Filter;
             var filter = filterBuilder.Empty;
-            return collection.Find(filter).ToList();
+            return collection.Find(filter).ToList().OrderBy(orderby).ToList();
         }
+
+        public void Modify<TSource>(TSource model) where TSource : class
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Add<TSource>(TSource model) where TSource : class
+        {
+            throw new NotImplementedException();
+        }
+
+    
     }
 }

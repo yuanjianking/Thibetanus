@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Thibetanus.Common.Models;
+using Thibetanus.DBmanager.PostgreSQL;
 using Thibetanus.Models.SubPage.Salon;
 using Thibetanus.Models.SubPage.Staff;
 using Windows.Foundation;
@@ -35,29 +36,58 @@ namespace Thibetanus.Views.SubPage.Salon
         private void SalonList_ItemClick(object sender, ItemClickEventArgs e)
         {
             var item = (SalonEditModel)e.ClickedItem;
-            if(item.Show.Equals("Collapsed"))
-            {
+
+            if (item.Show.Equals("Collapsed"))
+            {              
                 item.Show = "Visible";
                 item.Edit = "Collapsed";
             }
             else
-            { 
+            {
+                ResetStatus();
                 item.Show = "Collapsed";
                 item.Edit = "Visible";
             }
+        }
+
+        private void SalonList_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            ResetStatus();
+            //string str = ((FrameworkElement)e.OriginalSource).DataContext.ToString();
+            //Copy.Text = str;
+
+            //menuFlyout.ShowAt(salonList, e.GetPosition(this.salonList));
+            //var item = (SalonEditModel)e.ClickedItem;
+
+            //if (item.Show.Equals("Collapsed"))
+            //{
+            //    item.Show = "Visible";
+            //    item.Edit = "Collapsed";
+            //}
+            //else
+            //{
+            //    item.Show = "Collapsed";
+            //    item.Edit = "Visible";
+            //}
         }
 
         private void SalonList_KeyUp(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key.Equals(VirtualKey.Enter))
             {
-               foreach(var item in salonList.Items)
-               {
-                    ((SalonEditModel)item).Show = "Visible";
-                    ((SalonEditModel)item).Edit = "Collapsed";
-
-                }
+                ResetStatus();
             }
         }
+              
+        private void ResetStatus()
+        {
+            foreach (var item1 in salonList.Items)
+            {
+                ((SalonEditModel)item1).Show = "Visible";
+                ((SalonEditModel)item1).Edit = "Collapsed";
+            }
+        }
+
+      
     }
 }
