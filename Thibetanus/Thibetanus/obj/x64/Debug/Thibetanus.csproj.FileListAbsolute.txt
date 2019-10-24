@@ -149,4 +149,10 @@ D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\SalonEdit.
 D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\SalonEdit.g.cs
 D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\SalonEdit.xaml
 D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\SalonEdit.xbf
-D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Thibetanus.csprojAssemblyReference.cache
+D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\MetroLog.WinRT.winmd
+D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\MetroLog.WinRT.pdb
+D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\MetroLog.dll
+D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\MetroLog.pdb
+D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\MetroLog.WinRT.pri.xml
+D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\MetroLog.pri.xml
+D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\.winmd_cache\$MetroLog.WinRT.winmd_635900761300000000.json

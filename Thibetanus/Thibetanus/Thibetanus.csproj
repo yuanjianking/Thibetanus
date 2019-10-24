@@ -123,12 +123,16 @@
     <Compile Include="Common\BaseModel\DelegateCommand.cs" />
     <Compile Include="Common\BaseModel\ObservableObject.cs" />
     <Compile Include="Common\Enum\Permission.cs" />
+    <Compile Include="Common\Exceptions\AppException.cs" />
+    <Compile Include="Common\Exceptions\BaseException.cs" />
+    <Compile Include="Common\Exceptions\SystemException.cs" />
     <Compile Include="Common\Helper\EncryptHelper.cs" />
     <Compile Include="Common\Helper\MenuHelper.cs" />
     <Compile Include="Common\Helper\ModelHelper.cs" />
     <Compile Include="Common\Initiate\InitiateEventArgs.cs" />
     <Compile Include="Common\Initiate\InitiateEventHandler.cs" />
     <Compile Include="Common\Initiate\MasterDataInitiater.cs" />
+    <Compile Include="Common\Log\AppLog.cs" />
     <Compile Include="Common\Models\MenuModel.cs" />
     <Compile Include="Common\UserControls\GridMenu.xaml.cs">
       <DependentUpon>GridMenu.xaml</DependentUpon>
@@ -215,6 +219,8 @@
     <PRIResource Include="Strings\en-US\Resources.resw" />
     <PRIResource Include="Strings\zh-CN\MessageResources.resw" />
     <PRIResource Include="Strings\en-US\MessageResources.resw" />
+    <PRIResource Include="Strings\zh-CN\ExceptionResources.resw" />
+    <PRIResource Include="Strings\en-US\ExceptionResources.resw" />
     <None Include="Thibetanus_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -295,6 +301,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MetroLog">
+      <Version>1.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.8</Version>
     </PackageReference>

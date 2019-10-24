@@ -29,7 +29,14 @@ namespace Thibetanus.ViewModels.SubPage.Salon
 
         public SalonEditViewModel()
         {
-            Salons = new SalonControl().GetAllSalonInfos();  
+            try
+            {
+                Salons = new SalonControl().GetAllSalonInfos();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
         }
         
         private DelegateCommand _addCommand;

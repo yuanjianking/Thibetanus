@@ -44,5 +44,10 @@ namespace Thibetanus.Common.Helper
                 }
             }
         }
+
+        public static bool CompareModel(object target, object source)
+        {
+            return true;
+        }
     }
 }

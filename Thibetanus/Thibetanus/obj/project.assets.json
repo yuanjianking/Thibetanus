@@ -14,6 +14,17 @@
           "lib/netstandard2.0/DnsClient.dll": {}
         }
       },
+      "MetroLog/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore/2.2.4": {
         "type": "package",
         "dependencies": {
@@ -1434,6 +1445,17 @@
         },
         "runtime": {
           "lib/netstandard2.0/DnsClient.dll": {}
+        }
+      },
+      "MetroLog/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore/2.2.4": {
@@ -3159,6 +3181,17 @@
         },
         "runtime": {
           "lib/netstandard2.0/DnsClient.dll": {}
+        }
+      },
+      "MetroLog/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore/2.2.4": {
@@ -4954,6 +4987,17 @@
           "lib/netstandard2.0/DnsClient.dll": {}
         }
       },
+      "MetroLog/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore/2.2.4": {
         "type": "package",
         "dependencies": {
@@ -6747,6 +6791,17 @@
           "lib/netstandard2.0/DnsClient.dll": {}
         }
       },
+      "MetroLog/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore/2.2.4": {
         "type": "package",
         "dependencies": {
@@ -8470,6 +8525,17 @@
         },
         "runtime": {
           "lib/netstandard2.0/DnsClient.dll": {}
+        }
+      },
+      "MetroLog/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore/2.2.4": {
@@ -10265,6 +10331,17 @@
           "lib/netstandard2.0/DnsClient.dll": {}
         }
       },
+      "MetroLog/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore/2.2.4": {
         "type": "package",
         "dependencies": {
@@ -11988,6 +12065,17 @@
         },
         "runtime": {
           "lib/netstandard2.0/DnsClient.dll": {}
+        }
+      },
+      "MetroLog/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
+        },
+        "runtime": {
+          "lib/win81/MetroLog.WinRT.winmd": {},
+          "lib/win81/MetroLog.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore/2.2.4": {
@@ -13789,6 +13877,43 @@
         "lib/netstandard1.3/DnsClient.xml",
         "lib/netstandard2.0/DnsClient.dll",
         "lib/netstandard2.0/DnsClient.xml"
+      ]
+    },
+    "MetroLog/1.0.1": {
+      "sha512": "9+i0lIT+OAf9FQOrnSbyxG5RbBtRUthIQAn73c9Y1z0v+2dPCKn9oTPTt8njHPMzy5lRoT9MDQRkYSqJ7aVqgA==",
+      "type": "package",
+      "path": "metrolog/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/win8-javascript/MetroLog ReadMe.txt",
+        "content/win8-javascript/typings/MetroLog.WinRT.d.ts",
+        "content/win8-javascript/typings/winrt.d.ts",
+        "lib/MonoAndroid/MetroLog.dll",
+        "lib/MonoAndroid/MetroLog.pdb",
+        "lib/MonoTouch/MetroLog.dll",
+        "lib/MonoTouch/MetroLog.pdb",
+        "lib/Xamarin.iOS/MetroLog.dll",
+        "lib/Xamarin.iOS/MetroLog.pdb",
+        "lib/dotnet/MetroLog.dll",
+        "lib/dotnet/MetroLog.pdb",
+        "lib/net45/MetroLog.dll",
+        "lib/net45/MetroLog.pdb",
+        "lib/portable-net45+wp8+win8+wpa81/MetroLog.dll",
+        "lib/portable-net45+wp8+win8+wpa81/MetroLog.pdb",
+        "lib/win81/MetroLog.WinRT.pdb",
+        "lib/win81/MetroLog.WinRT.pri",
+        "lib/win81/MetroLog.WinRT.winmd",
+        "lib/win81/MetroLog.dll",
+        "lib/win81/MetroLog.pdb",
+        "lib/win81/MetroLog.pri",
+        "lib/wp8/MetroLog.dll",
+        "lib/wp8/MetroLog.pdb",
+        "lib/wpa81/MetroLog.dll",
+        "lib/wpa81/MetroLog.pdb",
+        "lib/wpa81/MetroLog.pri",
+        "metrolog.1.0.1.nupkg.sha512",
+        "metrolog.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore/2.2.4": {
@@ -22303,6 +22428,7 @@
   },
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.17134": [
+      "MetroLog >= 1.0.1",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.8",
       "MongoDB.Driver >= 2.8.1",
       "Npgsql >= 4.0.9",
@@ -22346,6 +22472,10 @@
     "frameworks": {
       "uap10.0.17134": {
         "dependencies": {
+          "MetroLog": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.2.8, )"

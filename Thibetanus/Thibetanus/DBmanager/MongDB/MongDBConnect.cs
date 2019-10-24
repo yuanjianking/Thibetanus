@@ -69,6 +69,9 @@ namespace Thibetanus.DBmanager.MongDB
             throw new NotImplementedException();
         }
 
-    
+        public void Delete<TSource>(params string[] ids) where TSource : class
+        {
+            throw new NotImplementedException();
+        }
     }
 }

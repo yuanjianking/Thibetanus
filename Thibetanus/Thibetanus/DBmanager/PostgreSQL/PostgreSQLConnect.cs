@@ -35,12 +35,12 @@ namespace Thibetanus.DBmanager.PostgreSQL
         {
             using (var context = new PostgreSQLContext())
             {
-                //PostgreSQLContxtSeeder.Seed(context);
-                //var users = context.Users.Include(u => u.Orders).ToList();
-                //users.ForEach(u =>
-                //{
-                //    Console.WriteLine(u);
-                //});
+                PostgreSQLContxtSeeder.Seed(context);
+                var users = context.Users.Include(u => u.Orders).ToList();
+                users.ForEach(u =>
+                {
+                    Console.WriteLine(u);
+                });
                 return context.Set<TSource>().AsNoTracking().OrderBy(orderby).ToList();
             }
         }
@@ -63,16 +63,16 @@ namespace Thibetanus.DBmanager.PostgreSQL
 
         public void Delete<TSource>(params string[] ids) where TSource : class
         {
-            using (PostgreSQLContext context = new PostgreSQLContext())
-            {
+         //   using (PostgreSQLContext context = new PostgreSQLContext())
+       //     {
                 TSource v = context.Set<TSource>().Find(ids);
                 if (v == null)
                 {
                     return;
                 }
                 context.Set<TSource>().Remove(v);
-                context.SaveChanges();
-            }
+        //        context.SaveChanges();
+       //     }
         }
 
         public void Modify<TSource>(TSource model) where TSource : class

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Thibetanus.Common.BaseControl;
 using Thibetanus.Common.Helper;
+using Thibetanus.Common.Log;
 using Thibetanus.DBmanager;
 using Thibetanus.DBmanager.PostgreSQL;
 using Thibetanus.Models.SubPage.Salon;
@@ -24,7 +25,7 @@ namespace Thibetanus.Controls.Salon
                 connect.StartConnect();
                 Hashtable LocationTable = new Hashtable ();
                 Hashtable ManagerTable = new Hashtable();
-
+                var list = connect.FindAll<DBModels.PostgreSQL.Salon, int>(m => m.Id);
                 foreach (SalonEditModel model in models)
                 {
                     DBModels.PostgreSQL.Salon salon = new DBModels.PostgreSQL.Salon();
@@ -52,20 +53,42 @@ namespace Thibetanus.Controls.Salon
                         ManagerTable.Add(Manager.Id, Manager);
                     }
 
-                    if (!model.NewData)
-                    {
-                        connect.Modify(salon);
-                    }
-                    else
+                    Func<DBModels.PostgreSQL.Salon, bool> func = m =>
+                      {
+                          if (m.Id == model.Id && m.Code.Equals(model.Code))
+                          {
+                              if (m.Name.Equals(model.Name) && m.LocationCode.Equals(model.LocationCode) && m.ManagerCode.Equals(model.ManagerCode))
+                              {
+                                  return false;
+                              }
+                              else
+                              { 
+                                 return true;
+                              }
+
+                          }                         
+                          return false;
+                      };
+
+
+                    if (model.Id < 1)
                     {
                         connect.Add(salon);
+                    }
+                    else if(list.Where(m => m.Id == model.Id).Count() < 1)
+                    {
+                        connect.Delete<DBModels.PostgreSQL.Salon>(model.Id.ToString());
+                    }
+                    else if (list.Where(func).Count() > 0)
+                    {
+                        connect.Modify(salon);
                     }
                 }
                connect.SaveChange();
             }
             catch (Exception e)
             {
-                Console.Write(e);
+                AppLog.Error(typeof(SalonControl),e.ToString());
             }
             finally { 
                 connect.CloseConnect();

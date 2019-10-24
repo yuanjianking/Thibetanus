@@ -21,7 +21,6 @@ namespace Thibetanus.Models.SubPage.Salon
         private ObservableCollection<ManagerModel> _managers = null;
         private string _show = "Visible";
         private string _edit = "Collapsed";
-        private bool _newdata = false;
 
         public int Id { get; set; }
 
@@ -136,16 +135,6 @@ namespace Thibetanus.Models.SubPage.Salon
             }
         }
 
-        public bool NewData
-        {
-            get { return _newdata; }
-
-            set
-            {
-                _newdata = value;
-                RaisePropertyChanged("NewData");
-            }
-        }
         public SalonEditModel()
         {          
         }
@@ -154,7 +143,6 @@ namespace Thibetanus.Models.SubPage.Salon
         {
             this.Show = show;
             this.Edit = edit;
-            this.NewData = true;
             this.Code = code;
             this.Name = "熊熊的产康会所";
             this.Location = (new LocationMaster()).GetCollection().First();
