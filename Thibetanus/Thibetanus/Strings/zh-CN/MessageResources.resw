@@ -120,4 +120,7 @@
   <data name="BootError" xml:space="preserve">
     <value>启动密码不对</value>
   </data>
+  <data name="Success" xml:space="preserve">
+    <value>成功</value>
+  </data>
 </root>

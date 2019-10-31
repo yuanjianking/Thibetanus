@@ -39,7 +39,7 @@ namespace Thibetanus.Common.UserControls
             this.m_TextBlockContent = content;
             this.m_ShowTime = showTime;
         }
-
+        
         public MessagePopup(string content) : this(content, TimeSpan.FromSeconds(2))
         {
         }

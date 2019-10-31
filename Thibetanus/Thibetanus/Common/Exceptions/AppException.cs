@@ -10,6 +10,7 @@ namespace Thibetanus.Common.Exceptions
     {
         public AppException(string code) : base(code)
         {
+            
         }
 
         public AppException(string code, string msg) : base(code, msg)

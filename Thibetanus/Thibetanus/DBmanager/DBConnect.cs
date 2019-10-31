@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Thibetanus.DBmanager
 {
-    interface DBConnect
+    interface DBConnect : IDisposable
     {
-        void StartConnect();
+        DBConnect StartConnect();
         void CloseConnect();
-        void SaveChange();
-        
+        int SaveChange();
+        void Commite();
+        void Rollback();
+        DBConnect BeginTransaction();
+        void EndTransaction();
         List<TSource> FindAll<TSource,Tkey>(Func<TSource, Tkey> orderby) where TSource : class;
-        void Add<TSource>(TSource model) where TSource : class;
-        void Modify<TSource>(TSource model) where TSource : class;       
-        void Delete<TSource>(params string[] ids) where TSource : class;
+        int Add<TSource>(TSource model) where TSource : class;
+        int Modify<TSource>(TSource model) where TSource : class;
+        int Delete<TSource>(IEnumerable<TSource> data) where TSource : class;
     }
 }

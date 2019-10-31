@@ -77,7 +77,8 @@ namespace Thibetanus.Models.SubPage.Salon
             set
             {
                 _location = value;
-                _locationCode = _location.Code;
+                if(_location != null)
+                     _locationCode = _location.Code;
                 RaisePropertyChanged("Location");
             }
         }
@@ -88,7 +89,8 @@ namespace Thibetanus.Models.SubPage.Salon
             set
             {
                 _manager = value;
-                _managerCode = _manager.Code;
+                if (_manager != null)
+                    _managerCode = _manager.Code;
                 RaisePropertyChanged("Manager");
             }
         }
@@ -139,11 +141,11 @@ namespace Thibetanus.Models.SubPage.Salon
         {          
         }
 
-        public SalonEditModel(string code, string show, string edit)
+        public SalonEditModel(string show, string edit)
         {
             this.Show = show;
             this.Edit = edit;
-            this.Code = code;
+            this.Code = "MY";
             this.Name = "熊熊的产康会所";
             this.Location = (new LocationMaster()).GetCollection().First();
             this.Locations = (new LocationMaster()).GetCollection();

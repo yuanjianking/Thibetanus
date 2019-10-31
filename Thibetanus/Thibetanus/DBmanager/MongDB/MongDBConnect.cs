@@ -21,27 +21,6 @@ namespace Thibetanus.DBmanager.MongDB
         /// 指定的数据库
         /// </summary>
         private static readonly string DBName = "Thibetanus";
-       
-
-        public MongDBConnect()
-        {
-
-        }
-
-        public void StartConnect()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CloseConnect()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SaveChange()
-        {
-            throw new NotImplementedException();
-        }
 
         private IMongoDatabase GetDataBase()
         {
@@ -49,7 +28,7 @@ namespace Thibetanus.DBmanager.MongDB
             IMongoDatabase database = client.GetDatabase(DBName);
             return database;
         }
-        
+
         public List<TSource> FindAll<TSource, Tkey>(Func<TSource, Tkey> orderby) where TSource : class
         {
             String tableName = typeof(TSource).Name;
@@ -59,19 +38,64 @@ namespace Thibetanus.DBmanager.MongDB
             return collection.Find(filter).ToList().OrderBy(orderby).ToList();
         }
 
-        public void Modify<TSource>(TSource model) where TSource : class
+        public DBConnect StartConnect()
         {
             throw new NotImplementedException();
         }
 
-        public void Add<TSource>(TSource model) where TSource : class
+        public void CloseConnect()
         {
             throw new NotImplementedException();
         }
 
-        public void Delete<TSource>(params string[] ids) where TSource : class
+        public int SaveChange()
         {
             throw new NotImplementedException();
+        }
+
+        public void Commite()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Rollback()
+        {
+            throw new NotImplementedException();
+        }
+
+        public DBConnect BeginTransaction()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EndTransaction()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Add<TSource>(TSource model) where TSource : class
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Modify<TSource>(TSource model) where TSource : class
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Delete<TSource>(IEnumerable<TSource> data) where TSource : class
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
+        public MongDBConnect()
+        {
+
         }
     }
 }

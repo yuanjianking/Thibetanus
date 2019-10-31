@@ -48,9 +48,10 @@
             </ListViewHeaderItem>
         </DataTemplate>
 
-        <DataTemplate                                  x:Key="DataTemplateHorizontal">
+        <DataTemplate                              x:Key="DataTemplateHorizontal">
             <StackPanel  Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" >
-                <TextBlock Text="{Binding Code}" Visibility="Visible" Style="{StaticResource listTextBlock}"/>
+                <TextBlock Text="{Binding Code}" Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
+                <TextBox Text="{Binding Code , Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
                 <TextBlock Text="{Binding Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
                 <TextBox Text="{Binding Name , Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
                 <TextBlock Text="{Binding Location.Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
@@ -62,9 +63,10 @@
             </StackPanel>
         </DataTemplate>
 
-        <DataTemplate                                  x:Key="DataTemplateVertical">
+        <DataTemplate                              x:Key="DataTemplateVertical">
             <StackPanel  Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" >
-                <TextBlock Text="{Binding Code}"  Visibility="Visible"  Style="{StaticResource listTextBlock}"/>
+                <TextBlock Text="{Binding Code}" Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
+                <TextBox Text="{Binding Code , Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
                 <TextBlock Text="{Binding Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
                 <TextBox Text="{Binding Name, Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
                 <TextBlock Text="{Binding Location.Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
@@ -121,7 +123,7 @@
 
         <TextBlock x:ConnectionId='13' x:Name="title" Text="会所编辑" TextAlignment="Center" Grid.Row="0"
                    FontSize="18"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,50,0"/>
-        <ListView x:ConnectionId='14'  x:Name="salonList"   Grid.Row="1" ItemsSource="{Binding Salons}" IsItemClickEnabled="True"  
+        <ListView x:ConnectionId='14'  x:Name="salonList"   Grid.Row="1" ItemsSource="{Binding Salons, Mode=TwoWay}" IsItemClickEnabled="True"  
                    SelectionMode="Single" HorizontalContentAlignment="Stretch"                   
                    IsRightTapEnabled="True"                                    
                    HorizontalAlignment="Center"                                                        >

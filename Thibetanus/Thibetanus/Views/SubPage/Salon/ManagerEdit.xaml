@@ -1,0 +1,134 @@
+﻿<Page
+    x:Class="Thibetanus.Views.SubPage.Salon.ManagerEdit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Thibetanus.Views.SubPage.Salon"
+    xmlns:data="using:Thibetanus.Models.SubPage.Salon"
+    xmlns:vms="using:Thibetanus.ViewModels.SubPage.Salon"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <vms:ManagerEditViewModel x:Name="viewModel"/>
+    </Page.DataContext>
+
+    <Page.Resources>
+        <Style x:Name="listTextBlock" TargetType="TextBlock">
+            <Setter  Property="TextBlock.MinWidth" Value="200"/>
+            <Setter Property="TextBlock.Margin" Value="30,10,30,10" />
+        </Style>
+        <Style x:Name="listTextBox" TargetType="TextBox">
+            <Setter  Property="TextBox.MinWidth" Value="200"/>
+            <Setter Property="TextBox.Margin" Value="30,10,30,10" />
+        </Style>
+        <Style x:Name="listComboBox" TargetType="ComboBox">
+            <Setter  Property="ComboBox.MinWidth" Value="200"/>
+            <Setter Property="ComboBox.Margin" Value="30,10,30,10" />
+        </Style>
+        <DataTemplate  x:Key="HeaderDataTemplateHorizontal">
+            <ListViewHeaderItem>
+                <StackPanel Orientation="Horizontal"   HorizontalAlignment="Center" VerticalAlignment="Top" >
+                    <TextBlock Text="编号"  Style="{StaticResource listTextBlock}"/>
+                    <TextBlock Text="姓名"  Style="{StaticResource listTextBlock}"/>
+                 </StackPanel>
+            </ListViewHeaderItem>
+        </DataTemplate>
+
+        <DataTemplate  x:Key="HeaderDataTemplateVertical">
+            <ListViewHeaderItem>
+                <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" >
+                    <TextBlock Text="编号"  Style="{StaticResource listTextBlock}"/>
+                    <TextBlock Text="姓名"  Style="{StaticResource listTextBlock}"/>
+                </StackPanel>
+            </ListViewHeaderItem>
+        </DataTemplate>
+
+        <DataTemplate x:DataType="data:ManagerModel" x:Key="DataTemplateHorizontal">
+            <StackPanel  Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <TextBlock Text="{Binding Code}" Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
+                <TextBox Text="{Binding Code , Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
+                <TextBlock Text="{Binding Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
+                <TextBox Text="{Binding Name , Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
+             </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:DataType="data:ManagerModel" x:Key="DataTemplateVertical">
+            <StackPanel  Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <TextBlock Text="{Binding Code}" Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
+                <TextBox Text="{Binding Code , Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
+                <TextBlock Text="{Binding Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
+                <TextBox Text="{Binding Name , Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
+             </StackPanel>
+        </DataTemplate>
+
+
+    </Page.Resources>
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="LargeWindow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource LargeWindowSnapPoint}"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="salonList.ItemTemplate" Value="{StaticResource DataTemplateHorizontal}" />
+                        <Setter Target="salonList.HeaderTemplate" Value="{StaticResource HeaderDataTemplateHorizontal}" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="MediumWindow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MediumWindowSnapPoint}"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="salonList.ItemTemplate" Value="{StaticResource DataTemplateVertical}" />
+                        <Setter Target="salonList.HeaderTemplate" Value="{StaticResource HeaderDataTemplateVertical}" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="SmallWindow">
+                    <VisualState.StateTriggers >
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowSnapPoint}"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="salonList.ItemTemplate" Value="{StaticResource DataTemplateVertical}" />
+                        <Setter Target="salonList.HeaderTemplate" Value="{StaticResource HeaderDataTemplateVertical}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="50"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="title" Text="店长编辑" TextAlignment="Center" Grid.Row="0"
+                   FontSize="18"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,50,0"/>
+        <ListView  x:Name="salonList"   Grid.Row="1" ItemsSource="{Binding Managers, Mode=TwoWay}" IsItemClickEnabled="True"  
+                   SelectionMode="Single" HorizontalContentAlignment="Stretch"                   
+                   IsRightTapEnabled="True" RightTapped="SalonList_RightTapped"
+                   HorizontalAlignment="Center" ItemClick="SalonList_ItemClick" KeyUp="SalonList_KeyUp">
+            <ListView.Resources>
+                <MenuFlyout x:Name="menuFlyout">
+                    <MenuFlyout.Items>
+                        <MenuFlyoutItem Name="Copy" Text="Copy" />
+                    </MenuFlyout.Items>
+                </MenuFlyout>
+            </ListView.Resources>
+        </ListView>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,80,0">
+            <Button Background="Transparent" Command="{Binding SaveCommand}"   >
+                <TextBlock Text="&#xE105;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Width="50"   TextAlignment="Center" />
+            </Button>
+            <Button Background="Transparent"  Command="{Binding AddCommand}" >
+                <TextBlock Text="&#xE109;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Width="50"   TextAlignment="Center" />
+            </Button>
+            <Button Background="Transparent" Command="{Binding DelCommand}" CommandParameter="{Binding Path=SelectedIndex ,ElementName=salonList}" >
+                <TextBlock Text="&#xE107;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Width="50"   TextAlignment="Center"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,26 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
+  <Roots.Interfaces>
+    <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
+  </Roots.Interfaces>
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="LoginUser" />
     <RootPropertyPathName Name="Password" />
     <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="Label" />
-    <RootPropertyPathName Name="Code" />
-    <RootPropertyPathName Name="Managers" />
-    <RootPropertyPathName Name="Manager" />
+    <RootPropertyPathName Name="City" />
     <RootPropertyPathName Name="Edit" />
     <RootPropertyPathName Name="Show" />
-    <RootPropertyPathName Name="Locations" />
-    <RootPropertyPathName Name="Location" />
+    <RootPropertyPathName Name="Province" />
+    <RootPropertyPathName Name="Code" />
     <RootPropertyPathName Name="DelCommand" />
     <RootPropertyPathName Name="SelectedIndex" />
     <RootPropertyPathName Name="AddCommand" />
     <RootPropertyPathName Name="SaveCommand" />
+    <RootPropertyPathName Name="Locations" />
+    <RootPropertyPathName Name="Managers" />
+    <RootPropertyPathName Name="Manager" />
+    <RootPropertyPathName Name="Location" />
     <RootPropertyPathName Name="Salons" />
+    <RootPropertyPathName Name="Price" />
+    <RootPropertyPathName Name="Group" />
+    <RootPropertyPathName Name="Serivces" />
     <RootPropertyPathName Name="Orientation" />
     <RootPropertyPathName Name="StaffInfos" />
     <RootPropertyPathName Name="Skills" />
-    <RootPropertyPathName Name="Group" />
     <RootPropertyPathName Name="Margin" />
     <RootPropertyPathName Name="Salon" />
     <RootPropertyPathName Name="Role" />
@@ -164,6 +171,7 @@
       <RootProperty Name="Text" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="Style" />
+      <RootProperty Name="InputScope" />
       <RootProperty Name="Header" />
       <RootProperty Name="Margin" />
       <RootEvent Name="KeyUp" />
@@ -172,6 +180,7 @@
       <RootProperty Name="Mode" />
       <RootProperty Name="Path" />
       <RootProperty Name="ElementName" />
+      <RootProperty Name="Converter" />
     </RootType>
     <RootType FullName="Thibetanus.Views.LoginPage" />
     <RootType FullName="System.String" />
@@ -216,7 +225,7 @@
     <RootType FullName="Thibetanus.Views.SubPage.ReportSubPage" />
     <RootType FullName="Thibetanus.Views.SubPage.SalarySubPage" />
     <RootType FullName="Thibetanus.Views.SubPage.SalonSubPage" />
-    <RootType FullName="Thibetanus.ViewModels.SubPage.Salon.SalonEditViewModel" />
+    <RootType FullName="Thibetanus.ViewModels.SubPage.Salon.LocationEditViewModel" />
     <RootType FullName="Windows.UI.Xaml.FrameworkElement">
       <RootProperty Name="MinWidth" />
       <RootProperty Name="Margin" />
@@ -248,8 +257,15 @@
       <RootProperty Name="Name" />
       <RootProperty Name="Text" />
     </RootType>
+    <RootType FullName="Thibetanus.Views.SubPage.Salon.LocationEdit" />
+    <RootType FullName="Thibetanus.ViewModels.SubPage.Salon.ManagerEditViewModel" />
+    <RootType FullName="Thibetanus.Views.SubPage.Salon.ManagerEdit" />
+    <RootType FullName="Thibetanus.ViewModels.SubPage.Salon.SalonEditViewModel" />
     <RootType FullName="Thibetanus.Views.SubPage.Salon.SalonEdit" />
     <RootType FullName="Thibetanus.Views.SubPage.ServiceSubPage" />
+    <RootType FullName="Thibetanus.ViewModels.SubPage.Service.ServiceEditViewModel" />
+    <RootType FullName="Thibetanus.Common.Converter.PriceConverter" />
+    <RootType FullName="Thibetanus.Views.SubPage.Service.ServiceEdit" />
     <RootType FullName="Thibetanus.Views.SubPage.StaffSubPage" />
     <RootType FullName="Thibetanus.Views.SubPage.Staff.StaffAttendance" />
     <RootType FullName="Thibetanus.ViewModels.SubPage.Staff.StaffEditViewModel" />

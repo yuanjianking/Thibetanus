@@ -5,18 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Thibetanus.Common.BaseModel;
+using Thibetanus.Common.Log;
+using Thibetanus.Common.UserControls;
 using Thibetanus.Controls.Salon;
 using Thibetanus.Models.SubPage;
 using Thibetanus.Models.SubPage.Salon;
+using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml;
 
 namespace Thibetanus.ViewModels.SubPage.Salon
 {
-    class SalonEditViewModel : ObservableObject
+    class SalonEditViewModel : SubBaseViewModel
     {
-       private ObservableCollection<SalonEditModel> _salons = null;
+       private ObservableCollection<SalonModel> _salons = null;
 
-       public ObservableCollection<SalonEditModel> Salons
+       public ObservableCollection<SalonModel> Salons
         {
             get { return _salons; }
             set
@@ -35,68 +38,50 @@ namespace Thibetanus.ViewModels.SubPage.Salon
             }
             catch (Exception ex)
             {
-                Console.Write(ex);
+                AppLog.Error(typeof(SalonEditViewModel), ex.ToString());
             }
         }
-        
-        private DelegateCommand _addCommand;
-        private DelegateCommand _delCommand;
-        private DelegateCommand _saveCommand;
 
-        public DelegateCommand AddCommand
+        override
+        public void DoAddCommand()
         {
-            get
-            {
-                return _addCommand ?? (_addCommand = new DelegateCommand
-                  ((obj) =>
-                  {
-                      ResetStatus();
-                      string code = string.Format("MY{0}", (Salons.Count + 1).ToString("D10"));
-                      Salons.Add(new SalonEditModel(code, "Collapsed", "Visible"));
-                      _addCommand.RaiseCanExecuteChanged();
-                      _delCommand.RaiseCanExecuteChanged();
-                      _saveCommand.RaiseCanExecuteChanged();
-                  },
-                  (obj) => Salons.Count < 10));
-            }
+            //      string code = string.Format("MY{0}", (Salons..Count + 1).ToString("D10"));
+            Salons.Add(new SalonModel("Collapsed", "Visible"));
         }
 
-        public DelegateCommand DelCommand
+        override
+        public bool CanAddCommand()
         {
-            get
-            {
-                return _delCommand ?? (_delCommand =
-                  new DelegateCommand((obj) =>
-                  {
-                      ResetStatus();
-                      Salons.RemoveAt((int)obj);
-                      _addCommand.RaiseCanExecuteChanged();
-                      _delCommand.RaiseCanExecuteChanged();
-                      _saveCommand.RaiseCanExecuteChanged();
-                  },
-                   (obj) => Salons.Count > 1));
-            }
+            return Salons.Count < 10;
         }
 
-
-        public DelegateCommand SaveCommand
+        override
+        public void DoDelCommand(int index)
         {
-            get
+            Salons.RemoveAt(index);
+        }
+
+        override
+        public bool CanDelCommand()
+        {
+            return Salons.Count > 1;
+        }
+
+        override
+        public void DoSaveCommand()
+        {
+            if (new SalonControl().Save(Salons) != 0)
             {
-                return _saveCommand ?? (_saveCommand =
-                  new DelegateCommand((obj) =>
-                  {
-                      ResetStatus();
-                      new SalonControl().Save(Salons);
-                      _addCommand.RaiseCanExecuteChanged();
-                      _delCommand.RaiseCanExecuteChanged();
-                      _saveCommand.RaiseCanExecuteChanged();
-                  },
-                   (obj) => true));
+                ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("MessageResources");
+                string message = resourceLoader.GetString("Success");
+                MessagePopup messageopup = new MessagePopup(message);
+                messageopup.Show();
+                Salons = new SalonControl().GetAllSalonInfos();
             }
         }
 
-        private void ResetStatus()
+        override
+        public void ResetStatus()
         {
             foreach (var item in Salons)
             {

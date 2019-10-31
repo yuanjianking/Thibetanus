@@ -17,11 +17,15 @@ Views\SubPage\AssetsSubPage.xbf
 Views\SubPage\CustomSubPage.xbf
 Views\SubPage\ReportSubPage.xbf
 Views\SubPage\SalarySubPage.xbf
+Views\SubPage\Salon\LocationEdit.xbf
+Views\SubPage\Salon\ManagerEdit.xbf
 Views\SubPage\Salon\SalonEdit.xbf
 Views\SubPage\SalonSubPage.xbf
+Views\SubPage\Service\ServiceEdit.xbf
 Views\SubPage\ServiceSubPage.xbf
 Views\SubPage\Staff\StaffAttendance.xbf
 Views\SubPage\Staff\StaffEdit.xbf
 Views\SubPage\StaffSubPage.xbf
 Properties\Default.rd.xml
 Resources\Menus.xml
+Resources\MenusEn.xml

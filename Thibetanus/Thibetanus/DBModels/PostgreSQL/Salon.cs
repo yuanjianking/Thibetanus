@@ -16,10 +16,8 @@ namespace Thibetanus.DBModels.PostgreSQL
         [Required]
         public string Name { get; set; }
         [Required]
-        public string LocationCode { get; set; }
-        public virtual Location Location { get; set; }
+        public string LocationCode { get; set; }     
         [Required]
         public string ManagerCode { get; set; }
-        public virtual Manager Manager { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,113 +13,116 @@ namespace Thibetanus.DBmanager.PostgreSQL
     class PostgreSQLConnect : DBConnect
     {
         private PostgreSQLContext context = null;
+        private IDbContextTransaction transaction = null;
 
-        public void StartConnect()
+        public DBConnect StartConnect()
         {
-            if(context == null)
+            if (context == null)
                 context = new PostgreSQLContext();
+            return this;
         }
 
         public void CloseConnect()
         {
-            context.Dispose();
-            context = null;
+            if(context != null)
+            { 
+                context.Dispose();
+                context = null;
+            }
         }
 
-        public void SaveChange()
+        public int SaveChange()
         {
             if (context != null)
-                context.SaveChanges();
+                return context.SaveChanges();
+            return 0;
         }
 
-        public  List<TSource> FindAll<TSource, Tkey>(Func<TSource, Tkey> orderby) where TSource : class
+        public void Commite()
         {
-            using (var context = new PostgreSQLContext())
+            if (transaction != null)
+                transaction.Commit();
+        }
+
+        public void Rollback()
+        {
+            if (transaction != null)
+                transaction.Rollback();
+        }
+
+        public DBConnect BeginTransaction()
+        {
+            if (context != null)
+                transaction = context.Database.BeginTransaction();
+            else
             {
-                PostgreSQLContxtSeeder.Seed(context);
-                var users = context.Users.Include(u => u.Orders).ToList();
-                users.ForEach(u =>
-                {
-                    Console.WriteLine(u);
-                });
-                return context.Set<TSource>().AsNoTracking().OrderBy(orderby).ToList();
+                StartConnect();
+                transaction = context.Database.BeginTransaction();
             }
+            return this;
+        }
+
+        public void EndTransaction()
+        {
+            if (transaction != null)
+            { 
+                transaction.Dispose();
+                transaction = null;
+                CloseConnect();
+            }
+        }
+
+        public void Dispose()
+        {
+            EndTransaction();
+            CloseConnect();
+        }
+
+
+        public List<TSource> FindAll<TSource, Tkey>(Func<TSource, Tkey> orderby) where TSource : class
+        {
+            //PostgreSQLContxtSeeder.Seed(context);
+            //var users = context.Users.Include(u => u.Orders).ToList();
+            //users.ForEach(u =>
+            //{
+            //    Console.WriteLine(u);
+            //});
+            return context.Set<TSource>().AsNoTracking().OrderBy(orderby).ToList();
         }
         
         public IEnumerable<TSource> GetLstInfo<TSource>(Expression<Func<TSource, bool>> express) where TSource : class
         {
-            using (PostgreSQLContext context = new PostgreSQLContext())
-            {
-                return context.Set<TSource>().Where(express).ToList();
-            }
+            return context.Set<TSource>().Where(express).ToList();
         }
 
         public TSource GetModel<TSource>(params string[] id) where TSource : class
         {
-            using (PostgreSQLContext context = new PostgreSQLContext())
-            {
-                return context.Set<TSource>().Find(id);
-            }
+            return context.Set<TSource>().Find(id);
         }
 
-        public void Delete<TSource>(params string[] ids) where TSource : class
+        public int Modify<TSource>(TSource model) where TSource : class
         {
-         //   using (PostgreSQLContext context = new PostgreSQLContext())
-       //     {
-                TSource v = context.Set<TSource>().Find(ids);
-                if (v == null)
-                {
-                    return;
-                }
-                context.Set<TSource>().Remove(v);
-        //        context.SaveChanges();
-       //     }
-        }
-
-        public void Modify<TSource>(TSource model) where TSource : class
-        {
-            //using (PostgreSQLContext context = new PostgreSQLContext())
+            if (context.Entry(model).State == EntityState.Detached)
             {
-                if (context.Entry(model).State == EntityState.Detached)
-                {
-                    context.Set<TSource>().Attach(model);
-                    context.Entry(model).State = EntityState.Modified;
-                }
+                context.Set<TSource>().Attach(model);
+                context.Entry(model).State = EntityState.Modified;
             }
+            return context.SaveChanges();
         }
 
-        public void Modify<TSource>(List<TSource> models) where TSource : class
+        public int Add<TSource>(TSource model) where TSource : class
         {
-            //using (PostgreSQLContext context = new PostgreSQLContext())
-            {
-                foreach(TSource model in models)
-                { 
-                    if (context.Entry(model).State == EntityState.Detached)
-                    {
-                        context.Set<TSource>().Attach(model);
-                        context.Entry(model).State = EntityState.Modified;
-                    }
-                }
-            }
+            context.Set<TSource>().Add(model);
+            return context.SaveChanges();
         }
 
-
-        public void Add<TSource>(TSource model) where TSource : class
-        {
-           // using (PostgreSQLContext context = new PostgreSQLContext())
+        public int Delete<TSource>(IEnumerable<TSource> data) where TSource : class
+        {        
+            if (data != null)
             {
-                context.Set<TSource>().Add(model);
+                context.Set<TSource>().RemoveRange(data);
             }
+            return context.SaveChanges();
         }
-
-        public void Add<TSource>(List<TSource> models) where TSource : class
-        {
-            //using (PostgreSQLContext context = new PostgreSQLContext())
-            {
-                foreach (TSource model in models)
-                    context.Set<TSource>().Add(model);
-            }
-        }
-
     }
 }

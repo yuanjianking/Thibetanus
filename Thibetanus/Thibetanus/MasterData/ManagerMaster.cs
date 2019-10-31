@@ -1,13 +1,19 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Thibetanus.Common.Exceptions;
 using Thibetanus.Common.Helper;
 using Thibetanus.Common.Initiate;
+using Thibetanus.Common.Log;
+using Thibetanus.Common.UserControls;
 using Thibetanus.DBmanager;
-using Thibetanus.Models.SubPage;
+using Thibetanus.DBmanager.PostgreSQL;
+using Thibetanus.Models.SubPage.Salon;
 
 namespace Thibetanus.MasterData
 {
@@ -59,13 +65,69 @@ namespace Thibetanus.MasterData
             {
                 //数据库检索
                 _managers = new ObservableCollection<ManagerModel>();
-                DBConnect connect = new DBFactory().GetPostgreSQLDBConnect();
-                var list = connect.FindAll<DBModels.PostgreSQL.Manager, int>(m => m.Id);
-                foreach (var item in list)
+                using (DBConnect connect = new DBFactory().GetPostgreSQLDBConnect().StartConnect())
                 {
-                    ManagerModel model = new ManagerModel();
-                    ModelHelper.CopyModel(model, item);
-                    _managers.Add(model);
+                    var list = connect.FindAll<DBModels.PostgreSQL.Manager, int>(m => m.Id);
+                    foreach (var item in list)
+                    {
+                        ManagerModel model = new ManagerModel();
+                        ModelHelper.CopyModel(model, item);
+                        _managers.Add(model);
+                    }
+                }
+            }
+        }
+
+        public int Save()
+        {
+            using (DBConnect connect = new DBFactory().GetPostgreSQLDBConnect().BeginTransaction())
+            {
+                try
+                {
+                    int res = 0;
+                    var list = connect.FindAll<DBModels.PostgreSQL.Manager, int>(m => m.Id);
+                    var data = list.Where(w => !_managers.Select(s => s.Id).Contains(w.Id));
+                    res += connect.Delete(data);
+
+                    foreach (var model in _managers)
+                    {
+                        DBModels.PostgreSQL.Manager manager = new DBModels.PostgreSQL.Manager();
+                        ModelHelper.CopyModel(manager, model);
+
+                        Func<DBModels.PostgreSQL.Manager, bool> func = m =>
+                        {
+                            if (m.Id == model.Id && m.Code.Equals(model.Code))
+                            {
+                                if (m.Name.Equals(model.Name))
+                                {
+                                    return false;
+                                }
+                                else
+                                {
+                                    return true;
+                                }
+
+                            }
+                            return false;
+                        };
+
+                        if (model.Id < 1)
+                        {
+                            res += connect.Add(manager);
+                        }
+                        else if (list.Where(func).Count() > 0)
+                        {
+                            res += connect.Modify(manager);
+                        }
+                    }
+                    connect.Commite();
+                    return res;
+                }
+                catch (Exception ex)
+                {
+                    connect.Rollback();
+                    AppLog.Error(typeof(ManagerMaster), ex.ToString());
+                    throw new AppException("DBException");
                 }
             }
         }

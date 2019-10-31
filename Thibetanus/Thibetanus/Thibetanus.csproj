@@ -122,10 +122,10 @@
     <Compile Include="Common\BaseControl\BaseControl.cs" />
     <Compile Include="Common\BaseModel\DelegateCommand.cs" />
     <Compile Include="Common\BaseModel\ObservableObject.cs" />
+    <Compile Include="Common\Converter\PriceConverter.cs" />
     <Compile Include="Common\Enum\Permission.cs" />
     <Compile Include="Common\Exceptions\AppException.cs" />
     <Compile Include="Common\Exceptions\BaseException.cs" />
-    <Compile Include="Common\Exceptions\SystemException.cs" />
     <Compile Include="Common\Helper\EncryptHelper.cs" />
     <Compile Include="Common\Helper\MenuHelper.cs" />
     <Compile Include="Common\Helper\ModelHelper.cs" />
@@ -141,6 +141,7 @@
       <DependentUpon>MessagePopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Salon\SalonControl.cs" />
+    <Compile Include="Controls\Service\ServiceControl.cs" />
     <Compile Include="Controls\Staff\StaffControl.cs" />
     <Compile Include="Controls\LoginControl.cs" />
     <Compile Include="DBmanager\DBConnect.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="DBModels\MongDB\Skill.cs" />
     <Compile Include="DBModels\MongDB\Staff.cs" />
     <Compile Include="DBModels\PostgreSQL\Location.cs" />
+    <Compile Include="DBModels\PostgreSQL\Servcie.cs" />
     <Compile Include="DBModels\PostgreSQL\Order.cs" />
     <Compile Include="DBModels\PostgreSQL\Skill.cs" />
     <Compile Include="DBModels\PostgreSQL\Manager.cs" />
@@ -164,16 +166,22 @@
     <Compile Include="MasterData\ManagerMaster.cs" />
     <Compile Include="MasterData\LocationMaster.cs" />
     <Compile Include="MasterData\MasterdataManager.cs" />
-    <Compile Include="Models\SubPage\LocationModel.cs" />
-    <Compile Include="Models\SubPage\ManagerModel.cs" />
-    <Compile Include="Models\SubPage\Salon\SalonEditModel.cs" />
+    <Compile Include="Models\ShowEditModel.cs" />
+    <Compile Include="Models\SubPage\Salon\LocationModel.cs" />
+    <Compile Include="Models\SubPage\Salon\ManagerModel.cs" />
+    <Compile Include="Models\SubPage\Salon\SalonModel.cs" />
+    <Compile Include="Models\SubPage\Service\ServiceModel.cs" />
     <Compile Include="Models\SubPage\Staff\SkillModel.cs" />
     <Compile Include="Models\SubPage\Staff\StaffInfoModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
+    <Compile Include="ViewModels\SubPage\Salon\ManagerEditViewModel.cs" />
+    <Compile Include="ViewModels\SubPage\Salon\LocationEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\Salon\SalonEditViewModel.cs" />
+    <Compile Include="ViewModels\SubPage\Service\ServiceEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\Staff\StaffEditViewModel.cs" />
+    <Compile Include="ViewModels\SubPage\SubBaseViewModel.cs" />
     <Compile Include="Views\SubPage\AssetsSubPage.xaml.cs">
       <DependentUpon>AssetsSubPage.xaml</DependentUpon>
     </Compile>
@@ -195,11 +203,20 @@
     <Compile Include="Views\SubPage\SalonSubPage.xaml.cs">
       <DependentUpon>SalonSubPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SubPage\Salon\LocationEdit.xaml.cs">
+      <DependentUpon>LocationEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubPage\Salon\ManagerEdit.xaml.cs">
+      <DependentUpon>ManagerEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SubPage\Salon\SalonEdit.xaml.cs">
       <DependentUpon>SalonEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubPage\ServiceSubPage.xaml.cs">
       <DependentUpon>ServiceSubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubPage\Service\ServiceEdit.xaml.cs">
+      <DependentUpon>ServiceEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubPage\StaffSubPage.xaml.cs">
       <DependentUpon>StaffSubPage.xaml</DependentUpon>
@@ -224,6 +241,7 @@
     <None Include="Thibetanus_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\MenusEn.xml" />
     <Content Include="Resources\Menus.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -279,6 +297,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SubPage\Salon\LocationEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SubPage\Salon\ManagerEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\SubPage\Salon\SalonEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -286,6 +312,10 @@
     <Page Include="Views\SubPage\ServiceSubPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubPage\Service\ServiceEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\SubPage\StaffSubPage.xaml">
       <SubType>Designer</SubType>
@@ -322,17 +352,14 @@
     <Folder Include="Models\SubPage\Custom\" />
     <Folder Include="Models\SubPage\Report\" />
     <Folder Include="Models\SubPage\Salary\" />
-    <Folder Include="Models\SubPage\Service\" />
     <Folder Include="ViewModels\SubPage\Assets\" />
     <Folder Include="ViewModels\SubPage\Custom\" />
     <Folder Include="ViewModels\SubPage\Report\" />
     <Folder Include="ViewModels\SubPage\Salary\" />
-    <Folder Include="ViewModels\SubPage\Service\" />
     <Folder Include="Views\SubPage\Assets\" />
     <Folder Include="Views\SubPage\Custom\" />
     <Folder Include="Views\SubPage\Report\" />
     <Folder Include="Views\SubPage\Salary\" />
-    <Folder Include="Views\SubPage\Service\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

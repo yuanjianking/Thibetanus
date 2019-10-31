@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 using Thibetanus.Common.Models;
@@ -19,13 +20,21 @@ namespace Thibetanus.Common.Helper
             MainManager,
             StaffSub,
             SalonSub,
+            ServiceSub,
         }
 
         private static MenuHelper me = null;
         private XmlDocument doc = new XmlDocument();
         private MenuHelper()
-        {          
-            doc.Load("Resources/Menus.xml");
+        {  
+            if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+            {
+                doc.Load("Resources/MenusEn.xml");
+            }
+            else
+            {
+                doc.Load("Resources/Menus.xml");
+            }
         }
 
         public static MenuHelper GetXmlHelper()
@@ -73,6 +82,9 @@ namespace Thibetanus.Common.Helper
                     break;
                 case MenuType.SalonSub:
                     path = "root/SubMenu/SalonSub";
+                    break;
+                case MenuType.ServiceSub:
+                    path = "root/SubMenu/ServiceSub";
                     break;
                 default:
                     break;

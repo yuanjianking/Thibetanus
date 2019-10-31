@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Thibetanus.Common.Exceptions;
+using Thibetanus.Common.UserControls;
 
 namespace Thibetanus.Common.BaseModel
 {
@@ -42,6 +44,11 @@ namespace Thibetanus.Common.BaseModel
             try
             {
                 this.MyExecute(parameter);
+            }
+            catch (AppException appex)
+            {
+                MessagePopup messageopup = new MessagePopup(appex.ToString());
+                messageopup.Show();
             }
             catch (Exception ex)
             {

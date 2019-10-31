@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,8 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Thibetanus.Common.BaseControl;
+using Thibetanus.Common.Exceptions;
 using Thibetanus.Common.Helper;
 using Thibetanus.Common.Log;
+using Thibetanus.Common.UserControls;
 using Thibetanus.DBmanager;
 using Thibetanus.DBmanager.PostgreSQL;
 using Thibetanus.Models.SubPage.Salon;
@@ -17,95 +20,73 @@ namespace Thibetanus.Controls.Salon
 {
     class SalonControl : BaseControl
     {    
-        public void Save(ObservableCollection<SalonEditModel> models)
-        {            
-            DBConnect connect = new DBFactory().GetPostgreSQLDBConnect();
-            try
+        public int Save(ObservableCollection<SalonModel> models)
+        {
+            using (DBConnect connect = new DBFactory().GetPostgreSQLDBConnect().BeginTransaction())
             {
-                connect.StartConnect();
-                Hashtable LocationTable = new Hashtable ();
-                Hashtable ManagerTable = new Hashtable();
-                var list = connect.FindAll<DBModels.PostgreSQL.Salon, int>(m => m.Id);
-                foreach (SalonEditModel model in models)
+                try
                 {
-                    DBModels.PostgreSQL.Salon salon = new DBModels.PostgreSQL.Salon();
-                    ModelHelper.CopyModel(salon, model);
-
-                    if (LocationTable[model.Location.Id] != null)
+                    int res = 0;
+                    var list = connect.FindAll<DBModels.PostgreSQL.Salon, int>(m => m.Id);                    
+                    var data = list.Where(w => !models.Select(s => s.Id).Contains(w.Id));
+                    res += connect.Delete(data);
+              
+                    foreach (SalonModel model in models)
                     {
-                        salon.Location = LocationTable[model.Location.Id] as DBModels.PostgreSQL.Location;
-                    }
-                    else
-                    {
-                        DBModels.PostgreSQL.Location Location = new DBModels.PostgreSQL.Location();
-                        ModelHelper.CopyModel(Location, model.Location);
-                        LocationTable.Add(Location.Id, Location);
-                    }
+                        DBModels.PostgreSQL.Salon salon = new DBModels.PostgreSQL.Salon();
+                        ModelHelper.CopyModel(salon, model);
 
-                    if (ManagerTable[model.Manager.Id] != null)
-                    {
-                        salon.Manager = ManagerTable[model.Manager.Id] as DBModels.PostgreSQL.Manager;
-                    }
-                    else
-                    { 
-                        DBModels.PostgreSQL.Manager Manager = new DBModels.PostgreSQL.Manager();                       
-                        ModelHelper.CopyModel(Manager, model.Manager);
-                        ManagerTable.Add(Manager.Id, Manager);
-                    }
+                        Func<DBModels.PostgreSQL.Salon, bool> func = m =>
+                        {
+                            if (m.Id == model.Id && m.Code.Equals(model.Code))
+                            {
+                                if (m.Name.Equals(model.Name) && m.LocationCode.Equals(model.LocationCode) && m.ManagerCode.Equals(model.ManagerCode))
+                                {
+                                    return false;
+                                }
+                                else
+                                {
+                                    return true;
+                                }
 
-                    Func<DBModels.PostgreSQL.Salon, bool> func = m =>
-                      {
-                          if (m.Id == model.Id && m.Code.Equals(model.Code))
-                          {
-                              if (m.Name.Equals(model.Name) && m.LocationCode.Equals(model.LocationCode) && m.ManagerCode.Equals(model.ManagerCode))
-                              {
-                                  return false;
-                              }
-                              else
-                              { 
-                                 return true;
-                              }
+                            }
+                            return false;
+                        };
 
-                          }                         
-                          return false;
-                      };
-
-
-                    if (model.Id < 1)
-                    {
-                        connect.Add(salon);
+                        if (model.Id < 1)
+                        {
+                            res += connect.Add(salon);
+                        }
+                        else if (list.Where(func).Count() > 0)
+                        {
+                            res += connect.Modify(salon);
+                        }
                     }
-                    else if(list.Where(m => m.Id == model.Id).Count() < 1)
-                    {
-                        connect.Delete<DBModels.PostgreSQL.Salon>(model.Id.ToString());
-                    }
-                    else if (list.Where(func).Count() > 0)
-                    {
-                        connect.Modify(salon);
-                    }
+                    connect.Commite();                
+                    return res;
                 }
-               connect.SaveChange();
-            }
-            catch (Exception e)
-            {
-                AppLog.Error(typeof(SalonControl),e.ToString());
-            }
-            finally { 
-                connect.CloseConnect();
+                catch (Exception ex)
+                {
+                    connect.Rollback();
+                    AppLog.Error(typeof(SalonControl), ex.ToString());
+                    throw new AppException("DBException");                  
+                }
             }
         }
 
-        public ObservableCollection<SalonEditModel> GetAllSalonInfos()
-        {
-            var models = new ObservableCollection<SalonEditModel>();
-            DBConnect connect = new DBFactory().GetPostgreSQLDBConnect();
-            var list = connect.FindAll<DBModels.PostgreSQL.Salon,int>(m => m.Id);
-
-            foreach (var item in list)
+        public ObservableCollection<SalonModel> GetAllSalonInfos()
+        { 
+            var models = new ObservableCollection<SalonModel>();
+            using (DBConnect connect = new DBFactory().GetPostgreSQLDBConnect().StartConnect())
             {
-                SalonEditModel model = new SalonEditModel();
-                ModelHelper.CopyModel(model, item);
-                models.Add(model);
+                var list = connect.FindAll<DBModels.PostgreSQL.Salon, int>(m => m.Id);
+
+                foreach (var item in list)
+                {
+                    SalonModel model = new SalonModel();
+                    ModelHelper.CopyModel(model, item);
+                    models.Add(model);
+                }
             }
 
             return models;

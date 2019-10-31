@@ -35,7 +35,7 @@ namespace Thibetanus.Views.SubPage.Salon
 
         private void SalonList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var item = (SalonEditModel)e.ClickedItem;
+            var item = (SalonModel)e.ClickedItem;
 
             if (item.Show.Equals("Collapsed"))
             {              
@@ -83,8 +83,8 @@ namespace Thibetanus.Views.SubPage.Salon
         {
             foreach (var item1 in salonList.Items)
             {
-                ((SalonEditModel)item1).Show = "Visible";
-                ((SalonEditModel)item1).Edit = "Collapsed";
+                ((SalonModel)item1).Show = "Visible";
+                ((SalonModel)item1).Edit = "Collapsed";
             }
         }
 

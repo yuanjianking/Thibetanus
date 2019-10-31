@@ -109,6 +109,9 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.17763.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\Resources\MenusEn.xml">
+      <PackagePath>Resources\MenusEn.xml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\Resources\Menus.xml">
       <PackagePath>Resources\Menus.xml</PackagePath>
     </AppxPackagedFile>
@@ -178,11 +181,20 @@
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\SalonSubPage.xbf">
       <PackagePath>Views\SubPage\SalonSubPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Salon\LocationEdit.xbf">
+      <PackagePath>Views\SubPage\Salon\LocationEdit.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Salon\ManagerEdit.xbf">
+      <PackagePath>Views\SubPage\Salon\ManagerEdit.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Salon\SalonEdit.xbf">
       <PackagePath>Views\SubPage\Salon\SalonEdit.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\ServiceSubPage.xbf">
       <PackagePath>Views\SubPage\ServiceSubPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Service\ServiceEdit.xbf">
+      <PackagePath>Views\SubPage\Service\ServiceEdit.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\StaffSubPage.xbf">
       <PackagePath>Views\SubPage\StaffSubPage.xbf</PackagePath>

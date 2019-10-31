@@ -20,5 +20,6 @@ namespace Thibetanus.DBmanager.PostgreSQL
         public DbSet<Location> Locations { get; set; }
         public DbSet<Manager> Managers { get; set; }
         public DbSet<Salon> Salons { get; set; }
+        public DbSet<Servcie> Services { get; set; }
     }
 }

@@ -50,5 +50,6 @@ namespace Thibetanus.ViewModels.SubPage.Staff
             this.StaffInfos = new StaffControl().GetAllStaffInfos();
             this.Skills = new StaffControl().GetAllSkills();
         }
+
     }
 }

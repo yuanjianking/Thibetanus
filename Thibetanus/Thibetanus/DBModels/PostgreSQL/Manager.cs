@@ -17,9 +17,5 @@ namespace Thibetanus.DBModels.PostgreSQL
         public string Code { get; set; }
         [Required]
         public string Name { get; set; }
-        [Required]
-        public string Role { get; set; }
-
-        public virtual List<Salon> Salons { get; set; }
     }
 }
