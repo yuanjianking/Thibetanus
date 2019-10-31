@@ -26,6 +26,11 @@
             <Setter  Property="ComboBox.MinWidth" Value="200"/>
             <Setter Property="ComboBox.Margin" Value="30,10,30,10" />
         </Style>
+        <Style x:ConnectionId='6' x:Name="listButton" TargetType="Button">
+            <Setter  Property="Button.MinWidth" Value="60"/>
+            <Setter Property="Button.Margin" Value="30,0,30,0" />
+        </Style>
+        
         <DataTemplate  x:Key="HeaderDataTemplateHorizontal">
             <ListViewHeaderItem>
                 <StackPanel Orientation="Horizontal"   HorizontalAlignment="Center" VerticalAlignment="Top" >
@@ -33,6 +38,7 @@
                     <TextBlock Text="名称"  Style="{StaticResource listTextBlock}"/>
                     <TextBlock Text="所属地"  Style="{StaticResource listTextBlock}"/>
                     <TextBlock Text="店长"  Style="{StaticResource listTextBlock}"/>
+                    <TextBlock Text="详细"  Style="{StaticResource listTextBlock}"/>
                 </StackPanel>
             </ListViewHeaderItem>
         </DataTemplate>
@@ -44,6 +50,7 @@
                     <TextBlock Text="名称"  Style="{StaticResource listTextBlock}"/>
                     <TextBlock Text="所属地"  Style="{StaticResource listTextBlock}"/>
                     <TextBlock Text="店长"  Style="{StaticResource listTextBlock}"/>
+                    <TextBlock Text="详细"  Style="{StaticResource listTextBlock}"/>
                 </StackPanel>
             </ListViewHeaderItem>
         </DataTemplate>
@@ -60,6 +67,7 @@
                 <TextBlock Text="{Binding Manager.Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
                 <ComboBox ItemsSource="{Binding Managers}"  SelectedItem="{Binding Manager, Mode=TwoWay}"
                            SelectedValuePath="Code" DisplayMemberPath="Name" Visibility="{Binding Edit}"  Style="{StaticResource listComboBox}"/>
+                <Button x:ConnectionId='10'  Style="{StaticResource listButton}"                       Content="详细" />
             </StackPanel>
         </DataTemplate>
 
@@ -75,6 +83,7 @@
                 <TextBlock Text="{Binding Manager.Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
                 <ComboBox ItemsSource="{Binding Managers}"  SelectedItem="{Binding Manager, Mode=TwoWay}"
                            SelectedValuePath="Code" DisplayMemberPath="Name" Visibility="{Binding Edit}"  Style="{StaticResource listComboBox}"/>
+                <Button x:ConnectionId='8'  Style="{StaticResource listButton}"                       Content="详细" />
             </StackPanel>
         </DataTemplate>
 
@@ -83,7 +92,7 @@
     <Grid>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
-                <VisualState x:ConnectionId='10' x:Name="LargeWindow">
+                <VisualState x:ConnectionId='13' x:Name="LargeWindow">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="{StaticResource LargeWindowSnapPoint}"/>
                     </VisualState.StateTriggers>
@@ -93,7 +102,7 @@
                     </VisualState.Setters>
                 </VisualState>
 
-                <VisualState x:ConnectionId='11' x:Name="MediumWindow">
+                <VisualState x:ConnectionId='14' x:Name="MediumWindow">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="{StaticResource MediumWindowSnapPoint}"/>
                     </VisualState.StateTriggers>
@@ -103,7 +112,7 @@
                     </VisualState.Setters>
                 </VisualState>
 
-                <VisualState x:ConnectionId='12' x:Name="SmallWindow">
+                <VisualState x:ConnectionId='15' x:Name="SmallWindow">
                     <VisualState.StateTriggers >
                         <AdaptiveTrigger MinWindowWidth="{StaticResource MinWindowSnapPoint}"/>
                     </VisualState.StateTriggers>
@@ -121,16 +130,16 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:ConnectionId='13' x:Name="title" Text="会所编辑" TextAlignment="Center" Grid.Row="0"
+        <TextBlock x:ConnectionId='16' x:Name="title" Text="会所编辑" TextAlignment="Center" Grid.Row="0"
                    FontSize="18"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,50,0"/>
-        <ListView x:ConnectionId='14'  x:Name="salonList"   Grid.Row="1" ItemsSource="{Binding Salons, Mode=TwoWay}" IsItemClickEnabled="True"  
+        <ListView x:ConnectionId='17'  x:Name="salonList"   Grid.Row="1" ItemsSource="{Binding Salons, Mode=TwoWay}" IsItemClickEnabled="True"  
                    SelectionMode="Single" HorizontalContentAlignment="Stretch"                   
                    IsRightTapEnabled="True"                                    
                    HorizontalAlignment="Center"                                                        >
             <ListView.Resources>
-                <MenuFlyout x:ConnectionId='15' x:Name="menuFlyout">
+                <MenuFlyout x:ConnectionId='18' x:Name="menuFlyout">
                     <MenuFlyout.Items>
-                        <MenuFlyoutItem x:ConnectionId='16' Name="Copy" Text="Copy" />
+                        <MenuFlyoutItem x:ConnectionId='19' Name="Copy" Text="Copy" />
                     </MenuFlyout.Items>
                 </MenuFlyout>
             </ListView.Resources>

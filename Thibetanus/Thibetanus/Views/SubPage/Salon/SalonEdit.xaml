@@ -26,6 +26,11 @@
             <Setter  Property="ComboBox.MinWidth" Value="200"/>
             <Setter Property="ComboBox.Margin" Value="30,10,30,10" />
         </Style>
+        <Style x:Name="listButton" TargetType="Button">
+            <Setter  Property="Button.MinWidth" Value="60"/>
+            <Setter Property="Button.Margin" Value="30,0,30,0" />
+        </Style>
+        
         <DataTemplate  x:Key="HeaderDataTemplateHorizontal">
             <ListViewHeaderItem>
                 <StackPanel Orientation="Horizontal"   HorizontalAlignment="Center" VerticalAlignment="Top" >
@@ -33,6 +38,7 @@
                     <TextBlock Text="名称"  Style="{StaticResource listTextBlock}"/>
                     <TextBlock Text="所属地"  Style="{StaticResource listTextBlock}"/>
                     <TextBlock Text="店长"  Style="{StaticResource listTextBlock}"/>
+                    <TextBlock Text="详细"  Style="{StaticResource listTextBlock}"/>
                 </StackPanel>
             </ListViewHeaderItem>
         </DataTemplate>
@@ -44,6 +50,7 @@
                     <TextBlock Text="名称"  Style="{StaticResource listTextBlock}"/>
                     <TextBlock Text="所属地"  Style="{StaticResource listTextBlock}"/>
                     <TextBlock Text="店长"  Style="{StaticResource listTextBlock}"/>
+                    <TextBlock Text="详细"  Style="{StaticResource listTextBlock}"/>
                 </StackPanel>
             </ListViewHeaderItem>
         </DataTemplate>
@@ -60,6 +67,7 @@
                 <TextBlock Text="{Binding Manager.Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
                 <ComboBox ItemsSource="{Binding Managers}"  SelectedItem="{Binding Manager, Mode=TwoWay}"
                            SelectedValuePath="Code" DisplayMemberPath="Name" Visibility="{Binding Edit}"  Style="{StaticResource listComboBox}"/>
+                <Button  Style="{StaticResource listButton}"  Click="Button_Click" Content="详细" />
             </StackPanel>
         </DataTemplate>
 
@@ -75,6 +83,7 @@
                 <TextBlock Text="{Binding Manager.Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
                 <ComboBox ItemsSource="{Binding Managers}"  SelectedItem="{Binding Manager, Mode=TwoWay}"
                            SelectedValuePath="Code" DisplayMemberPath="Name" Visibility="{Binding Edit}"  Style="{StaticResource listComboBox}"/>
+                <Button  Style="{StaticResource listButton}"  Click="Button_Click" Content="详细" />
             </StackPanel>
         </DataTemplate>
 

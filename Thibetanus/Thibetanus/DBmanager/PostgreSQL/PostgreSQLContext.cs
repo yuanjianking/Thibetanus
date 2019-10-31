@@ -21,5 +21,21 @@ namespace Thibetanus.DBmanager.PostgreSQL
         public DbSet<Manager> Managers { get; set; }
         public DbSet<Salon> Salons { get; set; }
         public DbSet<Servcie> Services { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Location>()
+                  .HasIndex(m => m.Code)
+                  .IsUnique();
+            modelBuilder.Entity<Manager>()
+                 .HasIndex(m => m.Code)
+                 .IsUnique();
+            modelBuilder.Entity<Salon>()
+                .HasIndex(m => m.Code)
+                .IsUnique();
+            modelBuilder.Entity<Servcie>()
+                .HasIndex(m => m.Code)
+                .IsUnique();
+        }
     }
 }

@@ -19,6 +19,7 @@ Views\SubPage\ReportSubPage.xbf
 Views\SubPage\SalarySubPage.xbf
 Views\SubPage\Salon\LocationEdit.xbf
 Views\SubPage\Salon\ManagerEdit.xbf
+Views\SubPage\Salon\SalonDetailEdit.xbf
 Views\SubPage\Salon\SalonEdit.xbf
 Views\SubPage\SalonSubPage.xbf
 Views\SubPage\Service\ServiceEdit.xbf

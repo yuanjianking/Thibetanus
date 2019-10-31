@@ -172,3 +172,8 @@ D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Service\ServiceE
 D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Service\ServiceEdit.xaml
 D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Service\ServiceEdit.xbf
 D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Service\ServiceEdit.xbf
+D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Salon\SalonDetailEdit.xbf
+D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\SalonDetailEdit.g.i.cs
+D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\SalonDetailEdit.g.cs
+D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\SalonDetailEdit.xaml
+D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\SalonDetailEdit.xbf

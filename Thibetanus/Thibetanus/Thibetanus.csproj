@@ -209,6 +209,9 @@
     <Compile Include="Views\SubPage\Salon\ManagerEdit.xaml.cs">
       <DependentUpon>ManagerEdit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SubPage\Salon\SalonDetailEdit.xaml.cs">
+      <DependentUpon>SalonDetailEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SubPage\Salon\SalonEdit.xaml.cs">
       <DependentUpon>SalonEdit.xaml</DependentUpon>
     </Compile>
@@ -304,6 +307,10 @@
     <Page Include="Views\SubPage\Salon\ManagerEdit.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SubPage\Salon\SalonDetailEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubPage\Salon\SalonEdit.xaml">
       <SubType>Designer</SubType>

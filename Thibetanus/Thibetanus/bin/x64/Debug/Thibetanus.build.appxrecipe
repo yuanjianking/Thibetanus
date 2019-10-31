@@ -187,6 +187,9 @@
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Salon\ManagerEdit.xbf">
       <PackagePath>Views\SubPage\Salon\ManagerEdit.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Salon\SalonDetailEdit.xbf">
+      <PackagePath>Views\SubPage\Salon\SalonDetailEdit.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Salon\SalonEdit.xbf">
       <PackagePath>Views\SubPage\Salon\SalonEdit.xbf</PackagePath>
     </AppxPackagedFile>

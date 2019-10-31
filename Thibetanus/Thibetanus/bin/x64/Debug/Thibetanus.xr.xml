@@ -158,6 +158,7 @@
       <RootProperty Name="Content" />
       <RootProperty Name="Command" />
       <RootProperty Name="CommandParameter" />
+      <RootProperty Name="Style" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Thibetanus.MainPage" />
@@ -260,6 +261,7 @@
     <RootType FullName="Thibetanus.Views.SubPage.Salon.LocationEdit" />
     <RootType FullName="Thibetanus.ViewModels.SubPage.Salon.ManagerEditViewModel" />
     <RootType FullName="Thibetanus.Views.SubPage.Salon.ManagerEdit" />
+    <RootType FullName="Thibetanus.Views.SubPage.Salon.SalonDetailEdit" />
     <RootType FullName="Thibetanus.ViewModels.SubPage.Salon.SalonEditViewModel" />
     <RootType FullName="Thibetanus.Views.SubPage.Salon.SalonEdit" />
     <RootType FullName="Thibetanus.Views.SubPage.ServiceSubPage" />

@@ -88,6 +88,11 @@ namespace Thibetanus.Views.SubPage.Salon
             }
         }
 
-      
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            var item = btn.DataContext as SalonModel;
+            (Application.Current as App).ContentFrame.Navigate(typeof(SalonDetailEdit), new { SalonModel = item });
+        }
     }
 }
