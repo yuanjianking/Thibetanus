@@ -28,9 +28,9 @@ namespace Thibetanus.ViewModels.SubPage
                   {
                       ResetStatus();
                       DoAddCommand();
-                      _addCommand.RaiseCanExecuteChanged();
-                      _delCommand.RaiseCanExecuteChanged();
-                      _saveCommand.RaiseCanExecuteChanged();
+                      if(_addCommand != null) _addCommand.RaiseCanExecuteChanged();
+                      if (_delCommand != null) _delCommand.RaiseCanExecuteChanged();
+                      if (_saveCommand != null) _saveCommand.RaiseCanExecuteChanged();
                   },
                   (obj) => CanAddCommand()));
             }
@@ -49,9 +49,9 @@ namespace Thibetanus.ViewModels.SubPage
                   {
                       ResetStatus();
                       DoDelCommand((int)obj);
-                      _addCommand.RaiseCanExecuteChanged();
-                      _delCommand.RaiseCanExecuteChanged();
-                      _saveCommand.RaiseCanExecuteChanged();
+                      if (_addCommand != null) _addCommand.RaiseCanExecuteChanged();
+                      if (_delCommand != null) _delCommand.RaiseCanExecuteChanged();
+                      if (_saveCommand != null) _saveCommand.RaiseCanExecuteChanged();
                   },
                    (obj) => CanDelCommand()));
             }
@@ -69,9 +69,9 @@ namespace Thibetanus.ViewModels.SubPage
                   {
                       ResetStatus();
                       DoSaveCommand();
-                      _addCommand.RaiseCanExecuteChanged();
-                      _delCommand.RaiseCanExecuteChanged();
-                      _saveCommand.RaiseCanExecuteChanged();
+                      if (_addCommand != null) _addCommand.RaiseCanExecuteChanged();
+                      if (_delCommand != null) _delCommand.RaiseCanExecuteChanged();
+                      if (_saveCommand != null) _saveCommand.RaiseCanExecuteChanged();
                   },
                    (obj) => true));
             }

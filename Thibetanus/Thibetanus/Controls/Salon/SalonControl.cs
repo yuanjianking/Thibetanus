@@ -102,10 +102,12 @@ namespace Thibetanus.Controls.Salon
 
                         if (model.Id < 1)
                         {
+                            salon.CreateTime = DateTime.Now.ToLongDateString();
                             res += connect.Add(salon);
                         }
                         else if (list.Where(func).Count() > 0)
                         {
+                            salon.UpdateTime = DateTime.Now.ToLongDateString();
                             res += connect.Modify(salon);
                         }
                     }

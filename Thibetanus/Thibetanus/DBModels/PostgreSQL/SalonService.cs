@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Thibetanus.DBModels.PostgreSQL
 {
-    class SalonService
+    class SalonService : Base
     {
         [Key]
         public int Id { get; set; }

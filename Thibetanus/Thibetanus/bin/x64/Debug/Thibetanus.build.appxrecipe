@@ -169,6 +169,9 @@
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\AssetsSubPage.xbf">
       <PackagePath>Views\SubPage\AssetsSubPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Assets\AssetsEdit.xbf">
+      <PackagePath>Views\SubPage\Assets\AssetsEdit.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\CustomSubPage.xbf">
       <PackagePath>Views\SubPage\CustomSubPage.xbf</PackagePath>
     </AppxPackagedFile>
@@ -177,6 +180,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\MainMenu.xbf">
       <PackagePath>Views\MainMenu.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Custom\OrderEdit.xbf">
+      <PackagePath>Views\SubPage\Custom\OrderEdit.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Custom\CustomEdit.xbf">
+      <PackagePath>Views\SubPage\Custom\CustomEdit.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\ReportSubPage.xbf">
       <PackagePath>Views\SubPage\ReportSubPage.xbf</PackagePath>
@@ -213,6 +222,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Staff\StaffEdit.xbf">
       <PackagePath>Views\SubPage\Staff\StaffEdit.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Staff\StaffOrderEdit.xbf">
+      <PackagePath>Views\SubPage\Staff\StaffOrderEdit.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17763.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>

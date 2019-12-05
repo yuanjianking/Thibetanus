@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Thibetanus.DBModels.PostgreSQL
 {
-    class Service
+    class Service : Base
     {
         [Key]
         public int Id { get; set; }

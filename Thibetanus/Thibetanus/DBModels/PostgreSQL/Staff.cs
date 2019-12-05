@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Thibetanus.DBModels.PostgreSQL
 {
-    class Staff
+    class Staff : Base
     {
         [Key]
         public int Id { get; set; }

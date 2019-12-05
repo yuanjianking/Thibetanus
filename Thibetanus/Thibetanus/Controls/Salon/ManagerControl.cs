@@ -113,10 +113,12 @@ namespace Thibetanus.Controls.Salon
 
                         if (model.Id < 1)
                         {
+                            manager.CreateTime = DateTime.Now.ToLongDateString();
                             res += connect.Add(manager);
                         }
                         else if (list.Where(func).Count() > 0)
                         {
+                            manager.UpdateTime = DateTime.Now.ToLongDateString();
                             res += connect.Modify(manager);
                         }
                     }

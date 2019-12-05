@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Thibetanus.DBModels.PostgreSQL
 {
-    class Manager
+    class Manager : Base
     {
         [Key]
         public int Id { get; set; }

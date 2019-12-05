@@ -20,9 +20,9 @@ namespace Thibetanus.ViewModels.SubPage.Service
 {
     class ServiceEditViewModel : SubBaseViewModel
     {
-       private ObservableCollection<ServiceModel> _serivces = null;
+        private ObservableCollection<ServiceModel> _serivces = null;
 
-       public ObservableCollection<ServiceModel> Serivces
+        public ObservableCollection<ServiceModel> Serivces
         {
             get { return _serivces; }
             set

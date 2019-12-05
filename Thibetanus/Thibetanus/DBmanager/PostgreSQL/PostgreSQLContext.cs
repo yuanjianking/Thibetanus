@@ -16,11 +16,14 @@ namespace Thibetanus.DBmanager.PostgreSQL
         public DbSet<User> Users { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Staff> Staffs { get; set; }
+        public DbSet<StaffOrder> StaffOrders { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Manager> Managers { get; set; }
         public DbSet<Salon> Salons { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<SalonService> SalonServices { get; set; }
+        public DbSet<Assets> Assets { get; set; }
+        public DbSet<Custom> Customs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

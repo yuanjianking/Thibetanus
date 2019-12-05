@@ -21,6 +21,8 @@ namespace Thibetanus.Common.Helper
             StaffSub,
             SalonSub,
             ServiceSub,
+            Assets,
+            Custom
         }
 
         private static MenuHelper me = null;
@@ -85,6 +87,12 @@ namespace Thibetanus.Common.Helper
                     break;
                 case MenuType.ServiceSub:
                     path = "root/SubMenu/ServiceSub";
+                    break;
+                case MenuType.Assets:
+                    path = "root/SubMenu/AssetsSub";
+                    break;
+                case MenuType.Custom:
+                    path = "root/SubMenu/CustomSub";
                     break;
                 default:
                     break;

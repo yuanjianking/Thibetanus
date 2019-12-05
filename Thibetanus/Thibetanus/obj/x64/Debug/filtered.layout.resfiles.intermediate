@@ -14,7 +14,10 @@ MainPage.xbf
 Thibetanus.xr.xml
 Views\LoginPage.xbf
 Views\MainMenu.xbf
+Views\SubPage\Assets\AssetsEdit.xbf
 Views\SubPage\AssetsSubPage.xbf
+Views\SubPage\Custom\CustomEdit.xbf
+Views\SubPage\Custom\OrderEdit.xbf
 Views\SubPage\CustomSubPage.xbf
 Views\SubPage\ReportSubPage.xbf
 Views\SubPage\SalarySubPage.xbf
@@ -27,6 +30,7 @@ Views\SubPage\Service\ServiceEdit.xbf
 Views\SubPage\ServiceSubPage.xbf
 Views\SubPage\Staff\StaffAttendance.xbf
 Views\SubPage\Staff\StaffEdit.xbf
+Views\SubPage\Staff\StaffOrderEdit.xbf
 Views\SubPage\StaffSubPage.xbf
 Properties\Default.rd.xml
 Resources\Menus.xml

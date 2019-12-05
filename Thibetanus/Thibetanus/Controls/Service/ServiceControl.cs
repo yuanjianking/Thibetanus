@@ -101,10 +101,12 @@ namespace Thibetanus.Controls.Service
 
                         if (model.Id < 1)
                         {
+                            service.CreateTime = DateTime.Now.ToLongDateString();
                             res += connect.Add(service);
                         }
                         else if (list.Where(func).Count() > 0)
                         {
+                            service.UpdateTime = DateTime.Now.ToLongDateString();
                             res += connect.Modify(service);
                         }
                     }

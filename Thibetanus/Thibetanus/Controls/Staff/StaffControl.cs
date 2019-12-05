@@ -57,10 +57,12 @@ namespace Thibetanus.Controls.Staff
 
                         if (model.Id < 1)
                         {
+                            staff.CreateTime = DateTime.Now.ToLongDateString();
                             res += connect.Add(staff);
                         }
                         else if (list.Where(func).Count() > 0)
                         {
+                            staff.UpdateTime = DateTime.Now.ToLongDateString();
                             res += connect.Modify(staff);
                         }
                     }

@@ -24,6 +24,8 @@ namespace Thibetanus.Models.SubPage.Staff
         private ObservableCollection<ServiceModel> _services = null;
 
         public int Id { get; set; }
+        public string CreateTime { get; set; }
+        public string UpdateTime { get; set; }
 
         public string Code
         {

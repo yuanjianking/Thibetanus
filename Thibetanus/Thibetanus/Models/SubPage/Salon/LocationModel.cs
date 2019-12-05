@@ -14,6 +14,8 @@ namespace Thibetanus.Models.SubPage.Salon
         private string _city;
 
         public int Id { get; set; }
+        public string CreateTime { get; set; }
+        public string UpdateTime { get; set; }
 
         public string Code
         {

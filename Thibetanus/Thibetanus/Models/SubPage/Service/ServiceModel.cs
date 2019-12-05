@@ -15,6 +15,8 @@ namespace Thibetanus.Models.SubPage.Service
         private string _price;
 
         public int Id { get; set; }
+        public string CreateTime { get; set; }
+        public string UpdateTime { get; set; }
 
         public string Code
         {
@@ -66,10 +68,8 @@ namespace Thibetanus.Models.SubPage.Service
         {
         }
 
-        public ServiceModel(string show, string edit)
+        public ServiceModel(string show, string edit) : base(show, edit)
         {
-            this.Show = show;
-            this.Edit = edit;
         }
     }
 }

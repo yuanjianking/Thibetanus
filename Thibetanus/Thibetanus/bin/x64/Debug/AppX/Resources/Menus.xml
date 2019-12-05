@@ -15,11 +15,13 @@
       <StaffSub Label="员工管理" Link="Thibetanus.Views.SubPage.StaffSubPage" ></StaffSub>
       <AssetsSub Label="资产管理" Link="Thibetanus.Views.SubPage.AssetsSubPage" ></AssetsSub>
       <ServiceSub Label="服务管理" Link="Thibetanus.Views.SubPage.ServiceSubPage" ></ServiceSub>
+      <CustomSub Label="客户管理" Link="Thibetanus.Views.SubPage.CustomSubPage" ></CustomSub>
     </Manager>
   </MainMenu>
   <SubMenu>
     <StaffSub>
       <StaffEdit Label="员工编辑" Link="Thibetanus.Views.SubPage.Staff.StaffEdit" ></StaffEdit>
+      <StaffEdit Label="预约时间" Link="Thibetanus.Views.SubPage.Staff.StaffOrderEdit" ></StaffEdit>
       <StaffAttendance Label="员工出勤时间" Link="Thibetanus.Views.SubPage.Staff.StaffAttendance" ></StaffAttendance>
     </StaffSub>
     <SalonSub>
@@ -30,5 +32,12 @@
     <ServiceSub>
       <ServiceEdit Label="服务编辑" Link="Thibetanus.Views.SubPage.Service.ServiceEdit" ></ServiceEdit>
     </ServiceSub>
+    <AssetsSub>
+      <ServiceEdit Label="资产编辑" Link="Thibetanus.Views.SubPage.Assets.AssetsEdit" ></ServiceEdit>
+    </AssetsSub>
+    <CustomSub>
+      <ServiceEdit Label="客户编辑" Link="Thibetanus.Views.SubPage.Custom.CustomEdit" ></ServiceEdit>
+     <ServiceEdit Label="交易信息" Link="Thibetanus.Views.SubPage.Custom.OrderEdit" ></ServiceEdit>
+    </CustomSub>
   </SubMenu>
 </root>

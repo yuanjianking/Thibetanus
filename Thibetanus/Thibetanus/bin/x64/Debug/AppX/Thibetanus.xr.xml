@@ -9,22 +9,43 @@
     <RootPropertyPathName Name="Group" />
     <RootPropertyPathName Name="Code" />
     <RootPropertyPathName Name="Serivces" />
+    <RootPropertyPathName Name="Number" />
+    <RootPropertyPathName Name="Edit" />
+    <RootPropertyPathName Name="Show" />
+    <RootPropertyPathName Name="AddCommand" />
+    <RootPropertyPathName Name="SaveCommand" />
+    <RootPropertyPathName Name="Assets" />
+    <RootPropertyPathName Name="Salons" />
     <RootPropertyPathName Name="LoginUser" />
     <RootPropertyPathName Name="Password" />
     <RootPropertyPathName Name="Label" />
+    <RootPropertyPathName Name="Status" />
+    <RootPropertyPathName Name="StaffComment" />
+    <RootPropertyPathName Name="CustomComment" />
+    <RootPropertyPathName Name="ServiceTime" />
+    <RootPropertyPathName Name="OrderTime" />
+    <RootPropertyPathName Name="ServiceName" />
+    <RootPropertyPathName Name="StaffName" />
+    <RootPropertyPathName Name="SalonName" />
+    <RootPropertyPathName Name="CustomName" />
+    <RootPropertyPathName Name="Orders" />
+    <RootPropertyPathName Name="Detail" />
+    <RootPropertyPathName Name="WeiXin" />
+    <RootPropertyPathName Name="Tel" />
+    <RootPropertyPathName Name="Blood" />
+    <RootPropertyPathName Name="Weight" />
+    <RootPropertyPathName Name="Height" />
+    <RootPropertyPathName Name="Sex" />
+    <RootPropertyPathName Name="Age" />
+    <RootPropertyPathName Name="Customs" />
     <RootPropertyPathName Name="City" />
-    <RootPropertyPathName Name="Edit" />
-    <RootPropertyPathName Name="Show" />
     <RootPropertyPathName Name="Province" />
     <RootPropertyPathName Name="DelCommand" />
     <RootPropertyPathName Name="SelectedIndex" />
-    <RootPropertyPathName Name="AddCommand" />
-    <RootPropertyPathName Name="SaveCommand" />
     <RootPropertyPathName Name="Locations" />
     <RootPropertyPathName Name="Managers" />
     <RootPropertyPathName Name="Manager" />
     <RootPropertyPathName Name="Location" />
-    <RootPropertyPathName Name="Salons" />
     <RootPropertyPathName Name="Services" />
     <RootPropertyPathName Name="Salon" />
     <RootPropertyPathName Name="StaffInfos" />
@@ -56,9 +77,9 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="Style" />
-      <RootProperty Name="FontWeight" />
-      <RootProperty Name="FontFamily" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="FontFamily" />
+      <RootProperty Name="FontWeight" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension">
       <RootProperty Name="Mode" />
@@ -170,25 +191,25 @@
       <RootProperty Name="HorizontalContentAlignment" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="IsItemClickEnabled" />
-      <RootProperty Name="ItemTemplate" />
       <RootProperty Name="IsRightTapEnabled" />
+      <RootProperty Name="ItemTemplate" />
       <RootProperty Name="Resources" />
       <RootProperty Name="Style" />
       <RootEvent Name="ChoosingItemContainer" />
       <RootEvent Name="ContainerContentChanging" />
-      <RootEvent Name="ItemClick" />
       <RootEvent Name="RightTapped" />
+      <RootEvent Name="ItemClick" />
       <RootEvent Name="KeyUp" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />
       <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Command" />
-      <RootProperty Name="CommandParameter" />
       <RootProperty Name="Style" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Command" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="CommandParameter" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Thibetanus.Common.UserControls.ServicePopup" />
@@ -209,18 +230,31 @@
     </RootType>
     <RootType FullName="Thibetanus.MainPage" />
     <RootType FullName="Thibetanus.Views.SubPage.AssetsSubPage" />
-    <RootType FullName="Thibetanus.Views.SubPage.CustomSubPage" />
-    <RootType FullName="Thibetanus.ViewModels.LoginPageViewModel" />
+    <RootType FullName="Thibetanus.ViewModels.SubPage.Assets.AssetsEditViewModel" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="Width" />
-      <RootProperty Name="MaxLength" />
-      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Text" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="Style" />
       <RootProperty Name="InputScope" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="MaxLength" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootEvent Name="KeyUp" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="SelectedIndex" />
+      <RootProperty Name="SelectedValuePath" />
+      <RootProperty Name="DisplayMemberPath" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="SelectedItem" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="Style" />
+      <RootEvent Name="SelectionChanged" />
+    </RootType>
+    <RootType FullName="Thibetanus.Views.SubPage.Assets.AssetsEdit" />
+    <RootType FullName="Thibetanus.Views.SubPage.CustomSubPage" />
+    <RootType FullName="Thibetanus.ViewModels.LoginPageViewModel" />
     <RootType FullName="Thibetanus.Views.LoginPage" />
     <RootType FullName="System.String" />
     <RootType FullName="Windows.UI.Xaml.Controls.SplitView">
@@ -247,18 +281,14 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Frame" />
     <RootType FullName="Thibetanus.Views.MainMenu" />
+    <RootType FullName="Thibetanus.ViewModels.SubPage.Custom.OrderEditViewModel" />
+    <RootType FullName="Thibetanus.Views.SubPage.Custom.OrderEdit" />
+    <RootType FullName="Thibetanus.ViewModels.SubPage.Custom.CustomEditViewModel" />
+    <RootType FullName="Thibetanus.Views.SubPage.Custom.CustomEdit" />
     <RootType FullName="Thibetanus.Views.SubPage.ReportSubPage" />
     <RootType FullName="Thibetanus.Views.SubPage.SalarySubPage" />
     <RootType FullName="Thibetanus.Views.SubPage.SalonSubPage" />
     <RootType FullName="Thibetanus.ViewModels.SubPage.Salon.LocationEditViewModel" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
-      <RootProperty Name="ItemsSource" />
-      <RootProperty Name="SelectedItem" />
-      <RootProperty Name="SelectedValuePath" />
-      <RootProperty Name="DisplayMemberPath" />
-      <RootProperty Name="Visibility" />
-      <RootProperty Name="Style" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyout">
       <RootProperty Name="Items" />
     </RootType>
@@ -280,5 +310,7 @@
     <RootType FullName="Thibetanus.ViewModels.SubPage.Staff.StaffEditViewModel" />
     <RootType FullName="Thibetanus.Common.Converter.VisibleConverter" />
     <RootType FullName="Thibetanus.Views.SubPage.Staff.StaffEdit" />
+    <RootType FullName="Thibetanus.ViewModels.SubPage.Staff.StaffOrderEditViewModel" />
+    <RootType FullName="Thibetanus.Views.SubPage.Staff.StaffOrderEdit" />
   </Roots.RootTypes>
 </Roots>

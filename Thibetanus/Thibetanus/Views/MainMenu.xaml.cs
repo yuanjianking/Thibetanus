@@ -92,7 +92,7 @@ namespace Thibetanus.Views
             //    PostgreSQLContxtSeeder.Seed(context);
             //}
             ////数据库数据加载，显示慢，转菊花？还是怎么优化？
-           //   (new MasterdataManager()).Load();         
+            //   (new MasterdataManager()).Load();         
 
             base.OnNavigatedTo(e);
         }

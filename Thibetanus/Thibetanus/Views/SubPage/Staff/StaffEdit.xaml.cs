@@ -78,6 +78,7 @@ namespace Thibetanus.Views.SubPage.Staff
             var item = btn.DataContext as StaffInfoModel;
             viewModel.StaffInfos.Remove(item);
         }
+
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;

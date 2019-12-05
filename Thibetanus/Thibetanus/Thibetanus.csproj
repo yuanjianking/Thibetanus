@@ -145,10 +145,14 @@
     <Compile Include="Common\UserControls\ServicePopup.xaml.cs">
       <DependentUpon>ServicePopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Assets\AssetsControl.cs" />
+    <Compile Include="Controls\Custom\OrderControl.cs" />
+    <Compile Include="Controls\Custom\CustomControl.cs" />
     <Compile Include="Controls\Salon\LocationControl.cs" />
     <Compile Include="Controls\Salon\ManagerControl.cs" />
     <Compile Include="Controls\Salon\SalonControl.cs" />
     <Compile Include="Controls\Service\ServiceControl.cs" />
+    <Compile Include="Controls\Staff\StaffOrderControl.cs" />
     <Compile Include="Controls\Staff\StaffControl.cs" />
     <Compile Include="Controls\LoginControl.cs" />
     <Compile Include="DBmanager\DBConnect.cs" />
@@ -159,11 +163,15 @@
     <Compile Include="DBmanager\PostgreSQL\PostgreSQLContxtSeeder.cs" />
     <Compile Include="DBModels\MongDB\Skill.cs" />
     <Compile Include="DBModels\MongDB\Staff.cs" />
+    <Compile Include="DBModels\PostgreSQL\Base.cs" />
+    <Compile Include="DBModels\PostgreSQL\Custom.cs" />
     <Compile Include="DBModels\PostgreSQL\Location.cs" />
+    <Compile Include="DBModels\PostgreSQL\StaffOrder.cs" />
     <Compile Include="DBModels\PostgreSQL\SalonService.cs" />
     <Compile Include="DBModels\PostgreSQL\Service.cs" />
     <Compile Include="DBModels\PostgreSQL\Order.cs" />
     <Compile Include="DBModels\PostgreSQL\Manager.cs" />
+    <Compile Include="DBModels\PostgreSQL\Assets.cs" />
     <Compile Include="DBModels\PostgreSQL\Staff.cs" />
     <Compile Include="DBModels\PostgreSQL\Salon.cs" />
     <Compile Include="DBModels\PostgreSQL\User.cs" />
@@ -172,22 +180,33 @@
     </Compile>
     <Compile Include="MasterData\MasterdataManager.cs" />
     <Compile Include="Models\ShowEditModel.cs" />
+    <Compile Include="Models\SubPage\Assets\AssetsModel.cs" />
+    <Compile Include="Models\SubPage\Custom\OrderModel.cs" />
+    <Compile Include="Models\SubPage\Custom\CustomModel.cs" />
     <Compile Include="Models\SubPage\Salon\LocationModel.cs" />
     <Compile Include="Models\SubPage\Salon\ManagerModel.cs" />
     <Compile Include="Models\SubPage\Salon\SalonModel.cs" />
     <Compile Include="Models\SubPage\Service\ServiceModel.cs" />
+    <Compile Include="Models\SubPage\Staff\StaffOrderModel.cs" />
     <Compile Include="Models\SubPage\Staff\StaffInfoModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
+    <Compile Include="ViewModels\SubPage\Assets\AssetsEditViewModel.cs" />
+    <Compile Include="ViewModels\SubPage\Custom\OrderEditViewModel.cs" />
+    <Compile Include="ViewModels\SubPage\Custom\CustomEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\Salon\ManagerEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\Salon\LocationEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\Salon\SalonEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\Service\ServiceEditViewModel.cs" />
+    <Compile Include="ViewModels\SubPage\Staff\StaffOrderEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\Staff\StaffEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\SubBaseViewModel.cs" />
     <Compile Include="Views\SubPage\AssetsSubPage.xaml.cs">
       <DependentUpon>AssetsSubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubPage\Assets\AssetsEdit.xaml.cs">
+      <DependentUpon>AssetsEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubPage\CustomSubPage.xaml.cs">
       <DependentUpon>CustomSubPage.xaml</DependentUpon>
@@ -197,6 +216,12 @@
     </Compile>
     <Compile Include="Views\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubPage\Custom\OrderEdit.xaml.cs">
+      <DependentUpon>OrderEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubPage\Custom\CustomEdit.xaml.cs">
+      <DependentUpon>CustomEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubPage\ReportSubPage.xaml.cs">
       <DependentUpon>ReportSubPage.xaml</DependentUpon>
@@ -233,6 +258,9 @@
     </Compile>
     <Compile Include="Views\SubPage\Staff\StaffEdit.xaml.cs">
       <DependentUpon>StaffEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubPage\Staff\StaffOrderEdit.xaml.cs">
+      <DependentUpon>StaffOrderEdit.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -284,6 +312,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SubPage\Assets\AssetsEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SubPage\CustomSubPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -293,6 +325,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubPage\Custom\OrderEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SubPage\Custom\CustomEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -344,6 +384,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SubPage\Staff\StaffOrderEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MetroLog">
@@ -366,16 +410,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\SubPage\Assets\" />
-    <Folder Include="Models\SubPage\Custom\" />
     <Folder Include="Models\SubPage\Report\" />
     <Folder Include="Models\SubPage\Salary\" />
-    <Folder Include="ViewModels\SubPage\Assets\" />
-    <Folder Include="ViewModels\SubPage\Custom\" />
     <Folder Include="ViewModels\SubPage\Report\" />
     <Folder Include="ViewModels\SubPage\Salary\" />
-    <Folder Include="Views\SubPage\Assets\" />
-    <Folder Include="Views\SubPage\Custom\" />
     <Folder Include="Views\SubPage\Report\" />
     <Folder Include="Views\SubPage\Salary\" />
   </ItemGroup>

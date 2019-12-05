@@ -119,10 +119,12 @@ namespace Thibetanus.Controls.Salon
 
                         if (model.Id < 1)
                         {
+                            location.CreateTime = DateTime.Now.ToLongDateString();
                             res += connect.Add(location);
                         }
                         else if (list.Where(func).Count() > 0)
                         {
+                            location.UpdateTime = DateTime.Now.ToLongDateString();
                             res += connect.Modify(location);
                         }
                     }

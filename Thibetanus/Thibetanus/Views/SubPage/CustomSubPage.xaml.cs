@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Thibetanus.Common.Helper;
+using Thibetanus.Common.Models;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +28,13 @@ namespace Thibetanus.Views.SubPage
         public CustomSubPage()
         {
             this.InitializeComponent();
+        }
+        public ObservableCollection<MenuModel> Menus
+        {
+            get
+            {
+                return new ObservableCollection<MenuModel>(MenuHelper.GetXmlHelper().GetMenus(MenuHelper.MenuType.Custom));
+            }
         }
     }
 }

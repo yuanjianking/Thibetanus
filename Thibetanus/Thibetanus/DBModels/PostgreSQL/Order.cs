@@ -7,21 +7,35 @@ using System.Threading.Tasks;
 
 namespace Thibetanus.DBModels.PostgreSQL
 {
-    class Order
+    class Order : Base
     {
         [Key]
         public int Id { get; set; }
         [Required]
-        public int UserId { get; set; }
+        public int CustomName { get; set; }
+        public virtual Custom Custom { get; set; }
         [Required]
-        public string Item { get; set; }
+        public string SalonCode { get; set; }
         [Required]
-        public string Description { get; set; }
-        public virtual User User { get; set; }
+        public string SalonName { get; set; }
+        public virtual Salon Salon { get; set; }
+        [Required]
+        public string StaffName { get; set; }
+        public virtual Staff Staff { get; set; }
+        [Required]
+        public string ServiceName { get; set; }
+        public virtual Service Service { get; set; }
+        [Required]
+        public string Price { get; set; }
+        [Required]
+        public string OrderTime { get; set; }
 
-        public override string ToString()
-        {
-            return $"OrderId: {Id} Item: {Item} Descriptoin: {Description}";
-        }
+        public string ServiceTime { get; set; }
+       
+        public string CustomComment { get; set; }
+       
+        public string StaffComment { get; set; }
+
+        public string Status { get; set; }
     }
 }
