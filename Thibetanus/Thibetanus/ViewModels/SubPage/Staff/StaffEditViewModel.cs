@@ -17,13 +17,13 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Thibetanus.Models.SubPage.Staff;
 using Thibetanus.Controls.Staff;
+using Thibetanus.Common.Log;
 
 namespace Thibetanus.ViewModels.SubPage.Staff
 {
-    class StaffEditViewModel : ObservableObject
+    class StaffEditViewModel : SubBaseViewModel
     {
         private ObservableCollection<StaffInfoModel> _staffInfos = null;
-        private ObservableCollection<SkillModel> _skills = null;
 
         public ObservableCollection<StaffInfoModel> StaffInfos
         {
@@ -35,20 +35,65 @@ namespace Thibetanus.ViewModels.SubPage.Staff
             }
         }
 
-        public ObservableCollection<SkillModel> Skills
+        public StaffEditViewModel()
         {
-            get { return _skills; }
-            set
+           
+            try
             {
-                _skills = value;
-                RaisePropertyChanged("Skills");
+                this.StaffInfos = new StaffControl().GetAllStaffInfos();
+            }
+            catch (Exception ex)
+            {
+                AppLog.Error(typeof(StaffEditViewModel), ex.ToString());
             }
         }
 
-        public StaffEditViewModel()
+       override
+       public void DoAddCommand()
         {
-            this.StaffInfos = new StaffControl().GetAllStaffInfos();
-            this.Skills = new StaffControl().GetAllSkills();
+
+            StaffInfos.Add(new StaffInfoModel("Collapsed", "Visible"));
+        }
+
+        override
+        public bool CanAddCommand()
+        {
+            return true;
+        }
+
+        override
+        public void DoDelCommand(int index)
+        {
+            StaffInfos.RemoveAt(index);
+        }
+
+        override
+        public bool CanDelCommand()
+        {
+            return StaffInfos.Count > 1;
+        }
+
+        override
+        public void DoSaveCommand()
+        {
+            if (new StaffControl().Save(StaffInfos) != 0)
+            {
+                ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("MessageResources");
+                string message = resourceLoader.GetString("Success");
+                MessagePopup messageopup = new MessagePopup(message);
+                messageopup.Show();
+                StaffInfos = new StaffControl().GetAllStaffInfos();
+            }
+        }
+
+        override
+        public void ResetStatus()
+        {
+            foreach (var item in StaffInfos)
+            {
+                item.Show = "Visible";
+                item.Edit = "Collapsed";
+            }
         }
 
     }

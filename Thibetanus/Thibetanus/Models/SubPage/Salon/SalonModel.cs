@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Thibetanus.Common.BaseModel;
+using Thibetanus.Controls.Salon;
 using Thibetanus.MasterData;
 
 namespace Thibetanus.Models.SubPage.Salon
@@ -51,8 +52,8 @@ namespace Thibetanus.Models.SubPage.Salon
             set
             {
                 _locationCode = value;
-                this.Location = (new LocationMaster()).GetDataByCode(value);
-                this.Locations = (new LocationMaster()).GetCollection();
+                this.Location = (new LocationControl()).GetDataByCode(value);
+                this.Locations = (new LocationControl()).GetCollection();
             }
         }
 
@@ -63,8 +64,8 @@ namespace Thibetanus.Models.SubPage.Salon
             set
             {
                 _managerCode = value;
-                this.Manager = (new ManagerMaster()).GetDataByCode(value);
-                this.Managers = (new ManagerMaster()).GetCollection();
+                this.Manager = (new ManagerControl()).GetDataByCode(value);
+                this.Managers = (new ManagerControl()).GetCollection();
             }
         }
 
@@ -121,10 +122,10 @@ namespace Thibetanus.Models.SubPage.Salon
         {
             this.Code = "MY";
             this.Name = "熊熊的产康会所";
-            this.Location = (new LocationMaster()).GetCollection().First();
-            this.Locations = (new LocationMaster()).GetCollection();
-            this.Manager = (new ManagerMaster()).GetCollection().First();
-            this.Managers = (new ManagerMaster()).GetCollection();
+            this.Location = (new LocationControl()).GetCollection().First();
+            this.Locations = (new LocationControl()).GetCollection();
+            this.Manager = (new ManagerControl()).GetCollection().First();
+            this.Managers = (new ManagerControl()).GetCollection();
         }
         
         

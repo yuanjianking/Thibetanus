@@ -85,6 +85,9 @@
     <AppxPackagedFile Include="C:\Users\yj\.nuget\packages\mongodb.driver.core\2.8.1\lib\netstandard1.5\MongoDB.Driver.Core.dll">
       <PackagePath>MongoDB.Driver.Core.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\yj\.nuget\packages\newtonsoft.json\12.0.3\lib\netstandard2.0\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\yj\.nuget\packages\npgsql\4.0.9\lib\netstandard2.0\Npgsql.dll">
       <PackagePath>Npgsql.dll</PackagePath>
     </AppxPackagedFile>
@@ -156,6 +159,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Common\UserControls\MessagePopup.xbf">
       <PackagePath>Common\UserControls\MessagePopup.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Common\UserControls\ServicePopup.xbf">
+      <PackagePath>Common\UserControls\ServicePopup.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>

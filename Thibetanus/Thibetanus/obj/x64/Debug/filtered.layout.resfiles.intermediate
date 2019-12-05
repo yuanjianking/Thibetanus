@@ -9,6 +9,7 @@ Assets\Wide310x150Logo.scale-200.png
 App.xbf
 Common\UserControls\GridMenu.xbf
 Common\UserControls\MessagePopup.xbf
+Common\UserControls\ServicePopup.xbf
 MainPage.xbf
 Thibetanus.xr.xml
 Views\LoginPage.xbf

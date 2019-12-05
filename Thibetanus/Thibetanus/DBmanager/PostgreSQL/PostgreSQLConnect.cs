@@ -82,17 +82,27 @@ namespace Thibetanus.DBmanager.PostgreSQL
         public List<TSource> FindAll<TSource, Tkey>(Func<TSource, Tkey> orderby) where TSource : class
         {
             //PostgreSQLContxtSeeder.Seed(context);
-            //var users = context.Users.Include(u => u.Orders).ToList();
+           // var users = context.Users.Include(u => u.Orders).ToList();
             //users.ForEach(u =>
             //{
             //    Console.WriteLine(u);
             //});
             return context.Set<TSource>().AsNoTracking().OrderBy(orderby).ToList();
         }
-        
-        public IEnumerable<TSource> GetLstInfo<TSource>(Expression<Func<TSource, bool>> express) where TSource : class
+
+        //public List<TSource> FindAll<TSource, Tkey>(Func<TSource, Tkey> orderby) where TSource : class
+        //{
+        //    //var users = context.Users.Include(u => u.Orders).ToList();
+        //    //users.ForEach(u =>
+        //    //{
+        //    //    Console.WriteLine(u);
+        //    //});
+        //    return context.Set<TSource>().AsNoTracking().OrderBy(orderby).ToList();
+        //}
+
+        public IQueryable<TSource> GetWhere<TSource>(Expression<Func<TSource, bool>> express) where TSource : class
         {
-            return context.Set<TSource>().Where(express).ToList();
+            return context.Set<TSource>().Where(express);
         }
 
         public TSource GetModel<TSource>(params string[] id) where TSource : class

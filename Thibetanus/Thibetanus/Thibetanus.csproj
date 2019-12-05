@@ -122,6 +122,8 @@
     <Compile Include="Common\BaseControl\BaseControl.cs" />
     <Compile Include="Common\BaseModel\DelegateCommand.cs" />
     <Compile Include="Common\BaseModel\ObservableObject.cs" />
+    <Compile Include="Common\Converter\HeadingConverter.cs" />
+    <Compile Include="Common\Converter\VisibleConverter.cs" />
     <Compile Include="Common\Converter\PriceConverter.cs" />
     <Compile Include="Common\Enum\Permission.cs" />
     <Compile Include="Common\Exceptions\AppException.cs" />
@@ -140,6 +142,11 @@
     <Compile Include="Common\UserControls\MessagePopup.xaml.cs">
       <DependentUpon>MessagePopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\UserControls\ServicePopup.xaml.cs">
+      <DependentUpon>ServicePopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Salon\LocationControl.cs" />
+    <Compile Include="Controls\Salon\ManagerControl.cs" />
     <Compile Include="Controls\Salon\SalonControl.cs" />
     <Compile Include="Controls\Service\ServiceControl.cs" />
     <Compile Include="Controls\Staff\StaffControl.cs" />
@@ -153,9 +160,9 @@
     <Compile Include="DBModels\MongDB\Skill.cs" />
     <Compile Include="DBModels\MongDB\Staff.cs" />
     <Compile Include="DBModels\PostgreSQL\Location.cs" />
-    <Compile Include="DBModels\PostgreSQL\Servcie.cs" />
+    <Compile Include="DBModels\PostgreSQL\SalonService.cs" />
+    <Compile Include="DBModels\PostgreSQL\Service.cs" />
     <Compile Include="DBModels\PostgreSQL\Order.cs" />
-    <Compile Include="DBModels\PostgreSQL\Skill.cs" />
     <Compile Include="DBModels\PostgreSQL\Manager.cs" />
     <Compile Include="DBModels\PostgreSQL\Staff.cs" />
     <Compile Include="DBModels\PostgreSQL\Salon.cs" />
@@ -163,15 +170,12 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MasterData\ManagerMaster.cs" />
-    <Compile Include="MasterData\LocationMaster.cs" />
     <Compile Include="MasterData\MasterdataManager.cs" />
     <Compile Include="Models\ShowEditModel.cs" />
     <Compile Include="Models\SubPage\Salon\LocationModel.cs" />
     <Compile Include="Models\SubPage\Salon\ManagerModel.cs" />
     <Compile Include="Models\SubPage\Salon\SalonModel.cs" />
     <Compile Include="Models\SubPage\Service\ServiceModel.cs" />
-    <Compile Include="Models\SubPage\Staff\SkillModel.cs" />
     <Compile Include="Models\SubPage\Staff\StaffInfoModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -268,6 +272,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Common\UserControls\ServicePopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -346,6 +354,9 @@
     </PackageReference>
     <PackageReference Include="MongoDB.Driver">
       <Version>2.8.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
     </PackageReference>
     <PackageReference Include="Npgsql">
       <Version>4.0.9</Version>

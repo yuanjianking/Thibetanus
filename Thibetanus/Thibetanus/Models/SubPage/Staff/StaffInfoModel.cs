@@ -7,17 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Thibetanus.Common.BaseModel;
+using Thibetanus.Controls.Salon;
 using Thibetanus.Controls.Staff;
+using Thibetanus.Models.SubPage.Salon;
+using Thibetanus.Models.SubPage.Service;
 
 namespace Thibetanus.Models.SubPage.Staff
 {
-    class StaffInfoModel : ObservableObject
+    class StaffInfoModel :  ShowEditModel
     {
         private string _code;
         private string _name;
-        private string _role;
-        private string _salon;
-        private ObservableCollection<SkillModel> _skills = null;
+        private SalonModel _salon;
+        private ObservableCollection<SalonModel> _salons = null;
+
+        private ObservableCollection<ServiceModel> _services = null;
+
+        public int Id { get; set; }
 
         public string Code
         {
@@ -40,16 +46,7 @@ namespace Thibetanus.Models.SubPage.Staff
             }
         }
 
-        public string Role
-         {
-            get { return _role; }
-            set {
-                _role = value;
-                RaisePropertyChanged("Role");
-            }
-         }
-
-        public string Salon
+        public SalonModel Salon
         {
             get { return _salon; }
             set
@@ -59,14 +56,37 @@ namespace Thibetanus.Models.SubPage.Staff
             }
         }
 
-        public ObservableCollection<SkillModel> Skills
+        public ObservableCollection<SalonModel> Salons
         {
-            get { return _skills; }
+            get { return _salons; }
             set
             {
-                _skills = value;
-                RaisePropertyChanged("Skills");
+                _salons = value;
+                RaisePropertyChanged("Salons");
             }
+        }
+
+        public ObservableCollection<ServiceModel> Services
+        {
+            get { return _services; }
+            set
+            {
+                _services = value;
+                RaisePropertyChanged("Services");
+            }
+        }       
+
+        public StaffInfoModel()
+        {
+        }
+
+        public StaffInfoModel(string show, string edit) : base(show, edit)
+        {
+            this.Code = "E";
+            this.Name = "地鼠X";
+            this.Salon= new SalonControl().GetAllSalonInfos().First();
+            this.Salons = new SalonControl().GetAllSalonInfos();
+            this.Services = new ObservableCollection<ServiceModel>();
         }
     }
 }

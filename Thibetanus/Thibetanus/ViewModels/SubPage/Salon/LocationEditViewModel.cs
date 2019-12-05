@@ -36,7 +36,7 @@ namespace Thibetanus.ViewModels.SubPage.Salon
         {
             try
             {
-                Locations = new LocationMaster().GetCollection();
+                Locations = new LocationControl().GetCollection();
             }
             catch (Exception ex)
             {
@@ -71,7 +71,7 @@ namespace Thibetanus.ViewModels.SubPage.Salon
         override
         public void DoSaveCommand()
         {
-            if (new LocationMaster().Save() != 0)
+            if (new LocationControl().Save() != 0)
             {
                 ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("MessageResources");
                 string message = resourceLoader.GetString("Success");

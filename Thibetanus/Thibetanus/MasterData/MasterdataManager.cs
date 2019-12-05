@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Thibetanus.Common.Initiate;
+using Thibetanus.Controls.Salon;
 
 namespace Thibetanus.MasterData
 {
@@ -13,8 +14,8 @@ namespace Thibetanus.MasterData
         {
             MasterDataInitiater initiater = new MasterDataInitiater();
 
-            (new LocationMaster()).Subscribe(initiater);
-            (new ManagerMaster()).Subscribe(initiater);
+            (new LocationControl()).Subscribe(initiater);
+            (new ManagerControl()).Subscribe(initiater);
 
             initiater.LoadData();
         }

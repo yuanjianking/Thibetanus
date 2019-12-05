@@ -156,7 +156,6 @@ D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\MetroLog.pdb
 D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\MetroLog.WinRT.pri.xml
 D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\MetroLog.pri.xml
 D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\.winmd_cache\$MetroLog.WinRT.winmd_635900761300000000.json
-D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Thibetanus.csprojAssemblyReference.cache
 D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\LocationEdit.xaml
 D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\ManagerEdit.xaml
 D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\LocationEdit.xbf
@@ -177,3 +176,10 @@ D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\SalonDetai
 D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\SalonDetailEdit.g.cs
 D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\SalonDetailEdit.xaml
 D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Views\SubPage\Salon\SalonDetailEdit.xbf
+D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Common\UserControls\ServicePopup.xbf
+D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Common\UserControls\ServicePopup.g.i.cs
+D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Common\UserControls\ServicePopup.g.cs
+D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Common\UserControls\ServicePopup.xaml
+D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Common\UserControls\ServicePopup.xbf
+D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Newtonsoft.Json.dll
+D:\source\UWP\Thibetanus\Thibetanus\obj\x64\Debug\Thibetanus.csprojAssemblyReference.cache

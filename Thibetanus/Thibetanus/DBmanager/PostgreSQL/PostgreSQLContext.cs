@@ -15,12 +15,12 @@ namespace Thibetanus.DBmanager.PostgreSQL
 
         public DbSet<User> Users { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Skill> Skill { get; set; }
-        public DbSet<Staff> Staff { get; set; }
+        public DbSet<Staff> Staffs { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Manager> Managers { get; set; }
         public DbSet<Salon> Salons { get; set; }
-        public DbSet<Servcie> Services { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<SalonService> SalonServices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,9 +33,12 @@ namespace Thibetanus.DBmanager.PostgreSQL
             modelBuilder.Entity<Salon>()
                 .HasIndex(m => m.Code)
                 .IsUnique();
-            modelBuilder.Entity<Servcie>()
+            modelBuilder.Entity<Service>()
                 .HasIndex(m => m.Code)
                 .IsUnique();
+            modelBuilder.Entity<Staff>()
+               .HasIndex(m => m.Code)
+               .IsUnique();
         }
     }
 }

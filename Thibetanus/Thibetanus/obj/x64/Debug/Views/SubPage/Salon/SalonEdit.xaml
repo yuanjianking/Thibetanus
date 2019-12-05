@@ -27,7 +27,7 @@
             <Setter Property="ComboBox.Margin" Value="30,10,30,10" />
         </Style>
         <Style x:ConnectionId='6' x:Name="listButton" TargetType="Button">
-            <Setter  Property="Button.MinWidth" Value="60"/>
+            <Setter  Property="Button.MinWidth" Value="100"/>
             <Setter Property="Button.Margin" Value="30,0,30,0" />
         </Style>
         
@@ -38,7 +38,7 @@
                     <TextBlock Text="名称"  Style="{StaticResource listTextBlock}"/>
                     <TextBlock Text="所属地"  Style="{StaticResource listTextBlock}"/>
                     <TextBlock Text="店长"  Style="{StaticResource listTextBlock}"/>
-                    <TextBlock Text="详细"  Style="{StaticResource listTextBlock}"/>
+                    <TextBlock Text="服务信息"  Style="{StaticResource listTextBlock}"/>
                 </StackPanel>
             </ListViewHeaderItem>
         </DataTemplate>
@@ -50,7 +50,7 @@
                     <TextBlock Text="名称"  Style="{StaticResource listTextBlock}"/>
                     <TextBlock Text="所属地"  Style="{StaticResource listTextBlock}"/>
                     <TextBlock Text="店长"  Style="{StaticResource listTextBlock}"/>
-                    <TextBlock Text="详细"  Style="{StaticResource listTextBlock}"/>
+                    <TextBlock Text="服务信息"  Style="{StaticResource listTextBlock}"/>
                 </StackPanel>
             </ListViewHeaderItem>
         </DataTemplate>
@@ -67,7 +67,7 @@
                 <TextBlock Text="{Binding Manager.Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
                 <ComboBox ItemsSource="{Binding Managers}"  SelectedItem="{Binding Manager, Mode=TwoWay}"
                            SelectedValuePath="Code" DisplayMemberPath="Name" Visibility="{Binding Edit}"  Style="{StaticResource listComboBox}"/>
-                <Button x:ConnectionId='10'  Style="{StaticResource listButton}"                       Content="详细" />
+                <Button x:ConnectionId='10'  Style="{StaticResource listButton}"                       Content="服务编辑" />
             </StackPanel>
         </DataTemplate>
 
@@ -83,7 +83,7 @@
                 <TextBlock Text="{Binding Manager.Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
                 <ComboBox ItemsSource="{Binding Managers}"  SelectedItem="{Binding Manager, Mode=TwoWay}"
                            SelectedValuePath="Code" DisplayMemberPath="Name" Visibility="{Binding Edit}"  Style="{StaticResource listComboBox}"/>
-                <Button x:ConnectionId='8'  Style="{StaticResource listButton}"                       Content="详细" />
+                <Button x:ConnectionId='8'  Style="{StaticResource listButton}"                       Content="服务编辑" />
             </StackPanel>
         </DataTemplate>
 

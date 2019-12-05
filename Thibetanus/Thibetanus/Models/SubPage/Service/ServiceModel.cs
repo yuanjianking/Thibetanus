@@ -7,7 +7,7 @@ using Thibetanus.Common.BaseModel;
 
 namespace Thibetanus.Models.SubPage.Service
 {
-    class ServiceModel : ShowEditModel
+    public class ServiceModel : ShowEditModel
     {
         private string _code;
         private string _group;

@@ -7,7 +7,7 @@ using Thibetanus.Common.BaseModel;
 
 namespace Thibetanus.Models
 {
-    class ShowEditModel : ObservableObject
+    public class ShowEditModel : ObservableObject
     {
         private string _show;
         private string _edit;

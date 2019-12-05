@@ -93,6 +93,11 @@ namespace Thibetanus.DBmanager.MongDB
             throw new NotImplementedException();
         }
 
+        public IQueryable<TSource> GetWhere<TSource>(Expression<Func<TSource, bool>> express) where TSource : class
+        {
+            throw new NotImplementedException();
+        }
+
         public MongDBConnect()
         {
 

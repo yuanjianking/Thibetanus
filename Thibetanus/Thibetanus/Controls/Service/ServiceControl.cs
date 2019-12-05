@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Thibetanus.Common.BaseControl;
 using Thibetanus.Common.Exceptions;
 using Thibetanus.Common.Helper;
+using Thibetanus.Common.Initiate;
 using Thibetanus.Common.Log;
 using Thibetanus.Common.UserControls;
 using Thibetanus.DBmanager;
@@ -20,7 +21,52 @@ using Thibetanus.Models.SubPage.Service;
 namespace Thibetanus.Controls.Service
 {
     class ServiceControl : BaseControl
-    {    
+    {
+        private static ObservableCollection<ServiceModel> _services = null;
+
+        public void LoadData(object sender, InitiateEventArgs e)
+        {
+            Load();
+        }
+
+        public void Subscribe(MasterDataInitiater evenSource)
+        {
+            evenSource.InitiateEvent += new InitiateEventHandler(LoadData);
+            evenSource.ActionEvent += new Action<object, InitiateEventArgs>(LoadData);
+        }
+
+        public void UnSubscribe(MasterDataInitiater evenSource)
+        {
+            evenSource.InitiateEvent -= new InitiateEventHandler(LoadData);
+            evenSource.ActionEvent -= new Action<object, InitiateEventArgs>(LoadData);
+        }
+
+        public ObservableCollection<ServiceModel> GetAllServices()
+        {
+            Load();
+            return _services;
+        }
+        
+        private void Load()
+        {
+            if (_services == null)
+            {
+                //数据库检索
+                _services = new ObservableCollection<ServiceModel>();
+                using (DBConnect connect = new DBFactory().GetPostgreSQLDBConnect().StartConnect())
+                {
+                    var list = connect.FindAll<DBModels.PostgreSQL.Service, string>(m => m.Code);
+
+                    foreach (var item in list)
+                    {
+                        ServiceModel model = new ServiceModel();
+                        ModelHelper.CopyModel(model, item);
+                        _services.Add(model);
+                    }
+                }
+            }
+        }
+
         public int Save(ObservableCollection<ServiceModel> models)
         {
             using (DBConnect connect = new DBFactory().GetPostgreSQLDBConnect().BeginTransaction())
@@ -28,20 +74,20 @@ namespace Thibetanus.Controls.Service
                 try
                 {
                     int res = 0;
-                    var list = connect.FindAll<DBModels.PostgreSQL.Servcie, int>(m => m.Id);                    
+                    var list = connect.FindAll<DBModels.PostgreSQL.Service, int>(m => m.Id);                    
                     var data = list.Where(w => !models.Select(s => s.Id).Contains(w.Id));
                     res += connect.Delete(data);
               
                     foreach (ServiceModel model in models)
                     {
-                        DBModels.PostgreSQL.Servcie service = new DBModels.PostgreSQL.Servcie();
+                        DBModels.PostgreSQL.Service service = new DBModels.PostgreSQL.Service();
                         ModelHelper.CopyModel(service, model);
 
-                        Func<DBModels.PostgreSQL.Servcie, bool> func = m =>
+                        Func<DBModels.PostgreSQL.Service, bool> func = m =>
                         {
-                            if (m.Id == model.Id && m.Code.Equals(model.Code))
+                            if (m.Id == model.Id )
                             {
-                                if (m.Name.Equals(model.Name) && m.Group.Equals(model.Group) && m.Price.Equals(model.Price))
+                                if (m.Code.Equals(model.Code) && m.Name.Equals(model.Name) && m.Group.Equals(model.Group) && m.Price.Equals(model.Price))
                                 {
                                     return false;
                                 }
@@ -72,24 +118,6 @@ namespace Thibetanus.Controls.Service
                     throw new AppException("DBException");                  
                 }
             }
-        }
-
-        public ObservableCollection<ServiceModel> GetAllServices()
-        { 
-            var models = new ObservableCollection<ServiceModel>();
-            using (DBConnect connect = new DBFactory().GetPostgreSQLDBConnect().StartConnect())
-            {
-                var list = connect.FindAll<DBModels.PostgreSQL.Servcie, int>(m => m.Id);
-
-                foreach (var item in list)
-                {
-                    ServiceModel model = new ServiceModel();
-                    ModelHelper.CopyModel(model, item);
-                    models.Add(model);
-                }
-            }
-
-            return models;
         }
     }
 }

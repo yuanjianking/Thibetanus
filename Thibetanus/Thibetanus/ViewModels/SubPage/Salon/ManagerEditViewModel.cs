@@ -34,7 +34,7 @@ namespace Thibetanus.ViewModels.SubPage.Salon
         {
             try
             {
-                Managers = new ManagerMaster().GetCollection();
+                Managers = new ManagerControl().GetCollection();
             }
             catch (Exception ex)
             {
@@ -69,7 +69,7 @@ namespace Thibetanus.ViewModels.SubPage.Salon
         override
         public void DoSaveCommand()
         {
-            if (new ManagerMaster().Save() != 0)
+            if (new ManagerControl().Save() != 0)
             {
                 ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("MessageResources");
                 string message = resourceLoader.GetString("Success");
