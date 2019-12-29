@@ -30,14 +30,14 @@ namespace Thibetanus.Controls.Salon
         public ManagerModel GetDataByCode(string code)
         {
             Load();
-            var manager = _managers.Where(model => model.Code.Equals(code));
+            var manager = _managers.Where(model => model.Code == code);
             return manager.FirstOrDefault();
         }
 
         public ManagerModel GetDataByName(string name)
         {
             Load();
-            var manager = _managers.Where(model=> model.Name.Equals(name));
+            var manager = _managers.Where(model=> model.Name == name);
             return manager.FirstOrDefault();
         }
 
@@ -98,7 +98,7 @@ namespace Thibetanus.Controls.Salon
                         {
                             if (m.Id == model.Id)
                             {
-                                if (m.Code.Equals(model.Code) && m.Name.Equals(model.Name))
+                                if (m.Code == model.Code && m.Name == model.Name)
                                 {
                                     return false;
                                 }

@@ -53,6 +53,7 @@
                         <TextBlock Text="人名"  Style="{StaticResource listTextBlock}"/>
                         <TextBlock Text="所属店铺"  Style="{StaticResource listTextBlock}"/>
                         <TextBlock Text="服务"  Style="{StaticResource listTextBlock}"/>
+                        <TextBlock Text="服务时间"  Style="{StaticResource listTextBlock}"/>
                         <TextBlock Text="操作"  Style="{StaticResource listTextBlock}"/>
                     </StackPanel>
                 </ListViewHeaderItem>
@@ -64,7 +65,7 @@
                         <TextBlock Text="编号"  Style="{StaticResource listTextBlock}"/>
                         <TextBlock Text="人名"  Style="{StaticResource listTextBlock}"/>
                         <TextBlock Text="所属店铺"  Style="{StaticResource listTextBlock}"/>
-                        <TextBlock Text="服务"  Style="{StaticResource listTextBlock}"/>
+                        <TextBlock Text="服务时间"  Style="{StaticResource listTextBlock}"/>
                         <TextBlock Text="操作"  Style="{StaticResource listTextBlock}"/>
                     </StackPanel>
                 </ListViewHeaderItem>
@@ -90,7 +91,7 @@
                                             <ColumnDefinition Width="auto"/>
                                             <ColumnDefinition Width="auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Text="{Binding Group}" Grid.Column="0"/>
+                                        <TextBlock Text="{Binding ServiceGroup.GroupName}" Grid.Column="0"/>
                                         <TextBlock Text="-" Grid.Column="1"/>
                                         <TextBlock Text="{Binding Name}" Grid.Column="2"/>                                     
                                     </Grid>
@@ -98,8 +99,27 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
+                    <ListView ItemsSource="{Binding ServiceTimes}" SelectionMode="None" HorizontalContentAlignment="Stretch" HorizontalAlignment="Center" Style="{StaticResource listList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ListViewItem>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding StartTime}" Grid.Column="0"/>
+                                        <TextBlock Text="-" Grid.Column="1"/>
+                                        <TextBlock Text="{Binding EndTime}" Grid.Column="2"/>
+                                    </Grid>
+                                </ListViewItem>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                     <StackPanel  Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" >
                         <Button  Style="{StaticResource listButton}"  Click="EditButton_Click" Content="服务编辑" />
+                        <Button  Style="{StaticResource listButton}"  Click="TimeEditButton_Click" Content="服务时间编辑" />
                         <Button  Style="{StaticResource listButton}"  Click="DelButton_Click" Content="删除" />
                     </StackPanel>
                 </StackPanel>
@@ -125,7 +145,7 @@
                                             <ColumnDefinition Width="auto"/>
                                             <ColumnDefinition Width="auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Text="{Binding Group}" Grid.Column="0"/>
+                                        <TextBlock Text="{Binding ServiceGroup.GroupName}" Grid.Column="0"/>
                                         <TextBlock Text="-" Grid.Column="1"/>
                                         <TextBlock Text="{Binding Name}" Grid.Column="2"/>
                                     </Grid>
@@ -133,8 +153,27 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
+                    <ListView ItemsSource="{Binding ServiceTimes}" SelectionMode="None" HorizontalContentAlignment="Stretch" HorizontalAlignment="Center" Style="{StaticResource listList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ListViewItem>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding StartTime}" Grid.Column="0"/>
+                                        <TextBlock Text="-" Grid.Column="1"/>
+                                        <TextBlock Text="{Binding EndTime}" Grid.Column="2"/>
+                                    </Grid>
+                                </ListViewItem>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                     <StackPanel  Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" >
                         <Button  Style="{StaticResource listButton}"  Click="EditButton_Click" Content="服务编辑" />
+                        <Button  Style="{StaticResource listButton}"  Click="TimeEditButton_Click" Content="服务时间编辑" />
                         <Button  Style="{StaticResource listButton}"  Click="DelButton_Click" Content="删除" />
                     </StackPanel>
                 </StackPanel>

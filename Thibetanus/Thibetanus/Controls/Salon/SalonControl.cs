@@ -13,6 +13,7 @@ using Thibetanus.Common.Helper;
 using Thibetanus.Common.Initiate;
 using Thibetanus.Common.Log;
 using Thibetanus.Common.UserControls;
+using Thibetanus.Controls.Service;
 using Thibetanus.DBmanager;
 using Thibetanus.DBmanager.PostgreSQL;
 using Thibetanus.Models.SubPage.Salon;
@@ -87,7 +88,7 @@ namespace Thibetanus.Controls.Salon
                         {
                             if (m.Id == model.Id)
                             {
-                                if (m.Code.Equals(model.Code) && m.Name.Equals(model.Name) && m.LocationCode.Equals(model.LocationCode) && m.ManagerCode.Equals(model.ManagerCode))
+                                if (m.Code == model.Code && m.Name ==model.Name && m.LocationCode == model.LocationCode && m.ManagerCode == model.ManagerCode)
                                 {
                                     return false;
                                 }
@@ -130,11 +131,14 @@ namespace Thibetanus.Controls.Salon
             var models = new ObservableCollection<ServiceModel>();
             using (DBConnect connect = new DBFactory().GetPostgreSQLDBConnect().StartConnect())
             {
+                var serviceGroups = new ServiceGroupControl().GetAllServiceGroups();
+
                 var salonServices = connect.GetWhere<DBModels.PostgreSQL.SalonService>(s => s.SalonCode == salongCd).Include(s => s.Service).ToList();
                 salonServices.ForEach(s =>
                 {
                     var model = new ServiceModel();
                     ModelHelper.CopyModel(model, s.Service);
+                    model.ServiceGroup = serviceGroups.Where(m => m.Code == s.Service.GroupCode).FirstOrDefault();
                     models.Add(model);
                 });
             }

@@ -17,7 +17,8 @@ namespace Thibetanus.DBModels.PostgreSQL
         [Required]
         public string Code { get; set; }
         [Required]
-        public string Group { get; set; }
+        [ForeignKey("GroupCode")] //外键
+        public string GroupCode { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

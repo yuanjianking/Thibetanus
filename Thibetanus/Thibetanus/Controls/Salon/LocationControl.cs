@@ -30,21 +30,21 @@ namespace Thibetanus.Controls.Salon
         public LocationModel GetDataByCode(string code)
         {
             Load();
-            var location = _locations.Where(model => model.Code.Equals(code));
+            var location = _locations.Where(model => model.Code == code);
             return location.FirstOrDefault();
         }
 
         public LocationModel GetDataByCity(string province, string city)
         {
             Load();
-            var location = _locations.Where(model => model.Province.Equals(province) && model.City.Equals(city));
+            var location = _locations.Where(model => model.Province == province && model.City == city);
             return location.FirstOrDefault();
         }
 
         public LocationModel GetDataByName(string name)
         {
             Load();
-            var location = _locations.Where(model=> model.Name.Equals(name));
+            var location = _locations.Where(model=> model.Name == name);
             return location.FirstOrDefault();
         }
 
@@ -104,7 +104,7 @@ namespace Thibetanus.Controls.Salon
                         {
                             if (m.Id == model.Id )
                             {
-                                if (m.Code.Equals(model.Code) && m.City.Equals(model.City) && m.Province.Equals(model.Province))
+                                if (m.Code == model.Code && m.City == model.City && m.Province == model.Province)
                                 {
                                     return false;
                                 }

@@ -53,7 +53,7 @@ namespace Thibetanus.Controls.Custom
             var models = new ObservableCollection<CustomModel>();
             using (DBConnect connect = new DBFactory().GetPostgreSQLDBConnect().StartConnect())
             {         
-                var list = connect.GetWhere<DBModels.PostgreSQL.Custom>(m => m.SalonCode.Equals(salonCode));
+                var list = connect.GetWhere<DBModels.PostgreSQL.Custom>(m => m.SalonCode == salonCode);
                 foreach (var item in list)
                 {
                     CustomModel model = new CustomModel();

@@ -55,8 +55,9 @@
             <StackPanel  Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" >
                 <TextBlock Text="{Binding Code}" Visibility="{Binding Show}"  Style="{StaticResource listTextBlock}"/>
                 <TextBox Text="{Binding Code , Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
-                <TextBlock Text="{Binding Group}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
-                <TextBox Text="{Binding Group , Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
+                <TextBlock Text="{Binding ServiceGroup.GroupName}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
+                <ComboBox ItemsSource="{Binding  ServiceGroups}"  SelectedItem="{Binding ServiceGroup, Mode=TwoWay}"
+                           SelectedValuePath="Code" DisplayMemberPath="GroupName" Visibility="{Binding Edit}"  Style="{StaticResource listComboBox}"/>
                 <TextBlock Text="{Binding Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
                 <TextBox Text="{Binding Name , Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
                 <TextBlock Text="{Binding Price, Converter={StaticResource cvtPrice}}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
@@ -68,8 +69,9 @@
             <StackPanel  Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" >
                 <TextBlock Text="{Binding Code}" Visibility="{Binding Show}"  Style="{StaticResource listTextBlock}"/>
                 <TextBox Text="{Binding Code , Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
-                <TextBlock Text="{Binding Group}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
-                <TextBox Text="{Binding Group , Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
+                <TextBlock Text="{Binding ServiceGroup.GroupName}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
+                <ComboBox ItemsSource="{Binding  ServiceGroups}"  SelectedItem="{Binding ServiceGroup, Mode=TwoWay}"
+                           SelectedValuePath="Code" DisplayMemberPath="GroupName" Visibility="{Binding Edit}"  Style="{StaticResource listComboBox}"/>
                 <TextBlock Text="{Binding Name}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
                 <TextBox Text="{Binding Name , Mode=TwoWay}"  Visibility="{Binding Edit}" Style="{StaticResource listTextBox}"/>
                 <TextBlock Text="{Binding Price , Converter={StaticResource cvtPrice}}"  Visibility="{Binding Show}" Style="{StaticResource listTextBlock}"/>
@@ -141,7 +143,7 @@
             <Button Background="Transparent"  Command="{Binding AddCommand}" >
                 <TextBlock Text="&#xE109;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Width="50"   TextAlignment="Center" />
             </Button>
-            <Button Background="Transparent" Command="{Binding DelCommand}" CommandParameter="{Binding Path=SelectedIndex ,ElementName=salonList}" >
+            <Button Background="Transparent" Command="{Binding DelCommand}" CommandParameter="{Binding Path=SelectedIndex ,ElementName=serviceList}" >
                 <TextBlock Text="&#xE107;" FontFamily="{ThemeResource SymbolThemeFontFamily}" Width="50"   TextAlignment="Center"/>
             </Button>
         </StackPanel>

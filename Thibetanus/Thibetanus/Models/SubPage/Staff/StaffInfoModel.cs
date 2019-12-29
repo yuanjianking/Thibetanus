@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Thibetanus.Common.BaseModel;
 using Thibetanus.Controls.Salon;
+using Thibetanus.Controls.Service;
 using Thibetanus.Controls.Staff;
 using Thibetanus.Models.SubPage.Salon;
 using Thibetanus.Models.SubPage.Service;
@@ -22,6 +23,7 @@ namespace Thibetanus.Models.SubPage.Staff
         private ObservableCollection<SalonModel> _salons = null;
 
         private ObservableCollection<ServiceModel> _services = null;
+        private ObservableCollection<StaffServiceTimeModel> _serviceTimes = null;
 
         public int Id { get; set; }
         public string CreateTime { get; set; }
@@ -76,8 +78,18 @@ namespace Thibetanus.Models.SubPage.Staff
                 _services = value;
                 RaisePropertyChanged("Services");
             }
-        }       
+        }
 
+        public ObservableCollection<StaffServiceTimeModel> ServiceTimes
+        {
+            get { return _serviceTimes; }
+            set
+            {
+                _serviceTimes = value;
+                RaisePropertyChanged("ServiceTimes");
+            }
+        }
+        
         public StaffInfoModel()
         {
         }
@@ -88,7 +100,8 @@ namespace Thibetanus.Models.SubPage.Staff
             this.Name = "地鼠X";
             this.Salon= new SalonControl().GetAllSalonInfos().First();
             this.Salons = new SalonControl().GetAllSalonInfos();
-            this.Services = new ObservableCollection<ServiceModel>();
+            this.Services = new ServiceControl().GetAllServices();
+            this.ServiceTimes = new StaffServiceTimeControl().GetAllServiceTimes();
         }
     }
 }

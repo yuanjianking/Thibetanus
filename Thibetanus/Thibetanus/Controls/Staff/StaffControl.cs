@@ -11,6 +11,7 @@ using Thibetanus.DBmanager;
 using Thibetanus.Models.SubPage.Salon;
 using Thibetanus.Models.SubPage.Service;
 using Thibetanus.Models.SubPage.Staff;
+using Thibetanus.ViewModels.SubPage.Staff;
 
 namespace Thibetanus.Controls.Staff
 {
@@ -36,14 +37,15 @@ namespace Thibetanus.Controls.Staff
                         DBModels.PostgreSQL.Staff staff = new DBModels.PostgreSQL.Staff();
                         ModelHelper.CopyModel(staff, model);
                         staff.SalonCode = model.Salon.Code;
-                        staff.Salon = connect.GetWhere<DBModels.PostgreSQL.Salon>(s => s.Code.Equals(model.Salon.Code)).FirstOrDefault();
+                        staff.Salon = connect.GetWhere<DBModels.PostgreSQL.Salon>(s => s.Code == model.Salon.Code).FirstOrDefault();
                         staff.Services = JsonConvert.SerializeObject(model.Services);
-
+                        staff.ServiceTimes = JsonConvert.SerializeObject(model.ServiceTimes);
                         Func<DBModels.PostgreSQL.Staff, bool> func = m =>
                         {
                             if (m.Id == staff.Id)
                             {
-                                if (m.Code.Equals(staff.Code) && m.Name.Equals(staff.Name) && m.SalonCode.Equals(staff.SalonCode) && m.Services.Equals(staff.Services))
+                                if (m.Code == staff.Code && m.Name == staff.Name &&
+                                m.SalonCode == staff.SalonCode && m.Services == staff.Services && m.ServiceTimes == staff.ServiceTimes)
                                 {
                                     return false;
                                 }
@@ -77,6 +79,21 @@ namespace Thibetanus.Controls.Staff
                 }
             }
         }
+        public ObservableCollection<StaffInfoModel> GetStaffInfosBySalon(string salonCode)
+        {
+            var models = new ObservableCollection<StaffInfoModel>();
+            using (DBConnect connect = new DBFactory().GetPostgreSQLDBConnect().StartConnect())
+            {
+                var listStaff = connect.GetWhere<DBModels.PostgreSQL.Staff>(w => w.SalonCode == salonCode).OrderBy(m => m.Code);
+                foreach (var item in listStaff)
+                {
+                    StaffInfoModel model = new StaffInfoModel();
+                    ModelHelper.CopyModel(model, item);
+                    models.Add(model);
+                }
+            }
+            return models;
+        }
         public ObservableCollection<StaffInfoModel> GetAllStaffInfos()
         {
             var models = new ObservableCollection<StaffInfoModel>();
@@ -89,8 +106,11 @@ namespace Thibetanus.Controls.Staff
                     StaffInfoModel model = new StaffInfoModel();
                     ModelHelper.CopyModel(model, item);
                     model.Salons = salons;
-                    model.Salon = salons.Where(s => s.Code.Equals(item.SalonCode)).FirstOrDefault();
-                    model.Services = JsonConvert.DeserializeObject<ObservableCollection<ServiceModel>>(item.Services);               
+                    model.Salon = salons.Where(s => s.Code == item.SalonCode).FirstOrDefault();
+                    if(!string.IsNullOrEmpty(item.Services))
+                        model.Services = JsonConvert.DeserializeObject<ObservableCollection<ServiceModel>>(item.Services);
+                    if(!string.IsNullOrEmpty(item.ServiceTimes))
+                    model.ServiceTimes = JsonConvert.DeserializeObject<ObservableCollection<StaffServiceTimeModel>>(item.ServiceTimes);
                     models.Add(model);
                 }
             }

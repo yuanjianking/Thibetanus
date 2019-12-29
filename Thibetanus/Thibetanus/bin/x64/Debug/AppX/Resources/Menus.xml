@@ -21,8 +21,10 @@
   <SubMenu>
     <StaffSub>
       <StaffEdit Label="员工编辑" Link="Thibetanus.Views.SubPage.Staff.StaffEdit" ></StaffEdit>
-      <StaffEdit Label="预约时间" Link="Thibetanus.Views.SubPage.Staff.StaffOrderEdit" ></StaffEdit>
-      <StaffAttendance Label="员工出勤时间" Link="Thibetanus.Views.SubPage.Staff.StaffAttendance" ></StaffAttendance>
+      <StaffEdit Label="预约时间编辑" Link="Thibetanus.Views.SubPage.Staff.StaffBookTimeEdit" ></StaffEdit>
+      <StaffEdit Label="订单编辑" Link="Thibetanus.Views.SubPage.Staff.StaffOrderEdit" ></StaffEdit>
+      <StaffEdit Label="服务时间编辑" Link="Thibetanus.Views.SubPage.Staff.StaffserviceTimeEdit" ></StaffEdit>
+      <StaffEdit Label="员工出勤时间编辑" Link="Thibetanus.Views.SubPage.Staff.StaffAttendance" ></StaffEdit>
     </StaffSub>
     <SalonSub>
       <SalonEdit Label="地址编辑" Link="Thibetanus.Views.SubPage.Salon.LocationEdit" ></SalonEdit>
@@ -30,6 +32,7 @@
       <SalonEdit Label="会所编辑" Link="Thibetanus.Views.SubPage.Salon.SalonEdit" ></SalonEdit>
     </SalonSub>
     <ServiceSub>
+      <ServiceEdit Label="服务分组编辑" Link="Thibetanus.Views.SubPage.Service.ServiceGroupEdit" ></ServiceEdit>
       <ServiceEdit Label="服务编辑" Link="Thibetanus.Views.SubPage.Service.ServiceEdit" ></ServiceEdit>
     </ServiceSub>
     <AssetsSub>

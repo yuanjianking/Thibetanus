@@ -56,11 +56,13 @@ namespace Thibetanus.Controls.Service
                 using (DBConnect connect = new DBFactory().GetPostgreSQLDBConnect().StartConnect())
                 {
                     var list = connect.FindAll<DBModels.PostgreSQL.Service, string>(m => m.Code);
-
+                    var serviceGroups = new ServiceGroupControl().GetAllServiceGroups();
                     foreach (var item in list)
                     {
                         ServiceModel model = new ServiceModel();
                         ModelHelper.CopyModel(model, item);
+                        model.ServiceGroups = serviceGroups;
+                        model.ServiceGroup = serviceGroups.Where(m => m.Code == item.GroupCode).FirstOrDefault();
                         _services.Add(model);
                     }
                 }
@@ -82,12 +84,12 @@ namespace Thibetanus.Controls.Service
                     {
                         DBModels.PostgreSQL.Service service = new DBModels.PostgreSQL.Service();
                         ModelHelper.CopyModel(service, model);
-
+                        service.GroupCode = model.ServiceGroup.Code;
                         Func<DBModels.PostgreSQL.Service, bool> func = m =>
                         {
                             if (m.Id == model.Id )
                             {
-                                if (m.Code.Equals(model.Code) && m.Name.Equals(model.Name) && m.Group.Equals(model.Group) && m.Price.Equals(model.Price))
+                                if (m.Code == model.Code && m.Name == model.Name && m.GroupCode == model.ServiceGroup.Code && m.Price == model.Price)
                                 {
                                     return false;
                                 }

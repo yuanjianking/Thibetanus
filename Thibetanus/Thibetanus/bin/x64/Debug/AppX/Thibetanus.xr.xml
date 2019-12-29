@@ -4,10 +4,14 @@
     <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="EndTime" />
+    <RootPropertyPathName Name="StartTime" />
+    <RootPropertyPathName Name="Code" />
+    <RootPropertyPathName Name="ServiceTimes" />
     <RootPropertyPathName Name="Price" />
     <RootPropertyPathName Name="Name" />
-    <RootPropertyPathName Name="Group" />
-    <RootPropertyPathName Name="Code" />
+    <RootPropertyPathName Name="ServiceGroup" />
+    <RootPropertyPathName Name="GroupName" />
     <RootPropertyPathName Name="Serivces" />
     <RootPropertyPathName Name="Number" />
     <RootPropertyPathName Name="Edit" />
@@ -46,9 +50,15 @@
     <RootPropertyPathName Name="Managers" />
     <RootPropertyPathName Name="Manager" />
     <RootPropertyPathName Name="Location" />
+    <RootPropertyPathName Name="ShowIndex" />
+    <RootPropertyPathName Name="SerivceGroups" />
+    <RootPropertyPathName Name="ServiceGroups" />
     <RootPropertyPathName Name="Services" />
     <RootPropertyPathName Name="Salon" />
     <RootPropertyPathName Name="StaffInfos" />
+    <RootPropertyPathName Name="ServiceTimeCode" />
+    <RootPropertyPathName Name="Date" />
+    <RootPropertyPathName Name="StaffInfo" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -157,14 +167,34 @@
       <RootProperty Name="Child" />
     </RootType>
     <RootType FullName="Thibetanus.Common.UserControls.MessagePopup" />
-    <RootType FullName="Thibetanus.ViewModels.SubPage.Service.ServiceEditViewModel" />
-    <RootType FullName="Thibetanus.Common.Converter.PriceConverter" />
+    <RootType FullName="Thibetanus.ViewModels.SubPage.Staff.StaffServiceTimeEditViewModel" />
     <RootType FullName="Windows.UI.Xaml.FrameworkElement">
       <RootProperty Name="MinWidth" />
       <RootProperty Name="Margin" />
       <RootProperty Name="MaxWidth" />
       <RootProperty Name="MaxHeight" />
       <RootProperty Name="VerticalAlignment" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="Text" />
+      <RootProperty Name="Style" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="InputScope" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="MaxLength" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootEvent Name="KeyUp" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Style" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Command" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="CommandParameter" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Orientation" />
@@ -176,8 +206,8 @@
       <RootProperty Name="BorderThickness" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
-      <RootProperty Name="Converter" />
       <RootProperty Name="Mode" />
+      <RootProperty Name="Converter" />
       <RootProperty Name="Path" />
       <RootProperty Name="ElementName" />
     </RootType>
@@ -201,17 +231,9 @@
       <RootEvent Name="ItemClick" />
       <RootEvent Name="KeyUp" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Content" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Style" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="Command" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="CommandParameter" />
-      <RootEvent Name="Click" />
-    </RootType>
+    <RootType FullName="Thibetanus.Common.UserControls.ServiceTimePopup" />
+    <RootType FullName="Thibetanus.ViewModels.SubPage.Service.ServiceEditViewModel" />
+    <RootType FullName="Thibetanus.Common.Converter.PriceConverter" />
     <RootType FullName="Thibetanus.Common.UserControls.ServicePopup" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Background" />
@@ -231,16 +253,6 @@
     <RootType FullName="Thibetanus.MainPage" />
     <RootType FullName="Thibetanus.Views.SubPage.AssetsSubPage" />
     <RootType FullName="Thibetanus.ViewModels.SubPage.Assets.AssetsEditViewModel" />
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="Text" />
-      <RootProperty Name="Visibility" />
-      <RootProperty Name="Style" />
-      <RootProperty Name="InputScope" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="MaxLength" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootEvent Name="KeyUp" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="SelectedIndex" />
@@ -304,12 +316,17 @@
     <RootType FullName="Thibetanus.ViewModels.SubPage.Salon.SalonEditViewModel" />
     <RootType FullName="Thibetanus.Views.SubPage.Salon.SalonEdit" />
     <RootType FullName="Thibetanus.Views.SubPage.ServiceSubPage" />
+    <RootType FullName="Thibetanus.ViewModels.SubPage.Service.ServiceGroupEditViewModel" />
+    <RootType FullName="Thibetanus.Views.SubPage.Service.ServiceGroupEdit" />
     <RootType FullName="Thibetanus.Views.SubPage.Service.ServiceEdit" />
     <RootType FullName="Thibetanus.Views.SubPage.StaffSubPage" />
     <RootType FullName="Thibetanus.Views.SubPage.Staff.StaffAttendance" />
     <RootType FullName="Thibetanus.ViewModels.SubPage.Staff.StaffEditViewModel" />
     <RootType FullName="Thibetanus.Common.Converter.VisibleConverter" />
     <RootType FullName="Thibetanus.Views.SubPage.Staff.StaffEdit" />
+    <RootType FullName="Thibetanus.ViewModels.SubPage.Staff.StaffBookTimeEditViewModel" />
+    <RootType FullName="Thibetanus.Views.SubPage.Staff.StaffBookTimeEdit" />
+    <RootType FullName="Thibetanus.Views.SubPage.Staff.StaffserviceTimeEdit" />
     <RootType FullName="Thibetanus.ViewModels.SubPage.Staff.StaffOrderEditViewModel" />
     <RootType FullName="Thibetanus.Views.SubPage.Staff.StaffOrderEdit" />
   </Roots.RootTypes>

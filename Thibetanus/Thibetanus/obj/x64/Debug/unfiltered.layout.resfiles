@@ -10,6 +10,7 @@ App.xbf
 Common\UserControls\GridMenu.xbf
 Common\UserControls\MessagePopup.xbf
 Common\UserControls\ServicePopup.xbf
+Common\UserControls\ServiceTimePopup.xbf
 MainPage.xbf
 Thibetanus.xr.xml
 Views\LoginPage.xbf
@@ -27,10 +28,13 @@ Views\SubPage\Salon\SalonDetailEdit.xbf
 Views\SubPage\Salon\SalonEdit.xbf
 Views\SubPage\SalonSubPage.xbf
 Views\SubPage\Service\ServiceEdit.xbf
+Views\SubPage\Service\ServiceGroupEdit.xbf
 Views\SubPage\ServiceSubPage.xbf
 Views\SubPage\Staff\StaffAttendance.xbf
+Views\SubPage\Staff\StaffBookTimeEdit.xbf
 Views\SubPage\Staff\StaffEdit.xbf
 Views\SubPage\Staff\StaffOrderEdit.xbf
+Views\SubPage\Staff\StaffserviceTimeEdit.xbf
 Views\SubPage\StaffSubPage.xbf
 Properties\Default.rd.xml
 Resources\Menus.xml

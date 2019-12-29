@@ -142,6 +142,9 @@
     <Compile Include="Common\UserControls\MessagePopup.xaml.cs">
       <DependentUpon>MessagePopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\UserControls\ServiceTimePopup.xaml.cs">
+      <DependentUpon>ServiceTimePopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Common\UserControls\ServicePopup.xaml.cs">
       <DependentUpon>ServicePopup.xaml</DependentUpon>
     </Compile>
@@ -151,7 +154,10 @@
     <Compile Include="Controls\Salon\LocationControl.cs" />
     <Compile Include="Controls\Salon\ManagerControl.cs" />
     <Compile Include="Controls\Salon\SalonControl.cs" />
+    <Compile Include="Controls\Service\ServiceGroupControl.cs" />
     <Compile Include="Controls\Service\ServiceControl.cs" />
+    <Compile Include="Controls\Staff\StaffBookTimeControl.cs" />
+    <Compile Include="Controls\Staff\StaffServiceTimeControl.cs" />
     <Compile Include="Controls\Staff\StaffOrderControl.cs" />
     <Compile Include="Controls\Staff\StaffControl.cs" />
     <Compile Include="Controls\LoginControl.cs" />
@@ -166,6 +172,9 @@
     <Compile Include="DBModels\PostgreSQL\Base.cs" />
     <Compile Include="DBModels\PostgreSQL\Custom.cs" />
     <Compile Include="DBModels\PostgreSQL\Location.cs" />
+    <Compile Include="DBModels\PostgreSQL\ServiceGroup.cs" />
+    <Compile Include="DBModels\PostgreSQL\StaffBookTime.cs" />
+    <Compile Include="DBModels\PostgreSQL\StaffServiceTime.cs" />
     <Compile Include="DBModels\PostgreSQL\StaffOrder.cs" />
     <Compile Include="DBModels\PostgreSQL\SalonService.cs" />
     <Compile Include="DBModels\PostgreSQL\Service.cs" />
@@ -186,7 +195,10 @@
     <Compile Include="Models\SubPage\Salon\LocationModel.cs" />
     <Compile Include="Models\SubPage\Salon\ManagerModel.cs" />
     <Compile Include="Models\SubPage\Salon\SalonModel.cs" />
+    <Compile Include="Models\SubPage\Service\ServiceGroupModel.cs" />
     <Compile Include="Models\SubPage\Service\ServiceModel.cs" />
+    <Compile Include="Models\SubPage\Staff\StaffBookTimeModel.cs" />
+    <Compile Include="Models\SubPage\Staff\StaffServiceTimeModel.cs" />
     <Compile Include="Models\SubPage\Staff\StaffOrderModel.cs" />
     <Compile Include="Models\SubPage\Staff\StaffInfoModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -198,7 +210,10 @@
     <Compile Include="ViewModels\SubPage\Salon\ManagerEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\Salon\LocationEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\Salon\SalonEditViewModel.cs" />
+    <Compile Include="ViewModels\SubPage\Service\ServiceGroupEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\Service\ServiceEditViewModel.cs" />
+    <Compile Include="ViewModels\SubPage\Staff\StaffBookTimeEditViewModel.cs" />
+    <Compile Include="ViewModels\SubPage\Staff\StaffServiceTimeEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\Staff\StaffOrderEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\Staff\StaffEditViewModel.cs" />
     <Compile Include="ViewModels\SubPage\SubBaseViewModel.cs" />
@@ -247,6 +262,9 @@
     <Compile Include="Views\SubPage\ServiceSubPage.xaml.cs">
       <DependentUpon>ServiceSubPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SubPage\Service\ServiceGroupEdit.xaml.cs">
+      <DependentUpon>ServiceGroupEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SubPage\Service\ServiceEdit.xaml.cs">
       <DependentUpon>ServiceEdit.xaml</DependentUpon>
     </Compile>
@@ -258,6 +276,12 @@
     </Compile>
     <Compile Include="Views\SubPage\Staff\StaffEdit.xaml.cs">
       <DependentUpon>StaffEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubPage\Staff\StaffBookTimeEdit.xaml.cs">
+      <DependentUpon>StaffBookTimeEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubPage\Staff\StaffserviceTimeEdit.xaml.cs">
+      <DependentUpon>StaffserviceTimeEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubPage\Staff\StaffOrderEdit.xaml.cs">
       <DependentUpon>StaffOrderEdit.xaml</DependentUpon>
@@ -277,7 +301,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\MenusEn.xml" />
-    <Content Include="Resources\Menus.xml" />
+    <Content Include="Resources\Menus.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -299,6 +325,10 @@
     <Page Include="Common\UserControls\MessagePopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Common\UserControls\ServiceTimePopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Common\UserControls\ServicePopup.xaml">
       <SubType>Designer</SubType>
@@ -368,6 +398,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SubPage\Service\ServiceGroupEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\SubPage\Service\ServiceEdit.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -383,6 +417,14 @@
     <Page Include="Views\SubPage\Staff\StaffEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubPage\Staff\StaffBookTimeEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SubPage\Staff\StaffserviceTimeEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\SubPage\Staff\StaffOrderEdit.xaml">
       <SubType>Designer</SubType>

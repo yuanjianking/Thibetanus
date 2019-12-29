@@ -37,7 +37,7 @@ namespace Thibetanus.Views.SubPage.Staff
         {
             var item = (StaffInfoModel)e.ClickedItem;
 
-            if (item.Show.Equals("Collapsed"))
+            if (item.Show == "Collapsed")
             {
                 item.Show = "Visible";
                 item.Edit = "Collapsed";
@@ -86,6 +86,8 @@ namespace Thibetanus.Views.SubPage.Staff
 
             Action<object, ObservableCollection<ServiceModel>> action = (o, m) =>
             {
+                if (item.Services == null)
+                    item.Services = new ObservableCollection<ServiceModel>();
                 item.Services.Clear();
                 foreach (var m1 in m)
                 {
@@ -105,6 +107,37 @@ namespace Thibetanus.Views.SubPage.Staff
                 }
             };
             ServicePopup p = new ServicePopup(action, item.Services);
+            p.Show();
+        }
+
+        private void TimeEditButton_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            var item = btn.DataContext as StaffInfoModel;
+
+            Action<object, ObservableCollection<StaffServiceTimeModel>> action = (o, m) =>
+            {
+                if (item.ServiceTimes == null)
+                    item.ServiceTimes = new ObservableCollection<StaffServiceTimeModel>();
+                item.ServiceTimes.Clear();
+                foreach (var m1 in m)
+                {
+                    int index = 0;
+                    foreach (var s in item.ServiceTimes)
+                    {
+                        if (s.Code.CompareTo(m1.Code) > 0)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            index++;
+                        }
+                    }
+                    item.ServiceTimes.Insert(index, m1);
+                }
+            };
+            ServiceTimePopup p = new ServiceTimePopup(action, item.ServiceTimes);
             p.Show();
         }
     }

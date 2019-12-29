@@ -48,7 +48,7 @@
         <DataTemplate                                x:Key="DataTemplateHorizontal">
             <StackPanel  Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" >
                 <TextBlock Text="{Binding Code}" Style="{StaticResource listTextBlock}"/>
-                <TextBlock Text="{Binding Group}"  Style="{StaticResource listTextBlock}"/>
+                <TextBlock Text="{Binding ServiceGroup.GroupName}"  Style="{StaticResource listTextBlock}"/>
                 <TextBlock Text="{Binding Name}" Style="{StaticResource listTextBlock}"/>
                 <TextBlock Text="{Binding Price , Converter={StaticResource cvtPrice}}" Style="{StaticResource listTextBlock}"/>
             </StackPanel>
@@ -57,7 +57,7 @@
         <DataTemplate                                x:Key="DataTemplateVertical">
             <StackPanel  Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" >
                 <TextBlock Text="{Binding Code}" Style="{StaticResource listTextBlock}"/>
-                <TextBlock Text="{Binding Group}"  Style="{StaticResource listTextBlock}"/>
+                <TextBlock Text="{Binding ServiceGroup.GroupName}"  Style="{StaticResource listTextBlock}"/>
                 <TextBlock Text="{Binding Name}" Style="{StaticResource listTextBlock}"/>
                 <TextBlock Text="{Binding Price , Converter={StaticResource cvtPrice}}" Style="{StaticResource listTextBlock}"/>
             </StackPanel>

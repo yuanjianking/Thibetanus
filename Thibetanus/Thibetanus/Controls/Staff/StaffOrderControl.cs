@@ -26,7 +26,7 @@ namespace Thibetanus.Controls.Staff
             var models = new ObservableCollection<StaffOrderModel>();
             using (DBConnect connect = new DBFactory().GetPostgreSQLDBConnect().StartConnect())
             {
-                var list = connect.GetWhere<DBModels.PostgreSQL.StaffOrder>(m => m.SalonCode.Equals(salonCode));
+                var list = connect.GetWhere<DBModels.PostgreSQL.StaffOrder>(m => m.SalonCode == salonCode);
                 foreach (var item in list)
                 {
                     StaffOrderModel model = new StaffOrderModel();

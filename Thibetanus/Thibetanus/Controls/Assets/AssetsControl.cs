@@ -29,7 +29,7 @@ namespace Thibetanus.Controls.Assets
                 try
                 {
                     int res = 0;
-                    var list = connect.GetWhere<DBModels.PostgreSQL.Assets>(m => m.SalonCode.Equals(models[0].SalonCode));
+                    var list = connect.GetWhere<DBModels.PostgreSQL.Assets>(m => m.SalonCode == models[0].SalonCode);
                     var data = list.Where(w => !models.Select(s => s.Id).Contains(w.Id));
                     res += connect.Delete(data);
 
@@ -41,7 +41,7 @@ namespace Thibetanus.Controls.Assets
                         {
                             if (m.Id == assets.Id)
                             {
-                                if (m.Code.Equals(assets.Code) && m.Name.Equals(assets.Name) && m.Price.Equals(assets.Price) && m.Number.Equals(assets.Number) && m.SalonCode.Equals(assets.SalonCode))
+                                if (m.Code == assets.Code && m.Name == assets.Name && m.Price == assets.Price && m.Number == assets.Number && m.SalonCode == assets.SalonCode)
                                 {
                                     return false;
                                 }
@@ -80,7 +80,7 @@ namespace Thibetanus.Controls.Assets
             var models = new ObservableCollection<AssetsModel>();
             using (DBConnect connect = new DBFactory().GetPostgreSQLDBConnect().StartConnect())
             {         
-                var list = connect.GetWhere<DBModels.PostgreSQL.Assets>(m => m.SalonCode.Equals(salonCode));
+                var list = connect.GetWhere<DBModels.PostgreSQL.Assets>(m => m.SalonCode == salonCode);
                 foreach (var item in list)
                 {
                     AssetsModel model = new AssetsModel();

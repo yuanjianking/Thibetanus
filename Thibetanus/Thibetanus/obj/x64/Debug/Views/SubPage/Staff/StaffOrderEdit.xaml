@@ -99,7 +99,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:ConnectionId='11' x:Name="title" Text="预约时间" TextAlignment="Center" Grid.Row="0"
+        <TextBlock x:ConnectionId='11' x:Name="title" Text="订单编辑" TextAlignment="Center" Grid.Row="0"
                    FontSize="18"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,50,0"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <TextBlock Text="店铺:" TextAlignment="Center" FontSize="18" />

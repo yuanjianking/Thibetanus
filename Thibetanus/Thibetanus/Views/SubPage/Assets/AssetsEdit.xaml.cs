@@ -36,7 +36,7 @@ namespace Thibetanus.Views.SubPage.Assets
         {
             var item = (AssetsModel)e.ClickedItem;
 
-            if (item.Show.Equals("Collapsed"))
+            if (item.Show == "Collapsed")
             {
                 item.Show = "Visible";
                 item.Edit = "Collapsed";

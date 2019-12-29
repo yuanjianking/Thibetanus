@@ -160,6 +160,9 @@
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Common\UserControls\MessagePopup.xbf">
       <PackagePath>Common\UserControls\MessagePopup.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Common\UserControls\ServiceTimePopup.xbf">
+      <PackagePath>Common\UserControls\ServiceTimePopup.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Common\UserControls\ServicePopup.xbf">
       <PackagePath>Common\UserControls\ServicePopup.xbf</PackagePath>
     </AppxPackagedFile>
@@ -211,6 +214,9 @@
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\ServiceSubPage.xbf">
       <PackagePath>Views\SubPage\ServiceSubPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Service\ServiceGroupEdit.xbf">
+      <PackagePath>Views\SubPage\Service\ServiceGroupEdit.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Service\ServiceEdit.xbf">
       <PackagePath>Views\SubPage\Service\ServiceEdit.xbf</PackagePath>
     </AppxPackagedFile>
@@ -222,6 +228,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Staff\StaffEdit.xbf">
       <PackagePath>Views\SubPage\Staff\StaffEdit.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Staff\StaffBookTimeEdit.xbf">
+      <PackagePath>Views\SubPage\Staff\StaffBookTimeEdit.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Staff\StaffserviceTimeEdit.xbf">
+      <PackagePath>Views\SubPage\Staff\StaffserviceTimeEdit.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\source\UWP\Thibetanus\Thibetanus\bin\x64\Debug\Views\SubPage\Staff\StaffOrderEdit.xbf">
       <PackagePath>Views\SubPage\Staff\StaffOrderEdit.xbf</PackagePath>

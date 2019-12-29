@@ -22,5 +22,7 @@ namespace Thibetanus.DBModels.PostgreSQL
         public virtual Salon Salon { get; set; }
 
         public string Services { get; set; }
+
+        public string ServiceTimes { get; set; }
     }
 }

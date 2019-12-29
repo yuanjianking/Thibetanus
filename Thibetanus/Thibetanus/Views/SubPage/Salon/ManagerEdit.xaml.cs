@@ -37,7 +37,7 @@ namespace Thibetanus.Views.SubPage.Salon
         {
             var item = (ManagerModel)e.ClickedItem;
 
-            if (item.Show.Equals("Collapsed"))
+            if (item.Show == "Collapsed")
             {              
                 item.Show = "Visible";
                 item.Edit = "Collapsed";

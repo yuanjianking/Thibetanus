@@ -28,7 +28,7 @@ namespace Thibetanus.Controls.Custom
             var models = new ObservableCollection<OrderModel>();
             using (DBConnect connect = new DBFactory().GetPostgreSQLDBConnect().StartConnect())
             {         
-                var list = connect.GetWhere<DBModels.PostgreSQL.Order>(m => m.SalonCode.Equals(salonCode));
+                var list = connect.GetWhere<DBModels.PostgreSQL.Order>(m => m.SalonCode == salonCode);
                 foreach (var item in list)
                 {
                     OrderModel model = new OrderModel();

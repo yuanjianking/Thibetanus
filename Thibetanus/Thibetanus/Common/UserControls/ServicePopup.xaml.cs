@@ -94,7 +94,8 @@ namespace Thibetanus.Common.UserControls
         private void ServiceList_ContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
         {
             if (args.ItemContainer != null)
-            {              
+            {   if (_services == null)
+                    _services = new ObservableCollection<ServiceModel>();
                 if (_services.Where(m => m.Code.Equals(((ServiceModel)args.Item).Code)).Count() > 0)
                     args.ItemContainer.IsSelected = true;
             }

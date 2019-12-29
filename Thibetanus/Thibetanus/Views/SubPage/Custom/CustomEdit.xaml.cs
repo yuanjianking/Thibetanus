@@ -34,7 +34,7 @@ namespace Thibetanus.Views.SubPage.Custom
         {
             var item = (CustomModel)e.ClickedItem;
 
-            if (item.Show.Equals("Collapsed"))
+            if (item.Show == "Collapsed")
             {
                 item.Show = "Visible";
                 item.Edit = "Collapsed";

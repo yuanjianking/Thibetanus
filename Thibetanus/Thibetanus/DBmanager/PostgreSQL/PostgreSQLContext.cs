@@ -24,6 +24,9 @@ namespace Thibetanus.DBmanager.PostgreSQL
         public DbSet<SalonService> SalonServices { get; set; }
         public DbSet<Assets> Assets { get; set; }
         public DbSet<Custom> Customs { get; set; }
+        public DbSet<ServiceGroup> ServiceGroups { get; set; }
+        public DbSet<StaffServiceTime> StaffServiceTimes { get; set; }
+        public DbSet<StaffBookTime> StaffBookTimes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,12 +39,18 @@ namespace Thibetanus.DBmanager.PostgreSQL
             modelBuilder.Entity<Salon>()
                 .HasIndex(m => m.Code)
                 .IsUnique();
+            modelBuilder.Entity<ServiceGroup>()
+                .HasIndex(m => new { m.Code, m.ShowIndex })
+                .IsUnique();
             modelBuilder.Entity<Service>()
                 .HasIndex(m => m.Code)
                 .IsUnique();
             modelBuilder.Entity<Staff>()
                .HasIndex(m => m.Code)
                .IsUnique();
+            modelBuilder.Entity<StaffServiceTime>()
+                 .HasIndex(m => m.Code)
+                 .IsUnique();
         }
     }
 }
