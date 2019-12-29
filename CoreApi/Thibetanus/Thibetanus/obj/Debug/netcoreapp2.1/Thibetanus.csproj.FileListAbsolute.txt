@@ -1,0 +1,14 @@
+D:\source\CoreApi\Thibetanus\Thibetanus\bin\Debug\netcoreapp2.1\Thibetanus.deps.json
+D:\source\CoreApi\Thibetanus\Thibetanus\bin\Debug\netcoreapp2.1\Thibetanus.runtimeconfig.json
+D:\source\CoreApi\Thibetanus\Thibetanus\bin\Debug\netcoreapp2.1\Thibetanus.runtimeconfig.dev.json
+D:\source\CoreApi\Thibetanus\Thibetanus\bin\Debug\netcoreapp2.1\Thibetanus.dll
+D:\source\CoreApi\Thibetanus\Thibetanus\bin\Debug\netcoreapp2.1\Thibetanus.pdb
+D:\source\CoreApi\Thibetanus\Thibetanus\obj\Debug\netcoreapp2.1\Thibetanus.csproj.CoreCompileInputs.cache
+D:\source\CoreApi\Thibetanus\Thibetanus\obj\Debug\netcoreapp2.1\Thibetanus.RazorAssemblyInfo.cache
+D:\source\CoreApi\Thibetanus\Thibetanus\obj\Debug\netcoreapp2.1\Thibetanus.RazorAssemblyInfo.cs
+D:\source\CoreApi\Thibetanus\Thibetanus\obj\Debug\netcoreapp2.1\Thibetanus.AssemblyInfoInputs.cache
+D:\source\CoreApi\Thibetanus\Thibetanus\obj\Debug\netcoreapp2.1\Thibetanus.AssemblyInfo.cs
+D:\source\CoreApi\Thibetanus\Thibetanus\obj\Debug\netcoreapp2.1\Thibetanus.RazorTargetAssemblyInfo.cache
+D:\source\CoreApi\Thibetanus\Thibetanus\obj\Debug\netcoreapp2.1\Thibetanus.dll
+D:\source\CoreApi\Thibetanus\Thibetanus\obj\Debug\netcoreapp2.1\Thibetanus.pdb
+D:\source\CoreApi\Thibetanus\Thibetanus\obj\Debug\netcoreapp2.1\Thibetanus.csprojAssemblyReference.cache
